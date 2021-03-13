@@ -36,7 +36,7 @@ public class PlayerMovementScript : MouseScript
         OperateCamera();
     }
 
-    private void Movement()
+    virtual public void Movement()
     {
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
@@ -46,7 +46,7 @@ public class PlayerMovementScript : MouseScript
         controller.Move(move * groundSpeed * Time.deltaTime);
     }
 
-    private void Jump()
+    virtual public void Jump()
     {
         velocity.y = Mathf.Sqrt(jumpHeight * -2 * -gravityAcceleration);
         controller.Move(velocity * Time.deltaTime);
