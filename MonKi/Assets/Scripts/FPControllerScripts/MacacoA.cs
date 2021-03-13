@@ -7,7 +7,8 @@ public class MacacoA : GrabberScript
     // Start is called before the first frame update
     void Start()
     {
-        PlayerStarter();
+        
+        StartMovement();
     }
 
     // Update is called once per frame
@@ -28,7 +29,7 @@ public class MacacoA : GrabberScript
 
     public override void Jump()
     {
-        jumpHeight = 6f;
+        jumpHeight = 9f;
         velocity.y = Mathf.Sqrt(jumpHeight * -2 * -gravityAcceleration);
         controller.Move(velocity * Time.deltaTime);
     }
