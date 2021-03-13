@@ -6,14 +6,14 @@ public class PlayerMovementScript : MouseScript
 {
 
 
-    CharacterController controller;
+    public CharacterController controller;
     public float groundSpeed = 15f;
     public float gravityAcceleration = 10f;
 
     public Transform groundChecker;
     public float groundCheckerLength = 0.4f;
     public float jumpHeight = 3f;
-    Vector3 velocity;
+    public Vector3 velocity;
     public bool isGrounded = false;
 
     public LayerMask groundLayer;

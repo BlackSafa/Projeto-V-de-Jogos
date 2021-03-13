@@ -10,7 +10,7 @@
         <e p="Scripts" t="Include">
           <e p="FPControllerScripts" t="Include">
             <e p="GrabberScript.cs" t="Include" />
-            <e p="Macaco A.cs" t="Include" />
+            <e p="MacacoA.cs" t="Include" />
             <e p="MouseScript.cs" t="Include" />
             <e p="PlayerMovementScript.cs" t="Include" />
           </e>
