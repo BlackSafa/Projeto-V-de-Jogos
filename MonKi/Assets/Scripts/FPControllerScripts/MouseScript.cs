@@ -4,31 +4,46 @@ using UnityEngine;
 
 public class MouseScript : MonoBehaviour
 {
-    public float mouseSensitivity = 100f;
-    public Transform playerBody, cameraPosition;
+    public float mouseSensitivityX = 100f;
+    public Transform cameraPosition;
+    Transform personalCamera;
 
     float xRotation = 0f;
     float yRotation = 0f;
+
     void Start()
     {
-        //playerBody = transform.parent;
+        personalCamera = new GameObject().transform;
+        personalCamera.gameObject.AddComponent<Camera>();
+        personalCamera.gameObject.AddComponent<AudioListener>();
+        if(cameraPosition == null)
+        {
+            for(int c = 0; c < transform.childCount; c++)
+            {
+                Transform tested = transform.GetChild(0);
+                if (tested.tag == "CameraHead") 
+                {
+                    cameraPosition = tested;
+                    break;
+                }
+            }
+        }
         Cursor.lockState = CursorLockMode.Locked;
-        //playerBody = transform.parent;
     }
 
     // Update is called once per frame
-    void Update()
+    public void OperateCamera()
     {
-        transform.position = cameraPosition.position;
-        float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
-        float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
+        personalCamera.position = cameraPosition.position;
+        float mouseX = Input.GetAxis("Mouse X") * mouseSensitivityX * Time.deltaTime;
+        float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivityX * Time.deltaTime;
         
         xRotation -= mouseY;
         xRotation = Mathf.Clamp(xRotation, -90, 90);
         
         yRotation += mouseX;
 
-        transform.rotation = Quaternion.Euler(xRotation, playerBody.eulerAngles.y, 0);
-        playerBody.eulerAngles = new Vector3(0, yRotation, 0);
+        personalCamera.rotation = Quaternion.Euler(xRotation, transform.eulerAngles.y, 0);
+        transform.eulerAngles = new Vector3(0, yRotation, 0);
     }
 }

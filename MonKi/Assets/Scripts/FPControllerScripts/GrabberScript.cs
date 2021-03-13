@@ -4,20 +4,27 @@ using UnityEngine;
 
 public class GrabberScript : PlayerMovementScript
 {
-    // Start is called before the first frame update
+    Camera cam;
+    
+    public GameObject grabbed;
+
+    [SerializeField]
+    float grabReach = 2;
     void Start()
     {
-        
+        cam = gameObject.GetComponentInChildren<Camera>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+        Vector3 screenCenter = new Vector3(Screen.width/2, Screen.height/2,0);
+        RaycastHit hit;
+        Physics.Raycast(cam.ScreenPointToRay(screenCenter), out hit, grabReach);
+        Grab(hit);
     }
 
 
-    void Grab()
+    public virtual void Grab(RaycastHit hit)
     {}
 
     void Drop()

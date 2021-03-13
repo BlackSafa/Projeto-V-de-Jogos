@@ -20,9 +20,16 @@ public class PlayerMovementScript : MouseScript
 
     private void Awake() {
         controller = GetComponent<CharacterController>();
+        if(groundChecker == null)
+        {
+            groundChecker = new GameObject().transform;
+            groundChecker.SetParent(transform);
+            groundChecker.localPosition = new Vector3(0,-transform.localScale.y, 0);
+        }
     }
     void Update()
     {
+        OperateCamera();
         Movement();
         if (Input.GetButtonDown("Jump") && isGrounded) Jump();
         Gravity();
