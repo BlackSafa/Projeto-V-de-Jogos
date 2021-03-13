@@ -5,8 +5,7 @@ using UnityEngine;
 public class MouseScript : MonoBehaviour
 {
     public float mouseSensitivityX = 100f;
-    public Transform cameraPosition;
-    Transform personalCamera;
+    public Transform cameraPosition, personalCamera;
 
     float xRotation = 0f;
     float yRotation = 0f;
