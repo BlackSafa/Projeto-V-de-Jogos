@@ -13,8 +13,8 @@ public class MacacoA : GrabberScript
     // Update is called once per frame
     void Update()
     {
-        MoveUpdate();
-        
+        PlayerUpdate();
+      
     }
 
     public override void Movement()

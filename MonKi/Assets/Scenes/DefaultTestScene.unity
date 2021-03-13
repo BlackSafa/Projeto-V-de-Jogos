@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18029176, g: 0.22572431, b: 0.30693057, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -242,20 +242,26 @@ MonoBehaviour:
   m_GameObject: {fileID: 643530132}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8e8e613ac594a6a87a4a1c6c07fdc6cf, type: 3}
+  m_Script: {fileID: 11500000, guid: afcb85af5c249dc4da9745817bdc2ddf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mouseSensitivityX: 100
+  mouseSensitivityX: 0
   cameraPosition: {fileID: 1916614898}
+  personalCamera: {fileID: 0}
+  controller: {fileID: 0}
   groundSpeed: 15
   gravityAcceleration: 10
-  groundChecker: {fileID: 966805251}
-  groundCheckerLength: 0.1
+  groundChecker: {fileID: 0}
+  groundCheckerLength: 0.4
   jumpHeight: 3
+  velocity: {x: 0, y: 0, z: 0}
   isGrounded: 0
   groundLayer:
     serializedVersion: 2
     m_Bits: 256
+  grabbed: {fileID: 0}
+  isHolding: 0
+  grabReach: 2
 --- !u!4 &643530134
 Transform:
   m_ObjectHideFlags: 0
@@ -503,7 +509,7 @@ GameObject:
   - component: {fileID: 1916614898}
   m_Layer: 0
   m_Name: CameraPosition
-  m_TagString: Untagged
+  m_TagString: CameraHead
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
