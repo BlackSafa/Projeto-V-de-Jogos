@@ -3,6 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="f6ed48d9-126b-45ec-afaf-212c6fd031e1" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.MonKi/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MonKi/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/FPControllerScripts/MacacoA.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/FPControllerScripts/MacacoA.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/FPControllerScripts/PlayerMovementScript.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/FPControllerScripts/PlayerMovementScript.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,9 +17,9 @@
   <component name="IdeDocumentHistory">
     <changedPaths>
       <option value="$PROJECT_DIR$/Assets/Scripts/FPControllerScripts/Macaco A.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/FPControllerScripts/MouseScript.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/FPControllerScripts/MacacoA.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/FPControllerScripts/PlayerMovementScript.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/FPControllerScripts/MouseScript.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1pg0MIkP2LuoPujWb0uPYGmpXrq" />
@@ -65,7 +67,7 @@
       <workItem from="1615595804165" duration="1145000" />
       <workItem from="1615661429039" duration="168000" />
       <workItem from="1615661671966" duration="388000" />
-      <workItem from="1615662178578" duration="4356000" />
+      <workItem from="1615662178578" duration="8323000" />
     </task>
     <servers />
   </component>

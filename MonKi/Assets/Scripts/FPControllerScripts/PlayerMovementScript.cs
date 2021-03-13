@@ -9,7 +9,7 @@ public class PlayerMovementScript : MouseScript
     public CharacterController controller;
     public float groundSpeed = 15f;
     public float gravityAcceleration = 10f;
-
+    public Vector3 momentum;
     public Transform groundChecker;
     public float groundCheckerLength = 0.4f;
     public float jumpHeight = 3f;
@@ -20,6 +20,7 @@ public class PlayerMovementScript : MouseScript
 
     public void StartMovement() {
         StartCamera();
+        Changes();
         controller = GetComponent<CharacterController>();
         if(groundChecker == null)
         {
@@ -30,13 +31,14 @@ public class PlayerMovementScript : MouseScript
     }
     public void MoveUpdate()
     {
-        Movement();
+        if(isGrounded)
+        momentum = Movement();
         if (Input.GetButtonDown("Jump") && isGrounded) Jump();
         Gravity();
         OperateCamera();
     }
 
-    virtual public void Movement()
+    virtual public Vector3 Movement()
     {
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
@@ -44,6 +46,7 @@ public class PlayerMovementScript : MouseScript
         Vector3 move = transform.right * x + transform.forward * z;
 
         controller.Move(move * groundSpeed * Time.deltaTime);
+        return (move * (groundSpeed / 1.5f));
     }
 
     virtual public void Jump()
@@ -59,7 +62,18 @@ public class PlayerMovementScript : MouseScript
 
         if (isGrounded && velocity.y < 0) {velocity.y = -gravityAcceleration -(-1);}
         velocity.y += -gravityAcceleration * Time.deltaTime;
+        if (!isGrounded)
+        {
+            //float speedjump = Input.GetAxis("Vertical");
+            controller.Move((velocity + momentum)  * Time.deltaTime);
+        }
+            
+        else
+            controller.Move(velocity * Time.deltaTime);
+    }
 
-        controller.Move(velocity * Time.deltaTime);
+    public virtual void Changes()
+    {
+        
     }
 }
