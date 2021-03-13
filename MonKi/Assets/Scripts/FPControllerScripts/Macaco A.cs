@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MacacoA : MonoBehaviour
+public class MacacoA : GrabberScript
 {
     // Start is called before the first frame update
     void Start()
