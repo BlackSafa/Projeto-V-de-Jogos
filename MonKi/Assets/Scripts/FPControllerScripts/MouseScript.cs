@@ -5,7 +5,7 @@ using UnityEngine;
 public class MouseScript : MonoBehaviour
 {
     public float mouseSensitivityX = 100f;
-    public Transform cameraPosition, personalCamera;
+    public Transform cameraPosition, personalCamera, playerBody;
 
     float xRotation = 0f;
     float yRotation = 0f;
@@ -27,6 +27,7 @@ public class MouseScript : MonoBehaviour
                 }
             }
         }
+        playerBody = transform;
         Cursor.lockState = CursorLockMode.Locked;
     }
 
@@ -42,7 +43,7 @@ public class MouseScript : MonoBehaviour
         
         yRotation += mouseX;
 
-        personalCamera.rotation = Quaternion.Euler(xRotation, transform.eulerAngles.y, 0);
-        transform.eulerAngles = new Vector3(0, yRotation, 0);
+        personalCamera.rotation = Quaternion.Euler(xRotation, playerBody.eulerAngles.y, 0);
+        playerBody.eulerAngles = new Vector3(0, yRotation, 0);
     }
 }

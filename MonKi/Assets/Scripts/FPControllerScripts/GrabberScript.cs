@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GrabberScript : PlayerMovementScript
 {
-    Camera cam;
+    public Camera cam;
     
     public GameObject grabbed;
 
@@ -15,14 +15,14 @@ public class GrabberScript : PlayerMovementScript
     public void PlayerStarter()
     {
         StartMovement();
-        cam = gameObject.GetComponentInChildren<Camera>();
+        cam = personalCamera.GetComponent<Camera>();
     }
 
     public void PlayerUpdate()
     {
         MoveUpdate();
         Vector3 screenCenter = new Vector3(Screen.width/2, Screen.height/2,0);
-        RaycastHit hit;
+        RaycastHit hit = new RaycastHit();
         Physics.Raycast(cam.ScreenPointToRay(screenCenter), out hit, grabReach);
         if(Input.GetButtonUp("Interact") && !isHolding)
         {

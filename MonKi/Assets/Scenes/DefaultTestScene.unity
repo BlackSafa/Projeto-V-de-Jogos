@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18029176, g: 0.22572431, b: 0.30693057, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -248,10 +248,11 @@ MonoBehaviour:
   mouseSensitivityX: 0
   cameraPosition: {fileID: 1916614898}
   personalCamera: {fileID: 0}
+  playerBody: {fileID: 0}
   controller: {fileID: 0}
   groundSpeed: 15
   gravityAcceleration: 10
-  groundChecker: {fileID: 0}
+  groundChecker: {fileID: 966805251}
   groundCheckerLength: 0.4
   jumpHeight: 3
   velocity: {x: 0, y: 0, z: 0}
@@ -259,6 +260,7 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 256
+  cam: {fileID: 0}
   grabbed: {fileID: 0}
   isHolding: 0
   grabReach: 2

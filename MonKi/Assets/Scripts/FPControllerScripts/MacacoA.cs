@@ -7,7 +7,7 @@ public class MacacoA : GrabberScript
     // Start is called before the first frame update
     void Start()
     {
-        StartMovement();
+        PlayerStarter();
     }
 
     // Update is called once per frame
