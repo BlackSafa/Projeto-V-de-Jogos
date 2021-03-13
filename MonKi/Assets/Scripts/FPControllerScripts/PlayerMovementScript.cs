@@ -18,7 +18,7 @@ public class PlayerMovementScript : MouseScript
 
     public LayerMask groundLayer;
 
-    private void Start() {
+    public void StartMovement() {
         StartCamera();
         controller = GetComponent<CharacterController>();
         if(groundChecker == null)
@@ -28,7 +28,7 @@ public class PlayerMovementScript : MouseScript
             groundChecker.localPosition = new Vector3(0,-transform.localScale.y, 0);
         }
     }
-    void Update()
+    public void MoveUpdate()
     {
         Movement();
         if (Input.GetButtonDown("Jump") && isGrounded) Jump();

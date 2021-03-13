@@ -12,19 +12,21 @@ public class GrabberScript : PlayerMovementScript
 
     [SerializeField]
     float grabReach = 2;
-    void Start()
+    public void PlayerStarter()
     {
+        StartMovement();
         cam = gameObject.GetComponentInChildren<Camera>();
     }
 
-    void Update()
+    public void PlayerUpdate()
     {
+        MoveUpdate();
         Vector3 screenCenter = new Vector3(Screen.width/2, Screen.height/2,0);
         RaycastHit hit;
         Physics.Raycast(cam.ScreenPointToRay(screenCenter), out hit, grabReach);
         if(Input.GetButtonUp("Interact") && !isHolding)
         {
-            Grab(hit);
+            Interact(hit);
         }
         if(isHolding && Input.GetButtonUp("Interact"))
         {
@@ -37,7 +39,7 @@ public class GrabberScript : PlayerMovementScript
     }
 
 
-    public virtual void Grab(RaycastHit hit)
+    void Interact(RaycastHit hit)
     {}
 
     void Drop()
