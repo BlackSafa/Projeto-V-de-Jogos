@@ -18,7 +18,8 @@ public class PlayerMovementScript : MouseScript
 
     public LayerMask groundLayer;
 
-    private void Awake() {
+    private void Start() {
+        StartCamera();
         controller = GetComponent<CharacterController>();
         if(groundChecker == null)
         {
@@ -29,17 +30,17 @@ public class PlayerMovementScript : MouseScript
     }
     void Update()
     {
-        OperateCamera();
         Movement();
         if (Input.GetButtonDown("Jump") && isGrounded) Jump();
         Gravity();
+        OperateCamera();
     }
 
     private void Movement()
     {
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
-
+        
         Vector3 move = transform.right * x + transform.forward * z;
 
         controller.Move(move * groundSpeed * Time.deltaTime);

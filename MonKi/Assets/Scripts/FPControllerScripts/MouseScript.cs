@@ -11,7 +11,7 @@ public class MouseScript : MonoBehaviour
     float xRotation = 0f;
     float yRotation = 0f;
 
-    void Start()
+    protected void StartCamera()
     {
         personalCamera = new GameObject().transform;
         personalCamera.gameObject.AddComponent<Camera>();
@@ -32,7 +32,7 @@ public class MouseScript : MonoBehaviour
     }
 
     // Update is called once per frame
-    public void OperateCamera()
+    protected void OperateCamera()
     {
         personalCamera.position = cameraPosition.position;
         float mouseX = Input.GetAxis("Mouse X") * mouseSensitivityX * Time.deltaTime;
