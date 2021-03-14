@@ -3,13 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MacacoA : GrabberScript
+public class MacacoA : InteracterScript
 {
     // Start is called before the first frame update
     void Start()
     {
         
-        StartMovement();
+        PlayerStarter();
     }
 
     // Update is called once per frame

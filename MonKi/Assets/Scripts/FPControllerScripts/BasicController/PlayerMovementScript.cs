@@ -11,7 +11,7 @@ public class PlayerMovementScript : MouseScript
     public float gravityAcceleration = 10f;
     public Vector3 momentum;
     public Transform groundChecker;
-    public float groundCheckerLength = 0.4f;
+    public float groundCheckerLength = 0.2f;
     public float jumpHeight = 3f;
     public Vector3 velocity;
     public bool isGrounded = false;
@@ -21,12 +21,13 @@ public class PlayerMovementScript : MouseScript
     public void StartMovement() {
         StartCamera();
         Changes();
+        groundLayer = LayerMask.GetMask("Ground");
         controller = GetComponent<CharacterController>();
         if(groundChecker == null)
         {
             groundChecker = new GameObject().transform;
             groundChecker.SetParent(transform);
-            groundChecker.localPosition = new Vector3(0,-transform.localScale.y, 0);
+            groundChecker.localPosition = new Vector3(0,0-transform.localScale.y, 0);
         }
     }
     public void MoveUpdate()

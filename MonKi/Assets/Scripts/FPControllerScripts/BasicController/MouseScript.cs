@@ -19,7 +19,7 @@ public class MouseScript : MonoBehaviour
         {
             for(int c = 0; c < transform.childCount; c++)
             {
-                Transform tested = transform.GetChild(0);
+                Transform tested = transform.GetChild(c);
                 if (tested.tag == "CameraHead") 
                 {
                     cameraPosition = tested;
