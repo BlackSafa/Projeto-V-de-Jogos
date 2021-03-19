@@ -5,10 +5,12 @@ using UnityEngine;
 public class InteracterScript : PlayerMovementScript
 {
     Camera cam;
-    
+    public WeightClass carryCapacity = WeightClass.Light | WeightClass.Moderate
+    , weigthClass = WeightClass.Monkey;
+
     public Rigidbody grabbed;
     [SerializeField]
-    Transform shouder;
+    protected Transform shouder, hand;
     Ray camRay;
 
     public bool isHolding = false;
@@ -18,9 +20,13 @@ public class InteracterScript : PlayerMovementScript
     public void PlayerStarter()
     {
         StartMovement();
+        print(carryCapacity);
+        carryCapacity = WeightClass.Light | WeightClass.Moderate;
+        print(carryCapacity);
         cam = personalCamera.GetComponent<Camera>();
         shouder.position = shouder.localPosition;
         shouder.parent = cam.transform;
+        hand.position = shouder.position;
     }
 
     public void PlayerUpdate()
@@ -56,32 +62,49 @@ public class InteracterScript : PlayerMovementScript
     }
 
 
-    void Interact(RaycastHit hit)
+    protected virtual void Interact(RaycastHit hit)
     {
         InteractiveObject objScript = hit.transform.GetComponent<InteractiveObject>();
         if(objScript == null)
         {
-            //Debug.Log("Não Interativo");
             return;
         }
 
         if(objScript.isHoldable && Input.GetButtonDown("Interact"))
         {
-            //Debug.Log("Interagiu ao invés de pegar");
             objScript.Action();
         }
         else if(objScript.isHoldable)
         {
-            //Debug.Log("Pegou");
-            objScript.rb.isKinematic = true;
-            objScript.transform.position = shouder.position;
-            objScript.transform.parent = shouder.parent;
-            grabbed = objScript.rb;
-            isHolding = true;
+            switch (objScript.weight){
+            case WeightClass.Light:
+                Debug.Log("Agarrando objeto leve");
+                objScript.rb.isKinematic = true;
+                objScript.transform.position = hand.position;
+                objScript.transform.parent = hand.parent;
+                Physics.IgnoreCollision(hit.collider, gameObject.GetComponent<Collider>(), true);
+                grabbed = objScript.rb;
+                isHolding = true;
+                break;
+            case WeightClass.Moderate:
+                Debug.Log("Agarrando objeto médio");
+                objScript.rb.isKinematic = true;
+                objScript.transform.position = shouder.position;
+                objScript.transform.parent = shouder.parent;
+                Physics.IgnoreCollision(hit.collider, gameObject.GetComponent<Collider>(), true);
+                grabbed = objScript.rb;
+                isHolding = true;
+                break;
+            case WeightClass.Monkey:
+                Debug.Log("Macacos são pesados demais para agarrar");
+                break;
+            default:
+                Debug.Log("Objeto pesado demais");
+                break;
+            }
         }
         else
         {
-            //Debug.Log("Interagiu");
             objScript.Action();
         }
     }
@@ -91,15 +114,33 @@ public class InteracterScript : PlayerMovementScript
         //Debug.Log("Soltou");
         grabbed.transform.parent = null;
         grabbed.isKinematic = false;
+        Physics.IgnoreCollision(grabbed.GetComponent<Collider>(), gameObject.GetComponent<Collider>(), false);
         isHolding = false;
     }
 
-    void Throw()
+    protected virtual void Throw()
     {
         //Debug.Log("Jogou");
-        grabbed.transform.parent = null;
-        grabbed.isKinematic = false;
-        grabbed.AddForce(camRay.direction * 500);
-        isHolding = false;
+        switch (grabbed.gameObject.GetComponent<InteractiveObject>().weight)
+        {
+            case WeightClass.Light:
+                grabbed.transform.parent = null;
+                grabbed.isKinematic = false;
+                grabbed.AddForce(personalCamera.transform.forward * 500);
+                Physics.IgnoreCollision(grabbed.GetComponent<Collider>(), gameObject.GetComponent<Collider>(), false);
+                isHolding = false;
+            break;
+            default:
+                Debug.Log("Pesado demais para ser lançado normalmente");
+                grabbed.transform.parent = null;
+                grabbed.isKinematic = false;
+                grabbed.AddForce(personalCamera.transform.forward * 100);
+                Physics.IgnoreCollision(grabbed.GetComponent<Collider>(), gameObject.GetComponent<Collider>(), false);
+                isHolding = false;
+                break;
+        }
     }
+
+    void CallThrowAnimation()
+    {}
 }
