@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f6ed48d9-126b-45ec-afaf-212c6fd031e1" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.MonKi/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MonKi/.idea/contentModel.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.MonKi/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MonKi/.idea/indexLayout.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.MonKi/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MonKi/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resouces.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/FPSControllerScripts/BasicController/PlayerMovementScript.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/FPSControllerScripts/BasicController/PlayerMovementScript.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/FPSControllerScripts/Mokeys/MacacoA.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/FPSControllerScripts/Mokeys/MacacoA.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -74,7 +70,7 @@
       <workItem from="1615661429039" duration="168000" />
       <workItem from="1615661671966" duration="388000" />
       <workItem from="1615662178578" duration="8917000" />
-      <workItem from="1616153134861" duration="23124000" />
+      <workItem from="1616153134861" duration="24679000" />
     </task>
     <servers />
   </component>
