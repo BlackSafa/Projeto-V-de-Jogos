@@ -26,7 +26,7 @@ public class MacacoF : InteracterScript
 
         if(objScript.isHoldable && Input.GetButtonDown("Interact"))
         {
-            objScript.Action();
+            objScript.action();
         }
         else if(objScript.isHoldable)
         {
@@ -71,7 +71,7 @@ public class MacacoF : InteracterScript
         }
         else
         {
-            objScript.Action();
+            objScript.action();
         }
     }
 

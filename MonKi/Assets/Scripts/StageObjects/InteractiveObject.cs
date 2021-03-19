@@ -5,9 +5,16 @@ using UnityEngine;
 
 public class InteractiveObject : MonoBehaviour
 {
+    public delegate void Action();
+
+    public Action action;
     public WeightClass weight = WeightClass.Light;
     public bool isHoldable;
     public Rigidbody rb;
+
+    private void Awake() {
+        action = TestAction;
+    }
     void Start()
     {
         rb = gameObject.GetComponent<Rigidbody>();
@@ -20,7 +27,7 @@ public class InteractiveObject : MonoBehaviour
         
     }
 
-    public virtual void Action()
+    void TestAction()
     {
         Debug.Log("Agindo");
         GameObject novo = GameObject.CreatePrimitive(PrimitiveType.Sphere);

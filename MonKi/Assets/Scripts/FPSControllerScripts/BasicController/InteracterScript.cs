@@ -78,7 +78,7 @@ public class InteracterScript : PlayerMovementScript
 
         if(objScript.isHoldable && Input.GetButtonDown("Interact"))
         {
-            objScript.Action();
+            objScript.action();
         }
         else if(objScript.isHoldable)
         {
@@ -111,7 +111,7 @@ public class InteracterScript : PlayerMovementScript
         }
         else
         {
-            objScript.Action();
+            objScript.action();
         }
     }
 
