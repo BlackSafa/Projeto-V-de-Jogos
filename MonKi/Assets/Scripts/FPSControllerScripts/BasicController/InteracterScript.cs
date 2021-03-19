@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -16,7 +17,7 @@ public class InteracterScript : PlayerMovementScript
     public bool isHolding = false;
 
     [SerializeField]
-    float grabReach = 2;
+    float grabReach = 3.2f;
     public void PlayerStarter()
     {
         StartMovement();
@@ -26,7 +27,12 @@ public class InteracterScript : PlayerMovementScript
         cam = personalCamera.GetComponent<Camera>();
         shouder.position = shouder.localPosition;
         shouder.parent = cam.transform;
-        hand.position = shouder.position;
+        hand.localPosition = shouder.localPosition;
+    }
+
+    internal void Interact()
+    {
+        throw new NotImplementedException();
     }
 
     public void PlayerUpdate()
