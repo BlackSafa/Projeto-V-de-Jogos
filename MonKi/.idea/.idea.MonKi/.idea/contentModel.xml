@@ -8,13 +8,21 @@
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
         <e p="Scripts" t="Include">
-          <e p="FPControllerScripts" t="Include">
-            <e p="GrabberScript.cs" t="Include" />
-            <e p="MacacoA.cs" t="Include" />
-            <e p="MouseScript.cs" t="Include" />
-            <e p="PlayerMovementScript.cs" t="Include" />
+          <e p="FPSControllerScripts" t="Include">
+            <e p="BasicController" t="Include">
+              <e p="InteracterScript.cs" t="Include" />
+              <e p="MouseScript.cs" t="Include" />
+              <e p="PlayerMovementScript.cs" t="Include" />
+            </e>
+            <e p="Mokeys" t="Include">
+              <e p="MacacoA.cs" t="Include" />
+              <e p="MacacoF.cs" t="Include" />
+            </e>
           </e>
           <e p="SimpleCameraController.cs" t="Include" />
+          <e p="StageObjects" t="Include">
+            <e p="InteractiveObject.cs" t="Include" />
+          </e>
         </e>
         <e p="TutorialInfo" t="Include">
           <e p="Scripts" t="Include">

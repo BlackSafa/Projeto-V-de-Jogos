@@ -2,7 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f6ed48d9-126b-45ec-afaf-212c6fd031e1" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.MonKi/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MonKi/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.MonKi/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MonKi/.idea/indexLayout.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.MonKi/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MonKi/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resouces.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/FPSControllerScripts/BasicController/PlayerMovementScript.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/FPSControllerScripts/BasicController/PlayerMovementScript.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/FPSControllerScripts/Mokeys/MacacoA.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/FPSControllerScripts/Mokeys/MacacoA.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,6 +23,8 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/FPControllerScripts/MouseScript.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/FPControllerScripts/MacacoA.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/FPControllerScripts/PlayerMovementScript.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/FPSControllerScripts/BasicController/PlayerMovementScript.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/FPSControllerScripts/Mokeys/MacacoA.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1pg0MIkP2LuoPujWb0uPYGmpXrq" />
@@ -31,6 +38,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.C#" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
@@ -66,6 +74,7 @@
       <workItem from="1615661429039" duration="168000" />
       <workItem from="1615661671966" duration="388000" />
       <workItem from="1615662178578" duration="8917000" />
+      <workItem from="1616153134861" duration="23124000" />
     </task>
     <servers />
   </component>

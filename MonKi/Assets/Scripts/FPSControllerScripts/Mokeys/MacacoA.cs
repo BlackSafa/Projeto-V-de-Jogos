@@ -6,9 +6,11 @@ using UnityEngine;
 public class MacacoA : InteracterScript
 {
     // Start is called before the first frame update
+    public float jumpSpeedAccelerationx = new float();
+    public float jumpSpeedAccelerationz = new float();
+    
     void Start()
     {
-        
         PlayerStarter();
     }
 
@@ -16,7 +18,6 @@ public class MacacoA : InteracterScript
     void Update()
     {
         PlayerUpdate();
-      
     }
 
     /*public override void Movement()
@@ -39,7 +40,41 @@ public class MacacoA : InteracterScript
    }*/
     public override void Changes()
     {
-        groundSpeed = 30;
-        jumpHeight = 6.5f;
+        groundSpeed = 5f;
+        jumpHeight = 4.8f;
+    }
+
+    public Vector3 AirControl()
+    {
+        Vector3 teste = Vector3.Scale(momentum, transform.forward);
+        Debug.Log(teste);
+        if (!isGrounded && Input.GetAxis("Vertical") >=0 || momentum.z < 4 || momentum.x < 4 || momentum.z > -4 || momentum.x > -4)
+        {
+            jumpSpeedAccelerationz = Input.GetAxis("Vertical") * 3f;
+            jumpSpeedAccelerationx = Input.GetAxis("Horizontal") * 3f;
+            momentum += transform.forward * (jumpSpeedAccelerationz * Time.deltaTime) + transform.right * (jumpSpeedAccelerationx *Time.deltaTime);
+        }
+        else if (!isGrounded && Input.GetAxis("Vertical") < 0 || momentum.z > -4 || momentum.x > -4 || momentum.z < 4 || momentum.x < 4)
+        {
+            jumpSpeedAccelerationz = Input.GetAxis("Vertical") * 22.5f;
+            jumpSpeedAccelerationx = Input.GetAxis("Horizontal") * 3f;
+            momentum += transform.forward * (jumpSpeedAccelerationz * Time.deltaTime) + transform.right * (jumpSpeedAccelerationx *Time.deltaTime);
+        }
+        else if( momentum.z > -4 || momentum.x > -4 || momentum.z < 4 || momentum.x < 4)
+        {
+            jumpSpeedAccelerationx = Input.GetAxis("Horizontal") * 3f;
+            momentum += transform.forward * (jumpSpeedAccelerationz * Time.deltaTime) + transform.right * (jumpSpeedAccelerationx *Time.deltaTime);
+        }
+        return (momentum);
+    }
+
+    public override void MoveUpdate()
+    {
+        base.MoveUpdate();
+        
+        if (!isGrounded)
+        {
+            momentum = AirControl();
+        }
     }
 }

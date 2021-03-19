@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using UnityEngine;
+using Debug = UnityEngine.Debug;
 
 public class PlayerMovementScript : MouseScript
 {
@@ -30,10 +32,31 @@ public class PlayerMovementScript : MouseScript
             groundChecker.localPosition = new Vector3(0,0-transform.localScale.y, 0);
         }
     }
-    public void MoveUpdate()
+    public virtual void MoveUpdate()
     {
-        if(isGrounded)
-        momentum = Movement();
+        if (isGrounded)
+        {
+            momentum = (Movement() / 2);
+            
+        }
+            
+        /*else if(Input.GetAxis("Vertical") >= 0)
+        {
+            Vector3 movejump = ((transform.forward * Input.GetAxis("Vertical")) * 20);
+            momentum = movejump;
+
+        }
+        else if (Input.GetAxis("Vertical") < 0 && momentum.z >= 0)
+        {
+            Vector3 movejump = ((transform.forward * Input.GetAxis("Vertical")) * 5);
+            momentum = movejump;
+        }
+        else if (Input.GetAxis("Vertical") < 0 && momentum.z <= 0)
+        {
+            Vector3 movejump = (transform.forward * 0);
+            momentum = movejump;
+        }*/
+        
         if (Input.GetButtonDown("Jump") && isGrounded) Jump();
         Gravity();
         OperateCamera();
@@ -72,6 +95,7 @@ public class PlayerMovementScript : MouseScript
         else
             controller.Move(velocity * Time.deltaTime);
     }
+    
 
     public virtual void Changes()
     {
