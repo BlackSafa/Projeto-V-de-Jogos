@@ -17,6 +17,7 @@
             <e p="Mokeys" t="Include">
               <e p="MacacoA.cs" t="Include" />
               <e p="MacacoF.cs" t="Include" />
+              <e p="MacacoM.cs" t="Include" />
             </e>
           </e>
           <e p="SimpleCameraController.cs" t="Include" />
