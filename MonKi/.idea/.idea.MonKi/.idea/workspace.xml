@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f6ed48d9-126b-45ec-afaf-212c6fd031e1" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.MonKi/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MonKi/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.MonKi/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MonKi/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/DefaultTestScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/DefaultTestScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/FPSControllerScripts/Mokeys/MacacoM.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/FPSControllerScripts/Mokeys/MacacoM.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,7 +76,8 @@
       <workItem from="1615661671966" duration="388000" />
       <workItem from="1615662178578" duration="8917000" />
       <workItem from="1616153134861" duration="25946000" />
-      <workItem from="1616697941846" duration="869000" />
+      <workItem from="1616697941846" duration="3419000" />
+      <workItem from="1616705491376" duration="5619000" />
     </task>
     <servers />
   </component>

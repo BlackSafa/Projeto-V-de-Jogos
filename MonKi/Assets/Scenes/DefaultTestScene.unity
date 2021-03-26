@@ -524,6 +524,7 @@ GameObject:
   m_Component:
   - component: {fileID: 643530134}
   - component: {fileID: 643530133}
+  - component: {fileID: 643530137}
   - component: {fileID: 643530135}
   - component: {fileID: 643530136}
   m_Layer: 0
@@ -540,7 +541,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 643530132}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: afcb85af5c249dc4da9745817bdc2ddf, type: 3}
   m_Name: 
@@ -639,6 +640,41 @@ MonoBehaviour:
   hand: {fileID: 1692712658}
   isHolding: 0
   grabReach: 3.2
+--- !u!114 &643530137
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 643530132}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b396b745c9e19804a84e4e2cd4142cba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mouseSensitivityX: 100
+  cameraPosition: {fileID: 0}
+  personalCamera: {fileID: 0}
+  controller: {fileID: 0}
+  groundSpeed: 15
+  gravityAcceleration: 10
+  momentum: {x: 0, y: 0, z: 0}
+  groundChecker: {fileID: 966805251}
+  groundCheckerLength: 0.1
+  jumpHeight: 3
+  velocity: {x: 0, y: 0, z: 0}
+  isGrounded: 0
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  carryCapacity: 3
+  weigthClass: 8
+  grabbed: {fileID: 0}
+  shouder: {fileID: 1598549320}
+  hand: {fileID: 1692712658}
+  isHolding: 0
+  grabReach: 3.2
+  inmind: 0
 --- !u!1 &966805250
 GameObject:
   m_ObjectHideFlags: 0
