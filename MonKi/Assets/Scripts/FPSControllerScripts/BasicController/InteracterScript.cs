@@ -12,7 +12,7 @@ public class InteracterScript : PlayerMovementScript
     public Rigidbody grabbed;
     [SerializeField]
     protected Transform shouder, hand;
-    Ray camRay;
+    protected Ray camRay;
 
     public bool isHolding = false;
 
@@ -115,7 +115,7 @@ public class InteracterScript : PlayerMovementScript
         }
     }
 
-    void Drop()
+    protected void Drop()
     {
         //Debug.Log("Soltou");
         grabbed.transform.parent = null;
