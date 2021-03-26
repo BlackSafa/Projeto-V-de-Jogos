@@ -9,7 +9,7 @@ public class PlayerMovementScript : MouseScript
 
 
     public CharacterController controller;
-    public float groundSpeed = 15f;
+    public float groundSpeed = 3.5f;
     public float gravityAcceleration = 10f;
     public Vector3 momentum;
     public Transform groundChecker;
