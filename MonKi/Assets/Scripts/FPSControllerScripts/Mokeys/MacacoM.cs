@@ -27,12 +27,18 @@ public class MacacoM : InteracterScript
         }
         else if (isHolding)
         {
-            Drop();
+            if(isHolding && Input.GetKeyDown(KeyCode.Tab))
+            {
+                Drop();
+            }
         }
         else if (inmind)
         {
-            _minded = null;
-            inmind = false;
+            if(inmind && Input.GetKeyDown(KeyCode.Tab))
+            {
+                _minded = null;
+                inmind = false;
+            }
         }
 
     }
@@ -71,8 +77,10 @@ public class MacacoM : InteracterScript
         InteractiveObject objScript = hit.transform.GetComponent<InteractiveObject>();
         if (objScript.isHoldable)
         {
+            Debug.Log("Pegando objeto");
             inmind = true;
             _minded = hit.transform.gameObject;
+            MoveObjectInMind();
         }
     }
     public void MoveObjectInMind()
@@ -92,9 +100,9 @@ public class MacacoM : InteracterScript
             moveinair.z = z;
             actualposition += moveinair;
             actualposition -= macacoM;
-            actualposition.x = Mathf.Clamp(actualposition.x, -10, 10);
-            actualposition.y = Mathf.Clamp(actualposition.y, -10, 10);
-            actualposition.z = Mathf.Clamp(actualposition.z, -10, 10);
+            actualposition.x = Mathf.Clamp(actualposition.x, -5, 5);
+            actualposition.y = Mathf.Clamp(actualposition.y, -5, 5);
+            actualposition.z = Mathf.Clamp(actualposition.z, -5, 5);
             actualposition += macacoM;
             _minded.transform.position += actualposition;
 
