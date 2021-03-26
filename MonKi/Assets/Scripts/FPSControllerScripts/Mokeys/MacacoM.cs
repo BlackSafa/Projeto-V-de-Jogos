@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using UnityEngine;
+using Debug = UnityEngine.Debug;
 
 public class MacacoM : InteracterScript
 {
@@ -17,6 +19,7 @@ public class MacacoM : InteracterScript
     void Update()
     {
         PlayerUpdate();
+        
         Debug.DrawLine(camRay.origin, (camRay.direction * mindlenght) + cameraPosition.position, Color.red);
         if (Physics.Raycast(camRay, out levitation, mindlenght, LayerMask.GetMask("Objects")) && !isHolding && !inmind)
         {
@@ -36,8 +39,13 @@ public class MacacoM : InteracterScript
         {
             if(inmind && Input.GetKeyDown(KeyCode.Tab))
             {
+                _minded.GetComponent<Rigidbody>().useGravity = true;
                 _minded = null;
                 inmind = false;
+            }
+            else
+            {
+                MoveObjectInMind();
             }
         }
 
@@ -77,34 +85,28 @@ public class MacacoM : InteracterScript
         InteractiveObject objScript = hit.transform.GetComponent<InteractiveObject>();
         if (objScript.isHoldable)
         {
-            Debug.Log("Pegando objeto");
-            inmind = true;
-            _minded = hit.transform.gameObject;
-            MoveObjectInMind();
+            if ((carryCapacity & objScript.weight) == objScript.weight)
+            {
+                Debug.Log("Pegando objeto");
+                inmind = true;
+                _minded = hit.transform.gameObject;
+                _minded.GetComponent<Rigidbody>().useGravity = false;
+            }
         }
     }
     public void MoveObjectInMind()
     {
-
         if (inmind)
         {
+            Debug.Log("Movendo o objeto");
             float x = Input.GetAxis("Horizontal");
             float y = Input.GetAxis("Vertical");
             float z = Input.mouseScrollDelta.y;
-            Vector3 moveinair;
-            Vector3 actualposition = _minded.transform.position;
-            Vector3 macacoM;
-            macacoM = transform.position;
-            moveinair.x = x;
-            moveinair.y = y;
-            moveinair.z = z;
-            actualposition += moveinair;
-            actualposition -= macacoM;
-            actualposition.x = Mathf.Clamp(actualposition.x, -5, 5);
-            actualposition.y = Mathf.Clamp(actualposition.y, -5, 5);
-            actualposition.z = Mathf.Clamp(actualposition.z, -5, 5);
-            actualposition += macacoM;
-            _minded.transform.position += actualposition;
+            
+            x = Mathf.Clamp(x, -10, 10);
+            y = Mathf.Clamp(y, -10, 10);
+            z = Mathf.Clamp(z, -10, 10);
+            _minded.transform.Translate(x * Time.deltaTime,y * Time.deltaTime,z * Time.deltaTime * 5);
 
         }
     }
