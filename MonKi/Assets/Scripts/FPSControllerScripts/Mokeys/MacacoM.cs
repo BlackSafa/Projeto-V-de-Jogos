@@ -112,7 +112,7 @@ public class MacacoM : InteracterScript
             _minded.transform.Translate(x * Time.deltaTime,y * Time.deltaTime,z * Time.deltaTime * 5);*/
 
             
-            if (mindposition.transform.localPosition.z < 10 && mindposition.transform.localPosition.z > 0)
+            if (mindposition.transform.localPosition.z < 10 && mindposition.transform.localPosition.z > 1)
             {
                 mindposition.transform.localPosition +=  new Vector3(0, 0, Input.mouseScrollDelta.y * Time.deltaTime * 5);
             }
