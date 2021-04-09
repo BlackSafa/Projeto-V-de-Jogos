@@ -6,6 +6,7 @@ public class MouseScript : MonoBehaviour
 {
     public float mouseSensitivityX = 100f;
     public Transform cameraPosition, personalCamera;
+    public static Transform Mental;
 
     float xRotation = 0f;
     float yRotation = 0f;
@@ -15,6 +16,10 @@ public class MouseScript : MonoBehaviour
         personalCamera = new GameObject().transform;
         personalCamera.gameObject.AddComponent<Camera>();
         personalCamera.gameObject.AddComponent<AudioListener>();
+        Mental = new GameObject().transform;
+        Mental.SetParent(personalCamera);
+        Mental.position += new Vector3(0, 0, 10);
+        
         if(cameraPosition == null)
         {
             for(int c = 0; c < transform.childCount; c++)
@@ -33,6 +38,7 @@ public class MouseScript : MonoBehaviour
     // Update is called once per frame
     protected void OperateCamera()
     {
+        Debug.Log(Mental.position);
         personalCamera.position = cameraPosition.position;
         float mouseX = Input.GetAxis("Mouse X") * mouseSensitivityX * Time.deltaTime;
         float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivityX * Time.deltaTime;

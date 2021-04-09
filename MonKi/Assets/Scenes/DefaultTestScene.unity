@@ -676,6 +676,7 @@ MonoBehaviour:
   grabReach: 3.2
   inmind: 0
   _minded: {fileID: 0}
+  mindposition: {fileID: 0}
 --- !u!1 &966805250
 GameObject:
   m_ObjectHideFlags: 0

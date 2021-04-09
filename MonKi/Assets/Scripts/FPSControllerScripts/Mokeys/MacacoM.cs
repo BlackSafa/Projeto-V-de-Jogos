@@ -4,22 +4,24 @@ using System.Diagnostics;
 using UnityEngine;
 using Debug = UnityEngine.Debug;
 
+
 public class MacacoM : InteracterScript
 {
     public bool inmind = false;
     public GameObject _minded;
+    public GameObject mindposition;
     private RaycastHit levitation;
     private float mindlenght = 10f;
     
     void Start()
     {
         PlayerStarter();
+        mindposition = MouseScript.Mental.gameObject;
     }
     
     void Update()
     {
         PlayerUpdate();
-        
         Debug.DrawLine(camRay.origin, (camRay.direction * mindlenght) + cameraPosition.position, Color.red);
         if (Physics.Raycast(camRay, out levitation, mindlenght, LayerMask.GetMask("Objects")) && !isHolding && !inmind)
         {
@@ -90,6 +92,7 @@ public class MacacoM : InteracterScript
                 Debug.Log("Pegando objeto");
                 inmind = true;
                 _minded = hit.transform.gameObject;
+                mindposition.transform.position = _minded.transform.position;
                 _minded.GetComponent<Rigidbody>().useGravity = false;
             }
         }
@@ -99,15 +102,23 @@ public class MacacoM : InteracterScript
         if (inmind)
         {
             Debug.Log("Movendo o objeto");
-            float x = Input.GetAxis("Horizontal");
-            float y = Input.GetAxis("Vertical");
-            float z = Input.mouseScrollDelta.y;
+            float y = Input.GetAxis("Horizontal");
+            float z = Input.GetAxis("Vertical");
+            //float z = Input.mouseScrollDelta.y;
             
-            x = Mathf.Clamp(x, -10, 10);
+            /*x = Mathf.Clamp(x, -10, 10);
             y = Mathf.Clamp(y, -10, 10);
             z = Mathf.Clamp(z, -10, 10);
-            _minded.transform.Translate(x * Time.deltaTime,y * Time.deltaTime,z * Time.deltaTime * 5);
+            _minded.transform.Translate(x * Time.deltaTime,y * Time.deltaTime,z * Time.deltaTime * 5);*/
 
+            
+            if (mindposition.transform.localPosition.z < 10 && mindposition.transform.localPosition.z > 0)
+            {
+                mindposition.transform.localPosition +=  new Vector3(0, 0, Input.mouseScrollDelta.y * Time.deltaTime * 5);
+            }
+
+            _minded.transform.position = mindposition.transform.position;
+            mindposition.transform.Rotate(0, y * Time.deltaTime * 30, z * Time.deltaTime * 30);
         }
     }
 
