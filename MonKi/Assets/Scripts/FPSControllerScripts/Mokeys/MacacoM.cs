@@ -21,22 +21,23 @@ public class MacacoM : InteracterScript
     
     void Update()
     {
+        isHolding = true;
         PlayerUpdate();
         Debug.DrawLine(camRay.origin, (camRay.direction * mindlenght) + cameraPosition.position, Color.red);
-        if (Physics.Raycast(camRay, out levitation, mindlenght, LayerMask.GetMask("Objects")) && !isHolding && !inmind)
+        if (Physics.Raycast(camRay, out levitation, mindlenght, LayerMask.GetMask("Objects")) /*&& !isHolding*/ && !inmind)
         {
             if (Input.GetKeyDown(KeyCode.Tab))
             {
                 GetObjectInMind(levitation);
             }
         }
-        else if (isHolding)
-        {
-            if(isHolding && Input.GetKeyDown(KeyCode.Tab))
-            {
-                Drop();
-            }
-        }
+        //else if (isHolding)
+        //{
+        //    if(isHolding && Input.GetKeyDown(KeyCode.Tab))
+        //    {
+        //        Drop();
+        //    }
+        //}
         else if (inmind)
         {
             if(inmind && Input.GetKeyDown(KeyCode.Tab))

@@ -14,7 +14,7 @@ public class PlayerMovementScript : MouseScript
     public Vector3 momentum;
     public Transform groundChecker;
     public float groundCheckerLength = 0.2f;
-    public float jumpHeight = 3f;
+    public float jumpHeight = 2.2f;
     public Vector3 velocity;
     public bool isGrounded = false;
 
@@ -24,6 +24,7 @@ public class PlayerMovementScript : MouseScript
         StartCamera();
         Changes();
         groundLayer = LayerMask.GetMask("Ground");
+        groundLayer += LayerMask.GetMask("Objects");
         controller = GetComponent<CharacterController>();
         if(groundChecker == null)
         {
