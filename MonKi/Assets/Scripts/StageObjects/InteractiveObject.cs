@@ -23,7 +23,7 @@ public class InteractiveObject : MonoBehaviour
         
     }
 
-    public void Action()
+    public virtual void Action()
     {
         if(activate != null)
             activate();

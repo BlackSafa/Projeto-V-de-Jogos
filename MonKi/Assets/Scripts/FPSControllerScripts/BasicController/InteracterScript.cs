@@ -30,11 +30,6 @@ public class InteracterScript : PlayerMovementScript
         hand.localPosition = shouder.localPosition;
     }
 
-    internal void Interact()
-    {
-        throw new NotImplementedException();
-    }
-
     public void PlayerUpdate()
     {
         MoveUpdate();

@@ -24,7 +24,7 @@ public class Connect : MonoBehaviourPunCallbacks
         //logText.text = "Log Panel: \nConectando";
         PhotonNetwork.NickName = nickName.text;
         RoomOptions roomOptions = new RoomOptions() {IsVisible = true, MaxPlayers = 3};
-        PhotonNetwork.AutomaticallySyncScene = true;
+        //PhotonNetwork.AutomaticallySyncScene = true;
         PhotonNetwork.JoinOrCreateRoom(roomName.text, roomOptions, TypedLobby.Default);
     }
 
@@ -44,8 +44,17 @@ public class Connect : MonoBehaviourPunCallbacks
     public override void OnJoinedRoom()
     {
         Debug.Log("Entrando na Sala");
+        if(PhotonNetwork.IsMasterClient)
+        PhotonNetwork.NickName = nickName.text + " P(1)";
+        PhotonNetwork.NickName = nickName.text + " P(" + PhotonNetwork.CurrentRoom.PlayerCount + ")";
         monkeyMenu.SetActive(true);
         //logText.text = "\nEntrando na Sala";
+    }
+
+    public override void OnLeftRoom()
+    {
+        Debug.Log("Saindo da Sala");
+        monkeyMenu.SetActive(false);
     }
     public override void OnDisconnected(DisconnectCause cause)
     {
