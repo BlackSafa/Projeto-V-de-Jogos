@@ -35,7 +35,7 @@ public class GameSettings : ScriptableObject
         }
     }
 
-    public void setChoice(PlayerMode choice)
+    public void SetChoice(PlayerMode choice)
     {
         playerMode = choice;
     }
@@ -46,5 +46,6 @@ public enum PlayerMode
 {
     Fast,
     Psychic,
-    Strong
+    Strong,
+    None
 }

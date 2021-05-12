@@ -1,42 +1,54 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 using Photon.Pun;
-using Photon.Realtime;
 
 public class MonkeySelector : MonoBehaviour
 {
-    Image R, M, F;
-
-    bool statusR, statusM, statusF;
-    PlayerMode selectedMonkey;
-    Color standBy, selecting, setted, Unselectable;
+    [SerializeField]
+    MonkeyOption R, M, F, none;
+    PlayerMode selectedMonkey = PlayerMode.None;
+    [SerializeField]
+    Color standBy, selecting, setted, unselectable;
     PhotonView photonView;
+    public bool gameStarted;
 
     private void Awake() {
         photonView = GetComponent<PhotonView>();
     }
 
     private void Update() {
-        
+        if(!R.avaliability)
+        {
+            R.button.interactable = false;
+            R.image.color = unselectable;
+        }
+        if(!M.avaliability)
+        {
+            M.button.interactable = false;
+            M.image.color = unselectable;
+        }
+        if(!F.avaliability)
+        {
+            F.button.interactable = false;
+            F.image.color = unselectable;
+        }
     }
 
     public void OnClickF()
     {
-        F.color = selecting;
+        F.image.color = selecting;
         selectedMonkey = PlayerMode.Strong;
     }
 
     public void OnClickM()
     {
-        M.color = selecting;
+        M.image.color = selecting;
         selectedMonkey = PlayerMode.Psychic;
     }
 
     public void OnClickA()
     {
-        R.color = selecting;
+        R.image.color = selecting;
         selectedMonkey = PlayerMode.Fast;
     }
 
@@ -45,18 +57,28 @@ public class MonkeySelector : MonoBehaviour
         switch(selectedMonkey)
         {
             case (PlayerMode.Fast):
-                F.color = selecting;
-                selectedMonkey = PlayerMode.Strong;
+                R.image.color = standBy;
+                photonView.RPC("MonkeySetter",RpcTarget.OthersBuffered, selectedMonkey, false);
+                R.button.interactable = true;
+                M.button.interactable = true;
+                F.button.interactable = true;
+                selectedMonkey = PlayerMode.None;
                 break;
             case (PlayerMode.Psychic):
-                F.color = selecting;
-                selectedMonkey = PlayerMode.Strong;
+                M.image.color = standBy;
+                photonView.RPC("MonkeySetter",RpcTarget.OthersBuffered, selectedMonkey, false);
+                R.button.interactable = true;
+                M.button.interactable = true;
+                F.button.interactable = true;
+                selectedMonkey = PlayerMode.None;
                 break;
             case (PlayerMode.Strong):
-                F.color = selecting;
-                selectedMonkey = PlayerMode.Strong;
-                break;
-            default:
+                F.image.color = standBy;
+                photonView.RPC("MonkeySetter",RpcTarget.OthersBuffered, selectedMonkey, false);
+                R.button.interactable = true;
+                M.button.interactable = true;
+                F.button.interactable = true;
+                selectedMonkey = PlayerMode.None;
                 break;
         }
     }
@@ -66,35 +88,111 @@ public class MonkeySelector : MonoBehaviour
         switch(selectedMonkey)
         {
             case (PlayerMode.Fast):
-                R.color = selecting;
-                
+                if(R.avaliability)
+                {
+                    R.image.color = setted;
+                    R.button.interactable = false;
+                    M.button.interactable = false;
+                    F.button.interactable = false;
+                    photonView.RPC("MonkeySetter",RpcTarget.OthersBuffered, selectedMonkey, true);
+                }
+                else
+                {
+                    Debug.Log("Macaco Indisponível");
+                    selectedMonkey = PlayerMode.None;
+                }
                 break;
             case (PlayerMode.Psychic):
-                M.color = selecting;
-                
+                if(M.avaliability)
+                {
+                    M.image.color = setted;
+                    R.button.interactable = false;
+                    M.button.interactable = false;
+                    F.button.interactable = false;
+                    photonView.RPC("MonkeySetter",RpcTarget.OthersBuffered, selectedMonkey, true);
+                }
+                else
+                {
+                    Debug.Log("Macaco Indisponível");
+                    selectedMonkey = PlayerMode.None;
+                }
                 break;
             case (PlayerMode.Strong):
-                F.color = selecting;
-                
-                break;
-            default:
+                if(F.avaliability)
+                {
+                    F.image.color = setted;
+                    R.button.interactable = false;
+                    M.button.interactable = false;
+                    F.button.interactable = false;
+                    photonView.RPC("MonkeySetter",RpcTarget.OthersBuffered, selectedMonkey, true);
+                }
+                else
+                {
+                    Debug.Log("Macaco Indisponível");
+                    selectedMonkey = PlayerMode.None;
+                }
                 break;
         }
     }
 
-    [PunRPC]
-    public void SetMonkey(PlayerMode choice)
+    void OnStartGame()
     {
-        switch(choice)
+        if(!(R.avaliability && F.avaliability && M.avaliability))
         {
-            case (PlayerMode.Fast):
-                break;
-            case (PlayerMode.Psychic):
-                break;
-            case (PlayerMode.Strong):
-                break;
-            default:
-                break;
+            photonView.RPC("ChangeScene",RpcTarget.All);
+        }
+    }
+
+    [PunRPC]
+    public void MonkeySetter(PlayerMode choice, bool settingMode)
+    {
+        if(settingMode){
+            switch(choice)
+            {
+                case (PlayerMode.Fast):
+                    R.avaliability = false;
+                    break;
+                case (PlayerMode.Psychic):
+                    M.avaliability = false;
+                    break;
+                case (PlayerMode.Strong):
+                    F.avaliability = false;
+                    break;
+            }
+        }
+
+        else
+        {
+            switch(choice)
+            {
+                case (PlayerMode.Fast):
+                    R.avaliability = true;
+                    break;
+                case (PlayerMode.Psychic):
+                    M.avaliability = true;
+                    break;
+                case (PlayerMode.Strong):
+                    F.avaliability = true;
+                    break;
+            }
+        }
+    }
+
+    private class MonkeyOption
+    {
+        public Button button;
+        public Image image;
+        public bool avaliability;
+    }
+
+    [PunRPC]
+    public void ChangeScene()
+    {
+        MasterManager.GameSettings.SetChoice(selectedMonkey);
+        PhotonNetwork.AutomaticallySyncScene = true;
+        if(PhotonNetwork.IsMasterClient)
+        {
+            PhotonNetwork.LoadLevel("Game");
         }
     }
 }
