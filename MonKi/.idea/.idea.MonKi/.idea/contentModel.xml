@@ -181,6 +181,7 @@
         <e p="Scripts" t="Include">
           <e p="FPSControllerScripts" t="Include">
             <e p="BasicController" t="Include">
+              <e p="Armario.cs" t="Include" />
               <e p="CapsulesAndDoors.cs" t="Include" />
               <e p="InteracterScript.cs" t="Include" />
               <e p="MouseScript.cs" t="Include" />

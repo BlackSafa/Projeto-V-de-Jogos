@@ -5,7 +5,7 @@ using UnityEngine;
 public class CapsulesAndDoors : InteractiveObject
 {
     // Start is called before the first frame update
-    private bool open, close;
+    private bool open;
     void Start()
     {
         isHoldable = false;

@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="f6ed48d9-126b-45ec-afaf-212c6fd031e1" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.MonKi/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MonKi/.idea/contentModel.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.MonKi/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MonKi/.idea/indexLayout.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.MonKi/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MonKi/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -15,6 +14,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/FPSControllerScripts/BasicController/Armario.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/FPSControllerScripts/Mokeys/MacacoM.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
@@ -29,6 +29,7 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/FPSControllerScripts/BasicController/MouseScript.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/FPSControllerScripts/Mokeys/MacacoM.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/FPSControllerScripts/BasicController/CapsulesAndDoors.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/FPSControllerScripts/BasicController/Armario.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1pg0MIkP2LuoPujWb0uPYGmpXrq" />
@@ -83,7 +84,7 @@
       <workItem from="1616705491376" duration="18361000" />
       <workItem from="1617992141857" duration="19469000" />
       <workItem from="1620752032232" duration="1000" />
-      <workItem from="1620753161228" duration="6883000" />
+      <workItem from="1620753161228" duration="8719000" />
     </task>
     <servers />
   </component>
