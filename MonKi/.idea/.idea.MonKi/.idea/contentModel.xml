@@ -183,8 +183,10 @@
             <e p="BasicController" t="Include">
               <e p="Armario.cs" t="Include" />
               <e p="CapsulesAndDoors.cs" t="Include" />
+              <e p="Chaves.cs" t="Include" />
               <e p="InteracterScript.cs" t="Include" />
               <e p="MouseScript.cs" t="Include" />
+              <e p="Painel.cs" t="Include" />
               <e p="PlayerMovementScript.cs" t="Include" />
             </e>
             <e p="Mokeys" t="Include">
@@ -196,6 +198,7 @@
           <e p="Managers" t="Include">
             <e p="GameSettings.cs" t="Include" />
             <e p="MasterManager.cs" t="Include" />
+            <e p="PlayerSpawningManager.cs" t="Include" />
             <e p="SingletonReferences.cs" t="Include" />
             <e p="SingletonScriptableObject.cs" t="Include" />
           </e>

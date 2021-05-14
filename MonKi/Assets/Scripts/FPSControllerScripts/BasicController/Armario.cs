@@ -9,6 +9,7 @@ public class Armario : InteractiveObject
     void Start()
     {
         isHoldable = false;
+        open = false;
     }
 
     // Update is called once per frame
@@ -22,6 +23,12 @@ public class Armario : InteractiveObject
         if (!open)
         {
             Debug.Log("Abriu");
+            open = true;
+        }
+        else
+        {
+            Debug.Log("Fechou");
+            open = false;
         }
       
     }

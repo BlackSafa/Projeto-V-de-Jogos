@@ -5,19 +5,15 @@ using UnityEngine;
 public class CapsulesAndDoors : InteractiveObject
 {
     // Start is called before the first frame update
+    public InteractiveObject fechadura;
     private bool open;
     void Start()
     {
+        fechadura.activate += DoorAnimation;
         isHoldable = false;
     }
 
     // Update is called once per frame
-    public override void Action()
-    {
-    
-            DoorAnimation();
-       
-    }
     
     // ReSharper disable Unity.PerformanceAnalysis
     void DoorAnimation()
