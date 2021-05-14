@@ -16,7 +16,7 @@ public class MacacoM : InteracterScript
     void Start()
     {
         PlayerStarter();
-        mindposition = MouseScript.Mental.gameObject;
+        mindposition = Mental.gameObject;
     }
     
     void Update()

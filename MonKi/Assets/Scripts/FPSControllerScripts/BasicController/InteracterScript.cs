@@ -20,6 +20,11 @@ public class InteracterScript : PlayerMovementScript
     float grabReach = 3.2f;
     public void PlayerStarter()
     {
+        if(!photonView.IsMine)
+        {
+            this.enabled = false;
+            personalCamera.gameObject.SetActive(false);
+        }
         StartMovement();
         print(carryCapacity);
         carryCapacity = WeightClass.Light | WeightClass.Moderate;
@@ -29,6 +34,7 @@ public class InteracterScript : PlayerMovementScript
         shouder.parent = cam.transform;
         hand.localPosition = shouder.localPosition;
     }
+
 
     public void PlayerUpdate()
     {

@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -250,7 +250,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 150880622}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 150880624}
+        m_MethodName: ConnectHit
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &150880622
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1102,6 +1113,50 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1318447815}
   m_CullTransparentMesh: 0
+--- !u!1 &1527179325
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1527179327}
+  - component: {fileID: 1527179326}
+  m_Layer: 0
+  m_Name: Singleton Reference
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1527179326
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1527179325}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be081ba28dc0d90b088d9e4a1bb12014, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  masterManager: {fileID: 11400000, guid: 23f4d183f4808dfd09aebcec4475c8da, type: 2}
+--- !u!4 &1527179327
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1527179325}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 497.4759, y: 279.677, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1563034830
 GameObject:
   m_ObjectHideFlags: 0
@@ -1574,25 +1629,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1563034834}
     m_Modifications:
-    - target: {fileID: 2965403856101989680, guid: cc8deab1fc751528593284afee2e0ed0,
-        type: 3}
-      propertyPath: nickName
-      value: 
-      objectReference: {fileID: 1252795238}
-    - target: {fileID: 2965403856101989680, guid: cc8deab1fc751528593284afee2e0ed0,
-        type: 3}
-      propertyPath: roomName
-      value: 
-      objectReference: {fileID: 1318447817}
     - target: {fileID: 2965403856130804751, guid: cc8deab1fc751528593284afee2e0ed0,
         type: 3}
       propertyPath: m_Name
       value: MacacoSelect
-      objectReference: {fileID: 0}
-    - target: {fileID: 2965403856130804751, guid: cc8deab1fc751528593284afee2e0ed0,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2965403856130804752, guid: cc8deab1fc751528593284afee2e0ed0,
         type: 3}
@@ -1699,15 +1739,5 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2965403856511690110, guid: cc8deab1fc751528593284afee2e0ed0,
-        type: 3}
-      propertyPath: nickName
-      value: 
-      objectReference: {fileID: 1252795238}
-    - target: {fileID: 2965403856511690110, guid: cc8deab1fc751528593284afee2e0ed0,
-        type: 3}
-      propertyPath: roomName
-      value: 
-      objectReference: {fileID: 1318447817}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cc8deab1fc751528593284afee2e0ed0, type: 3}

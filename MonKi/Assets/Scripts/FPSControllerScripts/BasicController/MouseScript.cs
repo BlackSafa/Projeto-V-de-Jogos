@@ -1,12 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
+using Photon.Realtime;
 
-public class MouseScript : MonoBehaviour
+public class MouseScript : MonoBehaviourPunCallbacks
 {
     public float mouseSensitivityX = 100f;
     public Transform cameraPosition, personalCamera;
-    public static Transform Mental;
+    public Transform Mental;
 
     float xRotation = 0f;
     float yRotation = 0f;
@@ -19,6 +21,7 @@ public class MouseScript : MonoBehaviour
         Mental = new GameObject().transform;
         Mental.SetParent(personalCamera);
         Mental.position += new Vector3(0, 0, 10);
+        
         
         if(cameraPosition == null)
         {

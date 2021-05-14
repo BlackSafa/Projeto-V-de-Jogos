@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 2965403856101989683}
   - component: {fileID: 2965403856101989682}
   - component: {fileID: 2965403856101989681}
-  - component: {fileID: 2965403856101989680}
   m_Layer: 5
   m_Name: Nenhum
   m_TagString: Untagged
@@ -131,21 +130,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &2965403856101989680
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2965403856101989678}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7608a95dfbc535cc2aa606fcdd07ff34, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  nickName: {fileID: 0}
-  roomName: {fileID: 0}
-  monkeyMenu: {fileID: 0}
 --- !u!1 &2965403856130804751
 GameObject:
   m_ObjectHideFlags: 0
@@ -156,13 +140,14 @@ GameObject:
   m_Component:
   - component: {fileID: 2965403856130804752}
   - component: {fileID: 2965403856130804753}
+  - component: {fileID: 8197418321804924391}
   m_Layer: 5
   m_Name: MacacoSelect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2965403856130804752
 RectTransform:
   m_ObjectHideFlags: 0
@@ -204,6 +189,29 @@ MonoBehaviour:
   setted: {r: 0, g: 0, b: 1, a: 1}
   unselectable: {r: 1, g: 0, b: 0, a: 1}
   gameStarted: 0
+  selected: 0
+--- !u!114 &8197418321804924391
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2965403856130804751}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 1
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &2965403856183442204
 GameObject:
   m_ObjectHideFlags: 0
@@ -580,7 +588,6 @@ GameObject:
   - component: {fileID: 2965403856511690049}
   - component: {fileID: 2965403856511690048}
   - component: {fileID: 2965403856511690111}
-  - component: {fileID: 2965403856511690110}
   m_Layer: 5
   m_Name: Select
   m_TagString: Untagged
@@ -699,21 +706,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &2965403856511690110
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2965403856511690108}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7608a95dfbc535cc2aa606fcdd07ff34, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  nickName: {fileID: 0}
-  roomName: {fileID: 0}
-  monkeyMenu: {fileID: 0}
 --- !u!1 &2965403856862342721
 GameObject:
   m_ObjectHideFlags: 0

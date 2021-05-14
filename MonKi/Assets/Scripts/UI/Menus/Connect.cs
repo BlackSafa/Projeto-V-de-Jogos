@@ -14,12 +14,12 @@ public class Connect : MonoBehaviourPunCallbacks
 
     private void Start() 
     {
-        if(GetComponent<Button>() == null)
+        //if(GetComponent<Button>() == null)
             PhotonNetwork.ConnectUsingSettings();
     }
     public void ConnectHit()
     {
-        PhotonNetwork.ConnectUsingSettings();
+        //PhotonNetwork.ConnectUsingSettings();
         Debug.Log("Conectando");
         //logText.text = "Log Panel: \nConectando";
         PhotonNetwork.NickName = nickName.text;
@@ -45,8 +45,9 @@ public class Connect : MonoBehaviourPunCallbacks
     {
         Debug.Log("Entrando na Sala");
         if(PhotonNetwork.IsMasterClient)
-        PhotonNetwork.NickName = nickName.text + " P(1)";
-        PhotonNetwork.NickName = nickName.text + " P(" + PhotonNetwork.CurrentRoom.PlayerCount + ")";
+            PhotonNetwork.NickName = nickName.text + " P(1)";
+        else
+            PhotonNetwork.NickName = nickName.text + " P(" + PhotonNetwork.CurrentRoom.PlayerCount + ")";
         monkeyMenu.SetActive(true);
         //logText.text = "\nEntrando na Sala";
     }

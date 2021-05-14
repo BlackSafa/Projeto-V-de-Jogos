@@ -5,7 +5,7 @@ using Photon.Pun;
 
 public class PlayerSpawningManager : MonoBehaviour
 {
-    Transform orSpPointF, orSpPointP, orSpPointS, sndLvlSpawn;
+    public Transform orSpPointF, orSpPointP, orSpPointS, sndLvlSpawn;
     void Start()
     {
         switch(MasterManager.GameSettings.PlayerMode)
@@ -14,10 +14,10 @@ public class PlayerSpawningManager : MonoBehaviour
                 PhotonNetwork.Instantiate("Fast Monkey", orSpPointF.position, Quaternion.identity);
                 break;
             case(PlayerMode.Psychic):
-                PhotonNetwork.Instantiate("Psychic Monkey", orSpPointF.position, Quaternion.identity);
+                PhotonNetwork.Instantiate("Psychic Monkey", orSpPointP.position, Quaternion.identity);
                 break;
             case(PlayerMode.Strong):
-                PhotonNetwork.Instantiate("Strong Monkey", orSpPointF.position, Quaternion.identity);
+                PhotonNetwork.Instantiate("Strong Monkey", orSpPointS.position, Quaternion.identity);
                 break;
         }
     }

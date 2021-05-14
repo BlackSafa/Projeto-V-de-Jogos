@@ -10,10 +10,15 @@ public class MonkeySelector : MonoBehaviour
     [SerializeField]
     Color standBy, selecting, setted, unselectable;
     PhotonView photonView;
-    public bool gameStarted;
+    public bool gameStarted, selected;
 
     private void Awake() {
         photonView = GetComponent<PhotonView>();
+        R = new MonkeyOption(transform.Find("Rapido").gameObject);
+        M = new MonkeyOption(transform.Find("Mental").gameObject);
+        F = new MonkeyOption(transform.Find("Forte").gameObject);
+        photonView = GetComponent<PhotonView>();
+        
     }
 
     private void Update() {
@@ -58,7 +63,8 @@ public class MonkeySelector : MonoBehaviour
         {
             case (PlayerMode.Fast):
                 R.image.color = standBy;
-                photonView.RPC("MonkeySetter",RpcTarget.OthersBuffered, selectedMonkey, false);
+                if(selected)
+                    photonView.RPC("MonkeySetter",RpcTarget.OthersBuffered, selectedMonkey, false);
                 R.button.interactable = true;
                 M.button.interactable = true;
                 F.button.interactable = true;
@@ -66,7 +72,8 @@ public class MonkeySelector : MonoBehaviour
                 break;
             case (PlayerMode.Psychic):
                 M.image.color = standBy;
-                photonView.RPC("MonkeySetter",RpcTarget.OthersBuffered, selectedMonkey, false);
+                if(selected)
+                    photonView.RPC("MonkeySetter",RpcTarget.OthersBuffered, selectedMonkey, false);
                 R.button.interactable = true;
                 M.button.interactable = true;
                 F.button.interactable = true;
@@ -74,13 +81,15 @@ public class MonkeySelector : MonoBehaviour
                 break;
             case (PlayerMode.Strong):
                 F.image.color = standBy;
-                photonView.RPC("MonkeySetter",RpcTarget.OthersBuffered, selectedMonkey, false);
+                if(selected)
+                    photonView.RPC("MonkeySetter",RpcTarget.OthersBuffered, selectedMonkey, false);
                 R.button.interactable = true;
                 M.button.interactable = true;
                 F.button.interactable = true;
                 selectedMonkey = PlayerMode.None;
                 break;
         }
+        selected = false;
     }
 
     public void OnClickSelect()
@@ -133,11 +142,18 @@ public class MonkeySelector : MonoBehaviour
                 }
                 break;
         }
+        selected = true;
+        OnStartGame();
     }
 
     void OnStartGame()
     {
-        if(!(R.avaliability && F.avaliability && M.avaliability))
+        int x = 0;
+        x = !R.avaliability ? x+=1 : x;
+        x = !M.avaliability ? x+=1 : x;
+        x = !F.avaliability ? x+=1 : x;
+        x = selected ? x+=1 : x;
+        if(x >= 3)
         {
             photonView.RPC("ChangeScene",RpcTarget.All);
         }
@@ -167,12 +183,18 @@ public class MonkeySelector : MonoBehaviour
             {
                 case (PlayerMode.Fast):
                     R.avaliability = true;
+                    R.button.interactable = true;
+                    R.image.color = standBy;
                     break;
                 case (PlayerMode.Psychic):
                     M.avaliability = true;
+                    M.button.interactable = true;
+                    M.image.color = standBy;
                     break;
                 case (PlayerMode.Strong):
                     F.avaliability = true;
+                    F.button.interactable = true;
+                    F.image.color = standBy;
                     break;
             }
         }
@@ -183,6 +205,14 @@ public class MonkeySelector : MonoBehaviour
         public Button button;
         public Image image;
         public bool avaliability;
+
+        public MonkeyOption(GameObject target)
+        {
+            button = target.GetComponent<Button>();
+            image = target.GetComponent<Image>();
+            avaliability = true;
+        }
+
     }
 
     [PunRPC]
@@ -192,7 +222,7 @@ public class MonkeySelector : MonoBehaviour
         PhotonNetwork.AutomaticallySyncScene = true;
         if(PhotonNetwork.IsMasterClient)
         {
-            PhotonNetwork.LoadLevel("Game");
+            PhotonNetwork.LoadLevel("Level 1");
         }
     }
 }
