@@ -3,7 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="f6ed48d9-126b-45ec-afaf-212c6fd031e1" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.MonKi/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MonKi/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.MonKi/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MonKi/.idea/indexLayout.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.MonKi/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MonKi/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Connection.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/FPSControllerScripts/BasicController/Armario.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/FPSControllerScripts/BasicController/Armario.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/FPSControllerScripts/BasicController/CapsulesAndDoors.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/FPSControllerScripts/BasicController/CapsulesAndDoors.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,7 +33,9 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/FPSControllerScripts/BasicController/PlayerMovementScript.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/FPSControllerScripts/BasicController/MouseScript.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/FPSControllerScripts/Mokeys/MacacoM.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/FPSControllerScripts/BasicController/Chaves.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/FPSControllerScripts/BasicController/CapsulesAndDoors.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/FPSControllerScripts/BasicController/Painel.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/FPSControllerScripts/BasicController/Armario.cs" />
     </changedPaths>
   </component>
@@ -47,6 +54,14 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
+    <configuration name="Standalone Player" type="RunUnityExe" factoryName="Unity Executable">
+      <option name="EXE_PATH" value="$PROJECT_DIR$/../../../Área de Trabalho/Build Project\MonKi.exe" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="C:\Users\fgabr\OneDrive\Área de Trabalho\Build Project" />
+      <option name="PASS_PARENT_ENVS" value="1" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <method v="2" />
+    </configuration>
     <configuration name="Attach to Unity Editor &amp; Play" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="UNITY_ATTACH_AND_PLAY" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
@@ -84,7 +99,8 @@
       <workItem from="1616705491376" duration="18361000" />
       <workItem from="1617992141857" duration="19469000" />
       <workItem from="1620752032232" duration="1000" />
-      <workItem from="1620753161228" duration="8719000" />
+      <workItem from="1620753161228" duration="9582000" />
+      <workItem from="1621012315123" duration="10123000" />
     </task>
     <servers />
   </component>
