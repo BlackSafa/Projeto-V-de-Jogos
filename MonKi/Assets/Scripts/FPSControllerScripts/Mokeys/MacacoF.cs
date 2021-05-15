@@ -33,39 +33,19 @@ public class MacacoF : InteracterScript
             switch (objScript.weight){
             case WeightClass.Light:
                 Debug.Log("Agarrando objeto leve");
-                objScript.rb.isKinematic = true;
-                objScript.transform.position = hand.position;
-                objScript.transform.parent = hand.parent;
-                Physics.IgnoreCollision(hit.collider, gameObject.GetComponent<Collider>(), true);
-                grabbed = objScript.rb;
-                isHolding = true;
+                objScript.photonView.RPC("GettingGrabbed", Photon.Pun.RpcTarget.All, gameObject, true);
                 break;
             case WeightClass.Moderate:
                 Debug.Log("Agarrando objeto médio");
-                objScript.rb.isKinematic = true;
-                objScript.transform.position = shouder.position;
-                objScript.transform.parent = shouder.parent;
-                Physics.IgnoreCollision(hit.collider, gameObject.GetComponent<Collider>(), true);
-                grabbed = objScript.rb;
-                isHolding = true;
+                objScript.photonView.RPC("GettingGrabbed", Photon.Pun.RpcTarget.All, gameObject, false);
                 break;
             case WeightClass.Monkey:
                 Debug.Log("Agarrando mamaco");
-                objScript.rb.isKinematic = true;
-                objScript.transform.position = shouder.position;
-                objScript.transform.parent = shouder.parent;
-                Physics.IgnoreCollision(hit.collider, gameObject.GetComponent<Collider>(), true);
-                grabbed = objScript.rb;
-                isHolding = true;
+                objScript.photonView.RPC("GettingGrabbed", Photon.Pun.RpcTarget.All, gameObject, false);
                 break;
             default:
                 Debug.Log("Agarrando objeto pesado");
-                objScript.rb.isKinematic = true;
-                objScript.transform.position = shouder.position;
-                objScript.transform.parent = shouder.parent;
-                Physics.IgnoreCollision(hit.collider, gameObject.GetComponent<Collider>(), true);
-                grabbed = objScript.rb;
-                isHolding = true;
+                objScript.photonView.RPC("GettingGrabbed", Photon.Pun.RpcTarget.All, gameObject, false);
                 break;
             }
         }
@@ -82,35 +62,19 @@ public class MacacoF : InteracterScript
         {
             case WeightClass.Light:
                 Debug.Log("Arremessandfo objeto leve");
-                grabbed.transform.parent = null;
-                grabbed.isKinematic = false;
-                grabbed.AddForce(personalCamera.transform.forward * 700);
-                Physics.IgnoreCollision(grabbed.GetComponent<Collider>(), gameObject.GetComponent<Collider>(), false);
-                isHolding = false;
+                grabbed.GetComponent<InteracterScript>().photonView.RPC("GettingDropped", Photon.Pun.RpcTarget.All, gameObject, false, 700);
             break;
             case WeightClass.Moderate:
                 Debug.Log("Arremessandfo objeto médio");
-                grabbed.transform.parent = null;
-                grabbed.isKinematic = false;
-                grabbed.AddForce(personalCamera.transform.forward * 500);
-                Physics.IgnoreCollision(grabbed.GetComponent<Collider>(), gameObject.GetComponent<Collider>(), false);
-                isHolding = false;
+                grabbed.GetComponent<InteracterScript>().photonView.RPC("GettingDropped", Photon.Pun.RpcTarget.All, gameObject, false, 500);
                 break;
             case WeightClass.Monkey:
                 Debug.Log("Arremessando Macaco");
-                grabbed.transform.parent = null;
-                grabbed.isKinematic = false;
-                grabbed.AddForce(personalCamera.transform.forward * 600);
-                Physics.IgnoreCollision(grabbed.GetComponent<Collider>(), gameObject.GetComponent<Collider>(), false);
-                isHolding = false;
+                grabbed.GetComponent<InteracterScript>().photonView.RPC("GettingDropped", Photon.Pun.RpcTarget.All, gameObject, false, 600);
                 break;
             case WeightClass.Heavy:
                 Debug.Log("Pesado demais para ser lançado normalmente");
-                grabbed.transform.parent = null;
-                grabbed.isKinematic = false;
-                grabbed.AddForce(personalCamera.transform.forward * 500);
-                Physics.IgnoreCollision(grabbed.GetComponent<Collider>(), gameObject.GetComponent<Collider>(), false);
-                isHolding = false;
+                grabbed.GetComponent<InteracterScript>().photonView.RPC("GettingDropped", Photon.Pun.RpcTarget.All, gameObject, false, 500);
                 break;
         }
     }

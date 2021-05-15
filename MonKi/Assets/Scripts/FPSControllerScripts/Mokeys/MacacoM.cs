@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using UnityEngine;
 using Debug = UnityEngine.Debug;
+using Photon.Pun;
 
 
 public class MacacoM : InteracterScript
@@ -42,7 +43,8 @@ public class MacacoM : InteracterScript
         {
             if(inmind && Input.GetKeyDown(KeyCode.Tab))
             {
-                _minded.GetComponent<Rigidbody>().useGravity = true;
+                //_minded.GetComponent<Rigidbody>().useGravity = true;
+                _minded.GetComponent<PhotonView>().RPC("Levitating",RpcTarget.All, mindposition.transform.position, false);
                 _minded = null;
                 inmind = false;
             }
@@ -94,7 +96,7 @@ public class MacacoM : InteracterScript
                 inmind = true;
                 _minded = hit.transform.gameObject;
                 mindposition.transform.position = _minded.transform.position;
-                _minded.GetComponent<Rigidbody>().useGravity = false;
+                //_minded.GetComponent<Rigidbody>().useGravity = false;
             }
         }
     }
@@ -118,7 +120,8 @@ public class MacacoM : InteracterScript
                 mindposition.transform.localPosition +=  new Vector3(0, 0, Input.mouseScrollDelta.y * Time.deltaTime * 5);
             }
 
-            _minded.transform.position = mindposition.transform.position;
+            //_minded.transform.position = mindposition.transform.position;
+            _minded.GetComponent<PhotonView>().RPC("Levitating",RpcTarget.All, mindposition.transform.position, true);
             mindposition.transform.Rotate(0, y * Time.deltaTime * 30, z * Time.deltaTime * 30);
         }
     }

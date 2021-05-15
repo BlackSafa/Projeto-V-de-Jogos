@@ -11,7 +11,7 @@ public class InteracterScript : PlayerMovementScript
 
     public Rigidbody grabbed;
     [SerializeField]
-    protected Transform shouder, hand;
+    public Transform shouder, hand;
     protected Ray camRay;
 
     public bool isHolding = false;
@@ -86,21 +86,12 @@ public class InteracterScript : PlayerMovementScript
             switch (objScript.weight){
             case WeightClass.Light:
                 Debug.Log("Agarrando objeto leve");
-                objScript.rb.isKinematic = true;
-                objScript.transform.position = hand.position;
-                objScript.transform.parent = hand.parent;
-                Physics.IgnoreCollision(hit.collider, gameObject.GetComponent<Collider>(), true);
-                grabbed = objScript.rb;
-                isHolding = true;
+                objScript.photonView.RPC("GettingGrabbed", Photon.Pun.RpcTarget.All, gameObject, true);
+                
                 break;
             case WeightClass.Moderate:
                 Debug.Log("Agarrando objeto médio");
-                objScript.rb.isKinematic = true;
-                objScript.transform.position = shouder.position;
-                objScript.transform.parent = shouder.parent;
-                Physics.IgnoreCollision(hit.collider, gameObject.GetComponent<Collider>(), true);
-                grabbed = objScript.rb;
-                isHolding = true;
+                objScript.photonView.RPC("GettingGrabbed", Photon.Pun.RpcTarget.All, gameObject, false);
                 break;
             case WeightClass.Monkey:
                 Debug.Log("Macacos são pesados demais para agarrar");
@@ -119,10 +110,7 @@ public class InteracterScript : PlayerMovementScript
     protected void Drop()
     {
         //Debug.Log("Soltou");
-        grabbed.transform.parent = null;
-        grabbed.isKinematic = false;
-        Physics.IgnoreCollision(grabbed.GetComponent<Collider>(), gameObject.GetComponent<Collider>(), false);
-        isHolding = false;
+        grabbed.GetComponent<InteracterScript>().photonView.RPC("GettingDropped", Photon.Pun.RpcTarget.All, gameObject, true, 0);
     }
 
     protected virtual void Throw()
@@ -131,19 +119,11 @@ public class InteracterScript : PlayerMovementScript
         switch (grabbed.gameObject.GetComponent<InteractiveObject>().weight)
         {
             case WeightClass.Light:
-                grabbed.transform.parent = null;
-                grabbed.isKinematic = false;
-                grabbed.AddForce(personalCamera.transform.forward * 500);
-                Physics.IgnoreCollision(grabbed.GetComponent<Collider>(), gameObject.GetComponent<Collider>(), false);
-                isHolding = false;
+                grabbed.GetComponent<InteracterScript>().photonView.RPC("GettingDropped", Photon.Pun.RpcTarget.All, gameObject, false, 500);
             break;
             default:
                 Debug.Log("Pesado demais para ser lançado normalmente");
-                grabbed.transform.parent = null;
-                grabbed.isKinematic = false;
-                grabbed.AddForce(personalCamera.transform.forward * 100);
-                Physics.IgnoreCollision(grabbed.GetComponent<Collider>(), gameObject.GetComponent<Collider>(), false);
-                isHolding = false;
+                grabbed.GetComponent<InteracterScript>().photonView.RPC("GettingDropped", Photon.Pun.RpcTarget.All, gameObject, false, 100);
                 break;
         }
     }
