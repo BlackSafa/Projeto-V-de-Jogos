@@ -110,7 +110,7 @@ public class InteracterScript : PlayerMovementScript
     protected void Drop()
     {
         //Debug.Log("Soltou");
-        grabbed.GetComponent<InteractiveObject>().photonView.RPC("GettingDropped", Photon.Pun.RpcTarget.All, photonView.ViewID, true, 0);
+        grabbed.GetComponent<InteractiveObject>().photonView.RPC("GettingDropped", Photon.Pun.RpcTarget.All, photonView.ViewID, true, 0.0f);
     }
 
     protected virtual void Throw()
@@ -119,11 +119,11 @@ public class InteracterScript : PlayerMovementScript
         switch (grabbed.gameObject.GetComponent<InteractiveObject>().weight)
         {
             case WeightClass.Light:
-                grabbed.GetComponent<InteractiveObject>().photonView.RPC("GettingDropped", Photon.Pun.RpcTarget.All, photonView.ViewID, false, 500);
+                grabbed.GetComponent<InteractiveObject>().photonView.RPC("GettingDropped", Photon.Pun.RpcTarget.All, photonView.ViewID, false, 500.0f);
             break;
             default:
                 Debug.Log("Pesado demais para ser lançado normalmente");
-                grabbed.GetComponent<InteractiveObject>().photonView.RPC("GettingDropped", Photon.Pun.RpcTarget.All, photonView.ViewID, false, 100);
+                grabbed.GetComponent<InteractiveObject>().photonView.RPC("GettingDropped", Photon.Pun.RpcTarget.All, photonView.ViewID, false, 100.0f);
                 break;
         }
     }
