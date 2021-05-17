@@ -1141,7 +1141,6 @@ MonoBehaviour:
   weight: 1
   isHoldable: 0
   rb: {fileID: 0}
-  photonView: {fileID: 0}
 --- !u!65 &638382035
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1750,12 +1749,7 @@ MonoBehaviour:
   weight: 1
   isHoldable: 0
   rb: {fileID: 1011000155}
-<<<<<<< HEAD
   fechadura: {fileID: 1739190694}
-=======
-  photonView: {fileID: 0}
-  fechadura: {fileID: 0}
->>>>>>> 02ae3f1d1e39ec5dea1e2cc68ec173f4d0860550
 --- !u!114 &1011000157
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2219,7 +2213,7 @@ PrefabInstance:
     - target: {fileID: 3457331576074897559, guid: 34990f0b7504b19da8f97ee2a06b31e6,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3457331576074897559, guid: 34990f0b7504b19da8f97ee2a06b31e6,
         type: 3}
