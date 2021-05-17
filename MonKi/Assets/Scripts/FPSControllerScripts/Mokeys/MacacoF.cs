@@ -62,19 +62,19 @@ public class MacacoF : InteracterScript
         {
             case WeightClass.Light:
                 Debug.Log("Arremessandfo objeto leve");
-                grabbed.GetComponent<InteracterScript>().photonView.RPC("GettingDropped", Photon.Pun.RpcTarget.All, photonView.ViewID, false, 700);
+                grabbed.GetComponent<InteractiveObject>().photonView.RPC("GettingDropped", Photon.Pun.RpcTarget.All, photonView.ViewID, false, 700);
             break;
             case WeightClass.Moderate:
                 Debug.Log("Arremessandfo objeto médio");
-                grabbed.GetComponent<InteracterScript>().photonView.RPC("GettingDropped", Photon.Pun.RpcTarget.All, photonView.ViewID, false, 500);
+                grabbed.GetComponent<InteractiveObject>().photonView.RPC("GettingDropped", Photon.Pun.RpcTarget.All, photonView.ViewID, false, 500);
                 break;
             case WeightClass.Monkey:
                 Debug.Log("Arremessando Macaco");
-                grabbed.GetComponent<InteracterScript>().photonView.RPC("GettingDropped", Photon.Pun.RpcTarget.All, photonView.ViewID, false, 600);
+                grabbed.GetComponent<InteractiveObject>().photonView.RPC("GettingDropped", Photon.Pun.RpcTarget.All, photonView.ViewID, false, 600);
                 break;
             case WeightClass.Heavy:
                 Debug.Log("Pesado demais para ser lançado normalmente");
-                grabbed.GetComponent<InteracterScript>().photonView.RPC("GettingDropped", Photon.Pun.RpcTarget.All, photonView.ViewID, false, 500);
+                grabbed.GetComponent<InteractiveObject>().photonView.RPC("GettingDropped", Photon.Pun.RpcTarget.All, photonView.ViewID, false, 500);
                 break;
         }
     }

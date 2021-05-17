@@ -82,11 +82,11 @@ public class InteractiveObject : MonoBehaviour
         if(get)
         {
             transform.position = position;
-            rb.useGravity = true;
+            rb.useGravity = false;
         }
         else
         {
-            rb.useGravity = false;
+            rb.useGravity = true;
         }
     }
 }
