@@ -33,8 +33,9 @@ public class InteractiveObject : MonoBehaviour
     }
 
     [PunRPC]
-    public void GettingGrabbed(GameObject holder, bool isHand)
+    public void GettingGrabbed(int id, bool isHand)
     {
+        GameObject holder = PhotonView.Find(id).gameObject;
         if(isHand)
         {
             rb.isKinematic = true;
@@ -56,8 +57,9 @@ public class InteractiveObject : MonoBehaviour
     }
 
     [PunRPC]
-    public void GettingDropped(GameObject holder, bool isDropping, float force)
+    public void GettingDropped(int id, bool isDropping, float force)
     {
+        GameObject holder = PhotonView.Find(id).gameObject;
         if(isDropping)
         {
             transform.parent = null;
