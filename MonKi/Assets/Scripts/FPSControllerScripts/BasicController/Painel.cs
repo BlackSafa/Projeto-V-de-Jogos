@@ -17,16 +17,19 @@ public class Painel : InteractiveObject
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            aaa();
-        }
-        
     }
 
     public override void Action()
     {
-        aaa();
+        
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.gameObject.tag == "Player" && Input.GetKeyDown(KeyCode.E))
+        {
+            aaa();
+        }
     }
 
     void aaa()
