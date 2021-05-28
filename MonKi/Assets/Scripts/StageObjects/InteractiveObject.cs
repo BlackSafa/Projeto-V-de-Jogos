@@ -9,15 +9,18 @@ public class InteractiveObject : MonoBehaviour
     public delegate void OnActivation();
     public event OnActivation activate;
     public WeightClass weight = WeightClass.Light;
-    public bool isHoldable;
+    public bool isHoldable = false;
     public Rigidbody rb;
     public PhotonView photonView;
+
+    private Transform respawningPoint;
 
     void Start()
     {
         rb = gameObject.GetComponent<Rigidbody>();
         photonView = gameObject.GetComponent<PhotonView>();
         if(rb != null) isHoldable = true;
+        if(isHoldable) respawningPoint = transform;
     }
 
     // Update is called once per frame
@@ -26,10 +29,18 @@ public class InteractiveObject : MonoBehaviour
         
     }
 
-    public virtual void Action()
+    public virtual void Action(InteracterScript caller)
     {
         if(activate != null)
-            activate();
+            photonView.RPC("CallAction",RpcTarget.All);
+        else
+            Debug.Log("Não existe função escrita no activate");
+    }
+
+    [PunRPC]
+    public void CallAction()
+    {
+        activate();
     }
 
     [PunRPC]
@@ -88,6 +99,19 @@ public class InteractiveObject : MonoBehaviour
         {
             rb.useGravity = true;
         }
+    }
+
+    [PunRPC]
+    public void SetPosition(bool isDeactivating, float[] position, float[] rotation, int caller)
+    {
+        if(isDeactivating)
+        {
+            isHoldable = false;
+            rb.isKinematic = true;
+            transform.parent = PhotonView.Find(caller).transform;
+        }
+        transform.position = new Vector3(position[0], position[1], position[2]);
+        transform.eulerAngles = new Vector3(rotation[0], rotation[1], rotation[2]);
     }
 }
 

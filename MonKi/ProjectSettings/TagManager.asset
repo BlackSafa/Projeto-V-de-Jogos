@@ -6,6 +6,7 @@ TagManager:
   tags:
   - CameraHead
   - Grababble Object
+  - Key
   layers:
   - Default
   - TransparentFX

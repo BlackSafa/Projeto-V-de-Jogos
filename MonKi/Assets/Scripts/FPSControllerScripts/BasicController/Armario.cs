@@ -13,7 +13,7 @@ public class Armario : InteractiveObject
     }
 
     // Update is called once per frame
-    public override void Action()
+    public override void Action(InteracterScript caller)
     {
         abrirArmario();
     }

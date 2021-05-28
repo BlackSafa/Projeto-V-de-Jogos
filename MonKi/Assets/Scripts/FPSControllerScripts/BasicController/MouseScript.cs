@@ -41,7 +41,7 @@ public class MouseScript : MonoBehaviourPunCallbacks
     // Update is called once per frame
     protected void OperateCamera()
     {
-        Debug.Log(Mental.position);
+        //Debug.Log(Mental.position);
         personalCamera.position = cameraPosition.position;
         float mouseX = Input.GetAxis("Mouse X") * mouseSensitivityX * Time.deltaTime;
         float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivityX * Time.deltaTime;

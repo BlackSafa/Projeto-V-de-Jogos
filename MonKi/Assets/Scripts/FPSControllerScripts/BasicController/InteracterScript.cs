@@ -6,14 +6,12 @@ using UnityEngine;
 public class InteracterScript : PlayerMovementScript
 {
     Camera cam;
-    public WeightClass carryCapacity = WeightClass.Light | WeightClass.Moderate
+    public WeightClass carryCapacity = WeightClass.Light
     , weigthClass = WeightClass.Monkey;
-
     public Rigidbody grabbed;
     [SerializeField]
     public Transform shouder, hand;
     protected Ray camRay;
-
     public bool isHolding = false;
 
     [SerializeField]
@@ -39,13 +37,17 @@ public class InteracterScript : PlayerMovementScript
     public void PlayerUpdate()
     {
         MoveUpdate();
-        Vector3 screenCenter = new Vector3(Screen.width/2, Screen.height/2,0);
+        Vector3 screenCenter = new Vector3(Screen.width/2, Screen.height/2, 0);
         RaycastHit hit;
         camRay = cam.ScreenPointToRay(screenCenter);
         Debug.DrawLine(camRay.origin, (camRay.direction * grabReach) + cameraPosition.position, Color.blue);
-        if(Physics.Raycast(camRay, out hit, grabReach, LayerMask.GetMask("Objects")) && !isHolding)
+        if(Physics.Raycast(camRay, out hit, grabReach, LayerMask.GetMask("Objects")))
         {
-            if(Input.GetButtonUp("Grab") || Input.GetButtonDown("Interact"))
+            if(Input.GetButtonUp("Grab") && !isHolding)
+            {
+                Grab(hit);
+            }
+            if(Input.GetButtonDown("Interact"))
             {
                 Interact(hit);
             }
@@ -68,20 +70,15 @@ public class InteracterScript : PlayerMovementScript
         }
     }
 
-
-    protected virtual void Interact(RaycastHit hit)
+    protected virtual void Grab(RaycastHit hit)
     {
         InteractiveObject objScript = hit.transform.GetComponent<InteractiveObject>();
         if(objScript == null)
         {
             return;
         }
-
-        if(objScript.isHoldable && Input.GetButtonDown("Interact"))
-        {
-            objScript.Action();
-        }
-        else if(objScript.isHoldable)
+        
+        else if(objScript.isHoldable && (carryCapacity & objScript.weight) == objScript.weight)
         {
             switch (objScript.weight){
             case WeightClass.Light:
@@ -93,17 +90,23 @@ public class InteracterScript : PlayerMovementScript
                 Debug.Log("Agarrando objeto médio");
                 objScript.photonView.RPC("GettingGrabbed", Photon.Pun.RpcTarget.All, photonView.ViewID, false);
                 break;
-            case WeightClass.Monkey:
-                Debug.Log("Macacos são pesados demais para agarrar");
-                break;
             default:
                 Debug.Log("Objeto pesado demais");
                 break;
             }
         }
+    }
+
+    protected virtual void Interact(RaycastHit hit)
+    {
+        InteractiveObject objScript = hit.transform.GetComponent<InteractiveObject>();
+        if (objScript == null)
+        {
+            return;
+        }
         else
         {
-            objScript.Action();
+            objScript.Action(this);
         }
     }
 
@@ -127,7 +130,4 @@ public class InteracterScript : PlayerMovementScript
                 break;
         }
     }
-
-    void CallThrowAnimation()
-    {}
 }

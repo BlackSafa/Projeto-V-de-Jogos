@@ -1,14 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using System.Diagnostics;
 using UnityEngine;
-using Debug = UnityEngine.Debug;
 using Photon.Pun;
-
 
 public class MacacoM : InteracterScript
 {
     public bool inmind = false;
+
+    public WeightClass mindCapacity = WeightClass.Light | WeightClass.Moderate;
     public GameObject _minded;
     public GameObject mindposition;
     private RaycastHit levitation;
@@ -22,10 +21,10 @@ public class MacacoM : InteracterScript
     
     void Update()
     {
-        isHolding = true;
+        //isHolding = true;
         PlayerUpdate();
         Debug.DrawLine(camRay.origin, (camRay.direction * mindlenght) + cameraPosition.position, Color.red);
-        if (Physics.Raycast(camRay, out levitation, mindlenght, LayerMask.GetMask("Objects")) /*&& !isHolding*/ && !inmind)
+        if (Physics.Raycast(camRay, out levitation, mindlenght, LayerMask.GetMask("Objects")) && !isHolding && !inmind)
         {
             if (Input.GetKeyDown(KeyCode.Tab))
             {
@@ -88,23 +87,20 @@ public class MacacoM : InteracterScript
     public void GetObjectInMind(RaycastHit hit)
     {
         InteractiveObject objScript = hit.transform.GetComponent<InteractiveObject>();
-        if (objScript.isHoldable)
+        if (objScript.isHoldable && (mindCapacity & objScript.weight) == objScript.weight)
         {
-            if ((carryCapacity & objScript.weight) == objScript.weight)
-            {
-                Debug.Log("Pegando objeto");
-                inmind = true;
-                _minded = hit.transform.gameObject;
-                mindposition.transform.position = _minded.transform.position;
-                //_minded.GetComponent<Rigidbody>().useGravity = false;
-            }
+            //Debug.Log("Pegando objeto");
+            inmind = true;
+            _minded = hit.transform.gameObject;
+            mindposition.transform.position = _minded.transform.position;
+            //_minded.GetComponent<Rigidbody>().useGravity = false;
         }
     }
     public void MoveObjectInMind()
     {
         if (inmind)
         {
-            Debug.Log("Movendo o objeto");
+            //Debug.Log("Movendo o objeto");
             float y = Input.GetAxis("Horizontal");
             float z = Input.GetAxis("Vertical");
             //float z = Input.mouseScrollDelta.y;

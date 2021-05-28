@@ -5,7 +5,7 @@ using Photon.Pun;
 
 public class PlayerSpawningManager : MonoBehaviour
 {
-    public Transform orSpPointF, orSpPointP, orSpPointS, sndLvlSpawn;
+    public Transform orSpPointF, orSpPointP, orSpPointS;
     void Start()
     {
         switch(MasterManager.GameSettings.PlayerMode)
