@@ -1,4 +1,4 @@
-﻿using System.Collections;
+﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using UnityEngine;
@@ -6,8 +6,6 @@ using Debug = UnityEngine.Debug;
 
 public class PlayerMovementScript : MouseScript
 {
-
-
     public CharacterController controller;
     public float groundSpeed = 3.5f;
     public float gravityAcceleration = 10f;
@@ -17,7 +15,7 @@ public class PlayerMovementScript : MouseScript
     public float jumpHeight = 2.2f;
     public Vector3 velocity;
     public bool isGrounded = false;
-
+    public bool movementPause = false;
     public LayerMask groundLayer;
 
     public void StartMovement() {
@@ -35,32 +33,34 @@ public class PlayerMovementScript : MouseScript
     }
     public virtual void MoveUpdate()
     {
-        if (isGrounded)
+        if(!movementPause)
         {
-            momentum = (Movement() / 2);
-            
-        }
-            
-        /*else if(Input.GetAxis("Vertical") >= 0)
-        {
-            Vector3 movejump = ((transform.forward * Input.GetAxis("Vertical")) * 20);
-            momentum = movejump;
+            if (isGrounded)
+            {
+                momentum = (Movement() / 2);
 
+            }
+
+            /*else if(Input.GetAxis("Vertical") >= 0)
+            {
+                Vector3 movejump = ((transform.forward * Input.GetAxis("Vertical")) * 20);
+                momentum = movejump;
+            }
+            else if (Input.GetAxis("Vertical") < 0 && momentum.z >= 0)
+            {
+                Vector3 movejump = ((transform.forward * Input.GetAxis("Vertical")) * 5);
+                momentum = movejump;
+            }
+            else if (Input.GetAxis("Vertical") < 0 && momentum.z <= 0)
+            {
+                Vector3 movejump = (transform.forward * 0);
+                momentum = movejump;
+            }*/
+
+            if (Input.GetButtonDown("Jump") && isGrounded) Jump();
+            Gravity();
+            OperateCamera();
         }
-        else if (Input.GetAxis("Vertical") < 0 && momentum.z >= 0)
-        {
-            Vector3 movejump = ((transform.forward * Input.GetAxis("Vertical")) * 5);
-            momentum = movejump;
-        }
-        else if (Input.GetAxis("Vertical") < 0 && momentum.z <= 0)
-        {
-            Vector3 movejump = (transform.forward * 0);
-            momentum = movejump;
-        }*/
-        
-        if (Input.GetButtonDown("Jump") && isGrounded) Jump();
-        Gravity();
-        OperateCamera();
     }
 
     virtual public Vector3 Movement()
@@ -97,9 +97,16 @@ public class PlayerMovementScript : MouseScript
             controller.Move(velocity * Time.deltaTime);
     }
     
-
     public virtual void Changes()
     {
         
     }
+
+    public void AnimationCaller()
+    {}
+}
+
+public enum Animations
+{
+
 }

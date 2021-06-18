@@ -5,6 +5,7 @@ using UnityEngine;
 public class MacacoF : InteracterScript
 {
     // Start is called before the first frame update
+    bool isPause;
     void Start()
     {
         PlayerStarter();
@@ -14,7 +15,10 @@ public class MacacoF : InteracterScript
     // Update is called once per frame
     void Update()
     {
-        PlayerUpdate();
+        if(!isPause)
+        {
+            PlayerUpdate();
+        }
     }
     protected override void Grab(RaycastHit hit)
     {

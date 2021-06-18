@@ -113,6 +113,17 @@ public class InteractiveObject : MonoBehaviour
         transform.position = new Vector3(position[0], position[1], position[2]);
         transform.eulerAngles = new Vector3(rotation[0], rotation[1], rotation[2]);
     }
+
+    [PunRPC]
+    public void Realocate()
+    {
+        if(respawningPoint != null)
+        {
+            transform.position = respawningPoint.position;
+            transform.eulerAngles = respawningPoint.eulerAngles;
+            transform.localScale = respawningPoint.localScale;
+        }
+    }
 }
 
 [Flags]

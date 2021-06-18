@@ -7,6 +7,7 @@ public class MacacoA : InteracterScript
 {
     // Start is called before the first frame update
     public float jumpSpeedAcceleration = new float();
+    bool isPause;
 
     void Start()
     {
@@ -16,7 +17,10 @@ public class MacacoA : InteracterScript
     // Update is called once per frame
     void Update()
     {
-        PlayerUpdate();
+        if(!isPause)
+        {
+            PlayerUpdate();
+        }
     }
 
     /*public override void Movement()
@@ -39,8 +43,8 @@ public class MacacoA : InteracterScript
    }*/
     public override void Changes()
     {
-        groundSpeed = 5f;
-        jumpHeight = 4.8f;
+        groundSpeed = 3f;
+        jumpHeight = 1.7f;
     }
 
     public Vector3 AirControl()

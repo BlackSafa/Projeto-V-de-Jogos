@@ -6,10 +6,19 @@ public class CapsulesAndDoors : MonoBehaviour
 {
     // Start is called before the first frame update
     public InteractiveObject fechadura;
+    public GenericCheckPointScript trocaSala;
+    [SerializeField]
     private bool open;
     void Start()
     {
         fechadura.activate += DoorAnimation;
+        trocaSala.closeDoor += DoorAnimation;
+
+        if(open)
+        {
+            open = false;
+            DoorAnimation();
+        }
     }
 
     // Update is called once per frame

@@ -12,6 +12,7 @@ public class MacacoM : InteracterScript
     public GameObject mindposition;
     private RaycastHit levitation;
     private float mindlenght = 10f;
+    bool isPause;
     
     void Start()
     {
@@ -21,38 +22,40 @@ public class MacacoM : InteracterScript
     
     void Update()
     {
-        //isHolding = true;
-        PlayerUpdate();
-        Debug.DrawLine(camRay.origin, (camRay.direction * mindlenght) + cameraPosition.position, Color.red);
-        if (Physics.Raycast(camRay, out levitation, mindlenght, LayerMask.GetMask("Objects")) && !isHolding && !inmind)
+        if(!isPause)
         {
-            if (Input.GetKeyDown(KeyCode.Tab))
+            //isHolding = true;
+            PlayerUpdate();
+            Debug.DrawLine(camRay.origin, (camRay.direction * mindlenght) + cameraPosition.position, Color.red);
+            if (Physics.Raycast(camRay, out levitation, mindlenght, LayerMask.GetMask("Objects")) && !isHolding && !inmind)
             {
-                GetObjectInMind(levitation);
+                if (Input.GetKeyDown(KeyCode.Tab))
+                {
+                    GetObjectInMind(levitation);
+                }
+            }
+            //else if (isHolding)
+            //{
+            //    if(isHolding && Input.GetKeyDown(KeyCode.Tab))
+            //    {
+            //        Drop();
+            //    }
+            //}
+            else if (inmind)
+            {
+                if(inmind && Input.GetKeyDown(KeyCode.Tab))
+                {
+                    //_minded.GetComponent<Rigidbody>().useGravity = true;
+                    _minded.GetComponent<PhotonView>().RPC("Levitating",RpcTarget.All, mindposition.transform.position, false);
+                    _minded = null;
+                    inmind = false;
+                }
+                else
+                {
+                    MoveObjectInMind();
+                }
             }
         }
-        //else if (isHolding)
-        //{
-        //    if(isHolding && Input.GetKeyDown(KeyCode.Tab))
-        //    {
-        //        Drop();
-        //    }
-        //}
-        else if (inmind)
-        {
-            if(inmind && Input.GetKeyDown(KeyCode.Tab))
-            {
-                //_minded.GetComponent<Rigidbody>().useGravity = true;
-                _minded.GetComponent<PhotonView>().RPC("Levitating",RpcTarget.All, mindposition.transform.position, false);
-                _minded = null;
-                inmind = false;
-            }
-            else
-            {
-                MoveObjectInMind();
-            }
-        }
-
     }
    
 

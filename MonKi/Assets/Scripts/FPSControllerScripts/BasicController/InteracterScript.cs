@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
 public class InteracterScript : PlayerMovementScript
 {
@@ -13,6 +14,8 @@ public class InteracterScript : PlayerMovementScript
     public Transform shouder, hand;
     protected Ray camRay;
     public bool isHolding = false;
+
+    public Transform spawn;
 
     [SerializeField]
     float grabReach = 3.2f;
@@ -129,5 +132,19 @@ public class InteracterScript : PlayerMovementScript
                 grabbed.GetComponent<InteractiveObject>().photonView.RPC("GettingDropped", Photon.Pun.RpcTarget.All, photonView.ViewID, false, 100.0f);
                 break;
         }
+    }
+
+    [PunRPC]
+    public void Respawn ()
+    {
+        transform.position = spawn.position;
+        transform.eulerAngles = spawn.eulerAngles;
+    }
+
+    [PunRPC]
+    public void ChangeSpawn (float[] pos, float[] rot)
+    {
+        spawn.position = new Vector3(pos[0], pos[1], pos[2]);
+        spawn.eulerAngles = new Vector3(rot[0], rot[1], rot[2]);
     }
 }
