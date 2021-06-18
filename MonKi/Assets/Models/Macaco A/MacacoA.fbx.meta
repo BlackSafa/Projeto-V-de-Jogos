@@ -24,7 +24,12 @@ ModelImporter:
   - first:
       74: 2933577835342229695
     second: metarig|Walk
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material
+    second: {fileID: 2100000, guid: bba2337c4e71c5b40ad9aa2233a7ed1a, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0
