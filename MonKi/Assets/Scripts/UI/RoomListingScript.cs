@@ -8,11 +8,13 @@ using TMPro;
 public class RoomListingScript : MonoBehaviour
 {
     [SerializeField]
-    TextMeshProUGUI roomName, number, roomEnter;
+    TextMeshProUGUI roomName, number;
+    TMP_InputField Troom;
+
     public RoomInfo room {get; private set;}
 
     private void Start() {
-        roomEnter = GameObject.Find("Sala campo de texto").GetComponent<TextMeshProUGUI>();
+        Troom = GameObject.Find("Sala campo de texto").GetComponent<TMP_InputField>();
     }
 
     public void SetRoomInfo(RoomInfo roomInfo)
@@ -25,6 +27,13 @@ public class RoomListingScript : MonoBehaviour
 
     public void SetRoom()
     {
-        roomEnter.text = roomName.text;
+        string sender= string.Empty;
+
+        for (int i = 0; i < (roomName.text.Length - 1); i++)
+        {
+            sender+= roomName.text.ToCharArray()[i]; 
+        }
+        
+        Troom.text = sender;
     }
 }
