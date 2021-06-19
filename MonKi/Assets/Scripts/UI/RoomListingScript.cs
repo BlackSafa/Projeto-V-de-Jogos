@@ -12,7 +12,7 @@ public class RoomListingScript : MonoBehaviour
     public RoomInfo room {get; private set;}
 
     private void Start() {
-        roomEnter = GameObject.Find("RoomField").GetComponent<TextMeshProUGUI>();
+        roomEnter = GameObject.Find("Sala campo de texto").GetComponent<TextMeshProUGUI>();
     }
 
     public void SetRoomInfo(RoomInfo roomInfo)
@@ -23,7 +23,7 @@ public class RoomListingScript : MonoBehaviour
 
     }
 
-    void SetRoom()
+    public void SetRoom()
     {
         roomEnter.text = roomName.text;
     }

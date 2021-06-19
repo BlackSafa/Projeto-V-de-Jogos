@@ -120,7 +120,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 6447810849732266132}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4085026516016821111}
+        m_MethodName: SetRoom
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &4085026516016821111
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -135,6 +146,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   roomName: {fileID: 6447810850038714968}
   number: {fileID: 6447810850420017246}
+  roomEnter: {fileID: 0}
 --- !u!1 &6447810850038714974
 GameObject:
   m_ObjectHideFlags: 0
