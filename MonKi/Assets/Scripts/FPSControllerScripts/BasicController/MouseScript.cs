@@ -16,7 +16,9 @@ public class MouseScript : MonoBehaviourPunCallbacks
     protected void StartCamera()
     {
         personalCamera = new GameObject().transform;
-        personalCamera.gameObject.AddComponent<Camera>();
+        Camera camconfig = personalCamera.gameObject.AddComponent<Camera>();
+        camconfig.clearFlags = CameraClearFlags.SolidColor;
+        camconfig.backgroundColor = Color.black;
         personalCamera.gameObject.AddComponent<AudioListener>();
         Mental = new GameObject().transform;
         Mental.SetParent(personalCamera);

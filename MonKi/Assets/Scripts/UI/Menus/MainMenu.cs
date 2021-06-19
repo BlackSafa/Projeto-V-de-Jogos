@@ -3,31 +3,34 @@ using System.Collections.Generic;
 using System;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    int command = 0;
-    MenuSheet[] menuPanels = new MenuSheet[4];
+    //int command = 0;
+    MenuSheet[] menuPanels = new MenuSheet[5];
     public RectTransform menu;
-    public Sprite[] originals = new Sprite[4], tradables = new Sprite[4];
-    public Image[] buttons = new Image[4];
+    //public Sprite[] originals = new Sprite[4], tradables = new Sprite[4];
+    //public Image[] buttons = new Image[4];
+    public RectTransform cursor;
     bool menuOut, selecting, changed;
 
     void Start()
     {
-        RectTransform thing = GameObject.Find("Selection").GetComponent<RectTransform>();
+        RectTransform thing = GameObject.Find("PlayOnlineBackground").GetComponent<RectTransform>();
         menuPanels[0] = new MenuSheet(thing, thing.anchoredPosition.normalized);
-        thing = GameObject.Find("Controls").GetComponent<RectTransform>();
+        thing = GameObject.Find("MonkeySelectionMenu").GetComponent<RectTransform>();
         menuPanels[1] = new MenuSheet(thing, thing.anchoredPosition.normalized);
-        thing = GameObject.Find("Credits").GetComponent<RectTransform>();
+        thing = GameObject.Find("OptionsBackground").GetComponent<RectTransform>();
         menuPanels[2] = new MenuSheet(thing, thing.anchoredPosition.normalized);
-        thing = GameObject.Find("MainMenu").GetComponent<RectTransform>();
+        thing = GameObject.Find("Credits").GetComponent<RectTransform>();
         menuPanels[3] = new MenuSheet(thing, thing.anchoredPosition.normalized);
-        buttons[command].sprite = originals[command];
-        buttons[command].sprite = tradables[command];
+        thing = GameObject.Find("StartMenuContents").GetComponent<RectTransform>();
+        menuPanels[4] = new MenuSheet(thing, thing.anchoredPosition.normalized);
+        //buttons[command].sprite = originals[command];
+        //buttons[command].sprite = tradables[command];
     }
 
+    /*
     // Update is called once per frame
     void Update()
     {
@@ -61,16 +64,16 @@ public class MainMenu : MonoBehaviour
             command = command % tradables.Length;
             buttons[command].sprite = tradables[command];
         }
-    }
-    void GoToPos()
+    }*/
+    public void GoToPos(int command)
     {
         StopAllCoroutines();
         StartCoroutine(MoveMenu(menuPanels[command], false));
     }
-    void ReturnToPos()
+    public void ReturnToPos(int command)
     {
         StopAllCoroutines();
-        StartCoroutine(MoveMenu(menuPanels[3], true));
+        StartCoroutine(MoveMenu(menuPanels[command], true));
     }
 
     IEnumerator MoveMenu(MenuSheet panel, bool reverse)

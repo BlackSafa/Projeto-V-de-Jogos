@@ -54,9 +54,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71c1514a6bd24e1e882cebbe1904ce04, type: 3}
   m_Name: Ubuntu-MediumItalic SDF
   m_EditorClassIdentifier: 
-  hashCode: 0
+  hashCode: 189055926
   material: {fileID: 5848930944113259860}
-  materialHashCode: 0
+  materialHashCode: 78030550
   m_Version: 1.1.0
   m_SourceFontFileGUID: f3bdc41ce121250889d2e3fbf6d53d6f
   m_SourceFontFile_EditorRef: {fileID: 12800000, guid: f3bdc41ce121250889d2e3fbf6d53d6f,
@@ -5374,7 +5374,7 @@ MonoBehaviour:
   m_CreationSettings:
     sourceFontFileName: 
     sourceFontFileGUID: f3bdc41ce121250889d2e3fbf6d53d6f
-    pointSizeSamplingMode: 0
+    pointSizeSamplingMode: 1
     pointSize: 80
     padding: 9
     packingMode: 0
@@ -5412,8 +5412,8 @@ MonoBehaviour:
   fontWeights: []
   normalStyle: 0
   normalSpacingOffset: 0
-  boldStyle: 0.75
-  boldSpacing: 7
+  boldStyle: 0
+  boldSpacing: 0
   italicStyle: 35
   tabSize: 10
 --- !u!21 &5848930944113259860
@@ -5484,9 +5484,9 @@ Material:
     - _OutlineWidth: 0
     - _PerspectiveFilter: 0.875
     - _Reflectivity: 10
-    - _ScaleRatioA: 1
-    - _ScaleRatioB: 1
-    - _ScaleRatioC: 1
+    - _ScaleRatioA: 0.9
+    - _ScaleRatioB: 0.9
+    - _ScaleRatioC: 0.9
     - _ScaleX: 1
     - _ScaleY: 1
     - _ShaderFlags: 0
@@ -5505,7 +5505,7 @@ Material:
     - _UnderlaySoftness: 0
     - _VertexOffsetX: 0
     - _VertexOffsetY: 0
-    - _WeightBold: 0.75
+    - _WeightBold: 0
     - _WeightNormal: 0
     m_Colors:
     - _ClipRect: {r: -32767, g: -32767, b: 32767, a: 32767}
