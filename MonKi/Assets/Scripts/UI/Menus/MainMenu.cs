@@ -8,6 +8,8 @@ public class MainMenu : MonoBehaviour
 {
     //int command = 0;
     MenuSheet[] menuPanels = new MenuSheet[5];
+
+    MenuSheet activePanel;
     public RectTransform menu;
     //public Sprite[] originals = new Sprite[4], tradables = new Sprite[4];
     //public Image[] buttons = new Image[4];
@@ -26,6 +28,7 @@ public class MainMenu : MonoBehaviour
         menuPanels[3] = new MenuSheet(thing, thing.anchoredPosition.normalized);
         thing = GameObject.Find("StartMenuContents").GetComponent<RectTransform>();
         menuPanels[4] = new MenuSheet(thing, thing.anchoredPosition.normalized);
+        activePanel = menuPanels[4];
         //buttons[command].sprite = originals[command];
         //buttons[command].sprite = tradables[command];
     }
@@ -80,15 +83,24 @@ public class MainMenu : MonoBehaviour
     {
         Vector2 target = new Vector2(0,0);
         int multiplier = reverse? -1: 1;
-        while(panel.sheet.anchoredPosition != menu.anchoredPosition)
+        while(panel.sheet.anchoredPosition != -menu.anchoredPosition)
         {
-            menu.transform.Translate((menu.anchoredPosition - panel.sheet.anchoredPosition).normalized * 2000 *Time.unscaledDeltaTime * multiplier);
+            menu.transform.Translate((menu.anchoredPosition - panel.sheet.anchoredPosition).normalized * 1000 *Time.unscaledDeltaTime * multiplier);
+            //panel.group.alpha = (panel.sheet.position.x - panel.sheet.anchoredPosition.x) / (activePanel.sheet.anchoredPosition.x - panel.sheet.anchoredPosition.x);
+            //activePanel.group.alpha = (activePanel.sheet.position.x - activePanel.sheet.anchoredPosition.x)/(-panel.sheet.localPosition.x - activePanel.sheet.localPosition.x);
             if(multiplier * (Mathf.Abs(panel.sheet.anchoredPosition.x)- Mathf.Abs(menu.anchoredPosition.x)) < 100 && multiplier * (Mathf.Abs(panel.sheet.anchoredPosition.y)-Mathf.Abs(menu.anchoredPosition.y)) < 100)
             {
                 menu.anchoredPosition = -panel.sheet.anchoredPosition;
             }
-            yield return null;
+            yield return null; 
         }
+        panel.group.alpha = 1;
+        panel.group.interactable = true;
+        panel.group.blocksRaycasts = true;
+        activePanel.group.alpha = 0;
+        activePanel.group.interactable = false;
+        activePanel.group.blocksRaycasts = false;
+        activePanel = panel;
     }
 }
 
@@ -111,6 +123,16 @@ public class MenuSheet
             return Dir;
         }
     }
+
+    //private CanvasGroup Group;
+
+    public CanvasGroup group;
+/*    {
+        get
+        {
+            return Group;
+        }
+    }*/
 
     private Vector2 Target;
     public Vector2 target
@@ -140,6 +162,7 @@ public class MenuSheet
         
         Sheet = menu;
         Dir = dir;
+        group = menu.GetComponent<CanvasGroup>();
     }
 }
 

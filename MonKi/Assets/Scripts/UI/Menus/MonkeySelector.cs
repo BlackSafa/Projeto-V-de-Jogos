@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using Photon.Pun;
-
+using TMPro;
 public class MonkeySelector : MonoBehaviour
 {
     [SerializeField]
@@ -10,13 +10,20 @@ public class MonkeySelector : MonoBehaviour
     [SerializeField]
     Color standBy, selecting, setted, unselectable;
     PhotonView photonView;
+    public Button iniciar, escolher;
+    public int playerNumber;
+    public TextMeshProUGUI header, description;
+    public TextMeshProUGUI[] playerStatus = new TextMeshProUGUI[3];
     public bool gameStarted, selected;
+
+    public GameObject ra, fo, me;
+    public GameObject Rbody, Fbody, Mbody;
 
     private void Awake() {
         photonView = GetComponent<PhotonView>();
-        R = new MonkeyOption(transform.Find("Rapido").gameObject);
-        M = new MonkeyOption(transform.Find("Mental").gameObject);
-        F = new MonkeyOption(transform.Find("Forte").gameObject);
+        R = new MonkeyOption(ra);
+        M = new MonkeyOption(me);
+        F = new MonkeyOption(fo);
         photonView = GetComponent<PhotonView>();
         
     }
@@ -42,18 +49,39 @@ public class MonkeySelector : MonoBehaviour
     public void OnClickF()
     {
         F.image.color = selecting;
+        R.image.color = standBy;
+        M.image.color = standBy;
+        header.text = "Macaco F";
+        description.text = "É o macaco mais forte, com seus braços mecânicos consegue mover e arremessar objetos pesados.";
+        Fbody.SetActive(true);
+        Rbody.SetActive(false);
+        Mbody.SetActive(false);
         selectedMonkey = PlayerMode.Strong;
     }
 
     public void OnClickM()
     {
         M.image.color = selecting;
+        F.image.color = standBy;
+        R.image.color = standBy;
+        header.text = "Macaco M";
+        description.text = "Usando seus poderes psíquicos, este macaco consegue levitar e mover objetos com o poder da mente.";
+        Mbody.SetActive(true);
+        Fbody.SetActive(false);
+        Rbody.SetActive(false);
         selectedMonkey = PlayerMode.Psychic;
     }
 
     public void OnClickA()
     {
         R.image.color = selecting;
+        M.image.color = standBy;
+        F.image.color = standBy;
+        header.text = "Macaco A";
+        description.text = "Possui pernas mecânicas e a habilidade de pular mais alto e se movimentar mais rapidamente.";
+        Rbody.SetActive(true);
+        Fbody.SetActive(false);
+        Mbody.SetActive(false);
         selectedMonkey = PlayerMode.Fast;
     }
 
@@ -104,6 +132,7 @@ public class MonkeySelector : MonoBehaviour
                     M.button.interactable = false;
                     F.button.interactable = false;
                     photonView.RPC("MonkeySetter",RpcTarget.OthersBuffered, selectedMonkey, true);
+                    iniciar.interactable = true;
                 }
                 else
                 {
@@ -119,6 +148,7 @@ public class MonkeySelector : MonoBehaviour
                     M.button.interactable = false;
                     F.button.interactable = false;
                     photonView.RPC("MonkeySetter",RpcTarget.OthersBuffered, selectedMonkey, true);
+                    iniciar.interactable = true;
                 }
                 else
                 {
@@ -134,6 +164,7 @@ public class MonkeySelector : MonoBehaviour
                     M.button.interactable = false;
                     F.button.interactable = false;
                     photonView.RPC("MonkeySetter",RpcTarget.OthersBuffered, selectedMonkey, true);
+                    iniciar.interactable = true;
                 }
                 else
                 {
@@ -143,10 +174,9 @@ public class MonkeySelector : MonoBehaviour
                 break;
         }
         selected = true;
-        OnStartGame();
     }
 
-    void OnStartGame()
+    public void OnStartGame()
     {
         int x = 0;
         x = !R.avaliability ? x+=1 : x;
@@ -156,6 +186,13 @@ public class MonkeySelector : MonoBehaviour
         if(x >= 3)
         {
             photonView.RPC("ChangeScene",RpcTarget.All);
+        }
+        else
+        {
+            R.button.interactable = false;
+            F.button.interactable = false;
+            M.button.interactable = false;
+            escolher.gameObject.SetActive(false);
         }
     }
 
@@ -209,7 +246,8 @@ public class MonkeySelector : MonoBehaviour
         public MonkeyOption(GameObject target)
         {
             button = target.GetComponent<Button>();
-            image = target.GetComponent<Image>();
+            image = target.transform.GetComponentInParent<Image>();
+            if(image == null) image = target.GetComponent<Image>();
             avaliability = true;
         }
 

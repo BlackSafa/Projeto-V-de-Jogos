@@ -88,7 +88,7 @@ ModelImporter:
       name: metarig|HoldingBox (1)
       takeName: metarig|HoldingBox
       internalID: 0
-      firstFrame: 1
+      firstFrame: 2
       lastFrame: 20
       wrapMode: 0
       orientationOffsetY: 0
@@ -117,7 +117,7 @@ ModelImporter:
       name: metarig|HoldingBox
       takeName: metarig|HoldingBox
       internalID: 0
-      firstFrame: 1
+      firstFrame: 2
       lastFrame: 20
       wrapMode: 0
       orientationOffsetY: 0
@@ -146,7 +146,7 @@ ModelImporter:
       name: metarig|Idle
       takeName: metarig|Idle
       internalID: 0
-      firstFrame: 1
+      firstFrame: 2
       lastFrame: 120
       wrapMode: 0
       orientationOffsetY: 0
@@ -233,7 +233,7 @@ ModelImporter:
       name: metarig|Walk
       takeName: metarig|Walk
       internalID: 0
-      firstFrame: 2
+      firstFrame: 1
       lastFrame: 20
       wrapMode: 0
       orientationOffsetY: 0

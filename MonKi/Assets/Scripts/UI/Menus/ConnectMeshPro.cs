@@ -49,6 +49,7 @@ public class ConnectMeshPro : MonoBehaviourPunCallbacks
         else
             PhotonNetwork.NickName = nickName.text + " P(" + PhotonNetwork.CurrentRoom.PlayerCount + ")";
         monkeyMenu.SetActive(true);
+        monkeyMenu.GetComponent<MonkeySelector>().playerNumber = PhotonNetwork.CurrentRoom.PlayerCount - 1;
         //logText.text = "\nEntrando na Sala";
     }
 
