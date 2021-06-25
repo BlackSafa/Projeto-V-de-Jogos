@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class End : MonoBehaviour
 {
-    // Start is called before the first frame update
+    private void Start() {
+        Cursor.lockState = CursorLockMode.None;
+    }
     public void Endit()
     {
         Application.Quit();

@@ -4,10 +4,14 @@ using UnityEngine;
 using Photon.Pun;
 public class FinalCheck : MonoBehaviour
 {
-    // Start is called before the first frame update
+    PhotonView photonView;
+
+    private void Start() {
+        photonView = GetComponent<PhotonView>();
+    }
     private void OnTriggerEnter(Collider other)
     {
-        ChangeScene();
+        photonView.RPC("ChangeScene", RpcTarget.All);
     }
 
     [PunRPC]
@@ -15,7 +19,7 @@ public class FinalCheck : MonoBehaviour
     {
         if(PhotonNetwork.IsMasterClient)
         {
-            PhotonNetwork.LoadLevel("Level 1");
+            PhotonNetwork.LoadLevel("FinalScene");
         }
     }
 }
