@@ -11,8 +11,10 @@ public class CapsulesAndDoors : MonoBehaviour
     private bool open;
     void Start()
     {
-        fechadura.activate += DoorAnimation;
-        trocaSala.closeDoor += DoorAnimation;
+        if(fechadura != null)
+            fechadura.activate += DoorAnimation;
+        if(trocaSala != null)
+            trocaSala.closeDoor += DoorAnimation;
 
         if(open)
         {

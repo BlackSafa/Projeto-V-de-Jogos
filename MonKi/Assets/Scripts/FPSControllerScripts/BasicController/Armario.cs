@@ -29,13 +29,13 @@ public class Armario : InteractiveObject
         {
             Debug.Log("Abriu");
             open = true;
-            //GetComponent<Animator>().SetBool("Open", open);
+            GetComponent<Animator>().SetBool("Open", open);
         }
         else
         {
             Debug.Log("Fechou");
             open = false;
-            //GetComponent<Animator>().SetBool("Open", open);
+            GetComponent<Animator>().SetBool("Open", open);
         }
       
     }

@@ -108,7 +108,7 @@ public class InteractiveObject : MonoBehaviour
         {
             isHoldable = false;
             rb.isKinematic = true;
-            transform.parent = PhotonView.Find(caller).transform;
+            //transform.parent = PhotonView.Find(caller).transform;
         }
         transform.position = new Vector3(position[0], position[1], position[2]);
         transform.eulerAngles = new Vector3(rotation[0], rotation[1], rotation[2]);

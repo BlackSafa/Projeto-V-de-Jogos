@@ -33,7 +33,7 @@ public class PlayerSpawningManager : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         PhotonView photonView = other.GetComponent<PhotonView>();
-        if(photonView.Owner != null)
+        if(photonView.GetComponent<InteracterScript>() != null)
         {
             photonView.RPC("Respawn",RpcTarget.All);
         }
