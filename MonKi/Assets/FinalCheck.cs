@@ -11,6 +11,7 @@ public class FinalCheck : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
+        if(other.tag == "Player")
         photonView.RPC("ChangeScene", RpcTarget.All);
     }
 
