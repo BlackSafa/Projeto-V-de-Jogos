@@ -40,11 +40,13 @@ public class PlayerMovementScript : MouseScript
             if (isGrounded)
             {
                 momentum = (Movement() / 2);
+                if(animator.GetBool("Jump"))
                 animator.SetBool("Jump", false);
             }
             else
             {
-                animator.SetBool("Jump", true);
+                if(!(animator.GetBool("Jump")))
+                    animator.SetBool("Jump", true);
             }
 
             /*else if(Input.GetAxis("Vertical") >= 0)
