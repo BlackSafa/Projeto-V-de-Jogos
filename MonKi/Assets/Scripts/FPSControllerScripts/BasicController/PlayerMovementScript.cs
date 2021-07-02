@@ -40,7 +40,7 @@ public class PlayerMovementScript : MouseScript
         {
             if (isGrounded)
             {
-                if(over.collider.gameObject.layer == 9)
+                if(over.collider.gameObject.layer == 9 && !(over.collider.tag == "Key"))
                 {
                     transform.parent = over.transform;
                 }
