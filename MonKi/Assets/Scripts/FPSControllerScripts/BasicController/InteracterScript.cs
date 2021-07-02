@@ -80,7 +80,6 @@ public class InteracterScript : PlayerMovementScript
         {
             return;
         }
-        
         else if(objScript.isHoldable && (carryCapacity & objScript.weight) == objScript.weight)
         {
             switch (objScript.weight){
@@ -98,6 +97,8 @@ public class InteracterScript : PlayerMovementScript
                 break;
             }
         }
+
+        AnimationCaller();
     }
 
     protected virtual void Interact(RaycastHit hit)

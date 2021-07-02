@@ -49,6 +49,10 @@ public class MacacoM : InteracterScript
                     _minded.GetComponent<PhotonView>().RPC("Levitating",RpcTarget.All, mindposition.transform.position, false);
                     _minded = null;
                     inmind = false;
+                    if(animator.GetBool("Levitate"))
+                    {
+                        animator.SetBool("Levitate", false);
+                    }
                 }
                 else
                 {
@@ -122,6 +126,11 @@ public class MacacoM : InteracterScript
             //_minded.transform.position = mindposition.transform.position;
             _minded.GetComponent<PhotonView>().RPC("Levitating",RpcTarget.All, mindposition.transform.position, true);
             mindposition.transform.Rotate(0, y * Time.deltaTime * 30, z * Time.deltaTime * 30);
+
+            if(!(animator.GetBool("Levitate")))
+            {
+                animator.SetBool("Levitate", true);
+            }
         }
     }
 
