@@ -37,7 +37,7 @@ public class PlayerSpawningManager : MonoBehaviour
         {
             photonView.RPC("Respawn",RpcTarget.All);
         }
-        else
+        else if(photonView.GetComponent<InteractiveObject>() != null)
         {
             photonView.RPC("Realocate",RpcTarget.All);
         }

@@ -18,6 +18,7 @@ public class PlayerMovementScript : MouseScript
     public bool movementPause = false;
     public bool jumper = true;
     public LayerMask groundLayer;
+    protected Animator animator;
 
     public void StartMovement() {
         StartCamera();
@@ -25,6 +26,7 @@ public class PlayerMovementScript : MouseScript
         groundLayer = LayerMask.GetMask("Ground");
         groundLayer += LayerMask.GetMask("Objects");
         controller = GetComponent<CharacterController>();
+        animator = GetComponent<Animator>();
         if(groundChecker == null)
         {
             groundChecker = new GameObject().transform;
@@ -39,7 +41,11 @@ public class PlayerMovementScript : MouseScript
             if (isGrounded)
             {
                 momentum = (Movement() / 2);
-
+                animator.SetBool("Jump", false);
+            }
+            else
+            {
+                animator.SetBool("Jump", true);
             }
 
             /*else if(Input.GetAxis("Vertical") >= 0)
@@ -70,7 +76,7 @@ public class PlayerMovementScript : MouseScript
         float z = Input.GetAxis("Vertical");
         
         Vector3 move = transform.right * x + transform.forward * z;
-
+        animator.SetFloat("Move", move.magnitude);
         controller.Move(move * groundSpeed * Time.deltaTime);
         return (move * (groundSpeed / 1.5f));
     }
@@ -86,7 +92,10 @@ public class PlayerMovementScript : MouseScript
         isGrounded = Physics.Raycast(groundChecker.position, -groundChecker.up, groundCheckerLength, groundLayer);
         Debug.DrawLine(groundChecker.position, groundChecker.position - new Vector3(0,groundCheckerLength,0), Color.red);
 
-        if (isGrounded && velocity.y < 0) {velocity.y = -gravityAcceleration -(-1);}
+        if (isGrounded && velocity.y < 0)
+        {
+            velocity.y = -gravityAcceleration -(-1);
+        }
         velocity.y += -gravityAcceleration * Time.deltaTime;
         if (!isGrounded)
         {
@@ -103,16 +112,13 @@ public class PlayerMovementScript : MouseScript
         
     }
 
-    public void AnimationCaller()
-    {}
+    public virtual void AnimationCaller()
+    {
+        movementPause = true;
+    }
 
-    public void AnimationRetake()
+    public virtual void AnimationRetake()
     {
         movementPause = false;
     }
-}
-
-public enum Animations
-{
-
 }

@@ -3257,6 +3257,11 @@ PrefabInstance:
       objectReference: {fileID: 6286882084278602630}
     - target: {fileID: 6241983534578578772, guid: 3655b33d73521979fab36447be639cb7,
         type: 3}
+      propertyPath: jumper
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6241983534578578772, guid: 3655b33d73521979fab36447be639cb7,
+        type: 3}
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
@@ -3269,6 +3274,11 @@ PrefabInstance:
         type: 3}
       propertyPath: groundSpeed
       value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6241983534578578772, guid: 3655b33d73521979fab36447be639cb7,
+        type: 3}
+      propertyPath: carryCapacity
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 6241983534578578772, guid: 3655b33d73521979fab36447be639cb7,
         type: 3}

@@ -9,7 +9,7 @@ public class MacacoF : InteracterScript
     void Start()
     {
         PlayerStarter();
-        carryCapacity = WeightClass.Light | WeightClass.Moderate | WeightClass.Heavy;
+        //carryCapacity = WeightClass.Light | WeightClass.Moderate | WeightClass.Heavy;
     }
 
     // Update is called once per frame
@@ -18,6 +18,15 @@ public class MacacoF : InteracterScript
         if(!isPause)
         {
             PlayerUpdate();
+        }
+
+        if(grabbed != null)
+        {
+            animator.SetBool("Carrying", true);
+        }
+        else
+        {
+            animator.SetBool("Carrying", false);
         }
     }
     protected override void Grab(RaycastHit hit)
@@ -72,5 +81,18 @@ public class MacacoF : InteracterScript
                 grabbed.GetComponent<InteractiveObject>().photonView.RPC("GettingDropped", Photon.Pun.RpcTarget.All, photonView.ViewID, false, 500.0f);
                 break;
         }
+    }
+
+    public override void AnimationCaller()
+    {
+        base.AnimationCaller();
+        animator.SetBool("Lift", true);
+    }
+
+    public override void AnimationRetake()
+    {
+        base.AnimationRetake();
+        animator.SetBool("Lift",false);
+
     }
 }
