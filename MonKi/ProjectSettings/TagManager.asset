@@ -7,6 +7,8 @@ TagManager:
   - CameraHead
   - Grababble Object
   - Key
+  - Box
+  - Macaco
   layers:
   - Default
   - TransparentFX

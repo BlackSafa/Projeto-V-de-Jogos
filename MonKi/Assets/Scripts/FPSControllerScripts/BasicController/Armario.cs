@@ -30,12 +30,14 @@ public class Armario : InteractiveObject
             Debug.Log("Abriu");
             open = true;
             GetComponent<Animator>().SetBool("Open", open);
+            GetComponent<AudioSource>().Play();
         }
         else
         {
             Debug.Log("Fechou");
             open = false;
             GetComponent<Animator>().SetBool("Open", open);
+            GetComponent<AudioSource>().Play();
         }
       
     }
