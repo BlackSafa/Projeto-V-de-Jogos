@@ -1161,6 +1161,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -0.000002610056
       objectReference: {fileID: 0}
+    - target: {fileID: -1463339468913756703, guid: 93eb85d7b328c968c92f64fb068bd81c,
+        type: 3}
+      propertyPath: m_TagString
+      value: Macaco
+      objectReference: {fileID: 0}
     - target: {fileID: -1230361921104073177, guid: 93eb85d7b328c968c92f64fb068bd81c,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1755,6 +1760,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -3.5214427
+      objectReference: {fileID: 0}
+    - target: {fileID: 3758622548684525292, guid: 93eb85d7b328c968c92f64fb068bd81c,
+        type: 3}
+      propertyPath: m_TagString
+      value: Macaco
       objectReference: {fileID: 0}
     - target: {fileID: 3956957532304646503, guid: 93eb85d7b328c968c92f64fb068bd81c,
         type: 3}
