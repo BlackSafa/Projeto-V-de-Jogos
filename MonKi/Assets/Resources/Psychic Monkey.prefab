@@ -228,7 +228,7 @@ Animator:
   m_GameObject: {fileID: 1411146940357913035}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 199fa21506427dcc69b8a8ac60efffef, type: 2}
+  m_Controller: {fileID: 0}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -1372,6 +1372,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 8.971997
       objectReference: {fileID: 0}
+    - target: {fileID: -1463339468913756703, guid: 12a90b28d173caf36bcd48aa87e54352,
+        type: 3}
+      propertyPath: m_TagString
+      value: Macaco
+      objectReference: {fileID: 0}
     - target: {fileID: -1296561305650658889, guid: 12a90b28d173caf36bcd48aa87e54352,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1791,6 +1796,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0.059326164
+      objectReference: {fileID: 0}
+    - target: {fileID: 3758622548684525292, guid: 12a90b28d173caf36bcd48aa87e54352,
+        type: 3}
+      propertyPath: m_TagString
+      value: Macaco
       objectReference: {fileID: 0}
     - target: {fileID: 3822727096696386873, guid: 12a90b28d173caf36bcd48aa87e54352,
         type: 3}
