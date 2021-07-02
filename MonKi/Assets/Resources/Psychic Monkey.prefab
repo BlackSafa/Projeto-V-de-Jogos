@@ -14,7 +14,7 @@ AudioSource:
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -602,6 +602,12 @@ PrefabInstance:
     - {fileID: 6241983534578578777, guid: 3655b33d73521979fab36447be639cb7, type: 3}
     - {fileID: 6241983534578578772, guid: 3655b33d73521979fab36447be639cb7, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 3655b33d73521979fab36447be639cb7, type: 3}
+--- !u!1 &6371704109421511954 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6241983534578578776, guid: 3655b33d73521979fab36447be639cb7,
+    type: 3}
+  m_PrefabInstance: {fileID: 1077255128715882570}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6371704109421511952 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6241983534578578778, guid: 3655b33d73521979fab36447be639cb7,
