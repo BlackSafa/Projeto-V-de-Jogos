@@ -84,4 +84,17 @@ public class MacacoA : InteracterScript
             momentum = AirControl();
         }
     }
+
+    public override void AnimationCaller()
+    {
+        base.AnimationCaller();
+        animator.SetBool("Grab", true);
+    }
+
+    public override void AnimationRetake()
+    {
+        base.AnimationRetake();
+        animator.SetBool("Grab",false);
+
+    }
 }
