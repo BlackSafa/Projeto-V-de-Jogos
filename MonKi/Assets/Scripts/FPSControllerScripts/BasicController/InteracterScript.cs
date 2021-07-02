@@ -118,6 +118,7 @@ public class InteracterScript : PlayerMovementScript
     {
         //Debug.Log("Soltou");
         grabbed.GetComponent<InteractiveObject>().photonView.RPC("GettingDropped", Photon.Pun.RpcTarget.All, photonView.ViewID, true, 0.0f);
+        AnimationRetake();
     }
 
     protected virtual void Throw()

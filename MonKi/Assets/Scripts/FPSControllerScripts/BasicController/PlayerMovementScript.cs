@@ -19,6 +19,7 @@ public class PlayerMovementScript : MouseScript
     public bool jumper = true;
     public LayerMask groundLayer;
     public Animator animator;
+    RaycastHit over;
 
     public void StartMovement() {
         StartCamera();
@@ -39,6 +40,14 @@ public class PlayerMovementScript : MouseScript
         {
             if (isGrounded)
             {
+                if(over.collider.gameObject.layer == 9)
+                {
+                    transform.parent = over.transform;
+                }
+                else
+                {
+                    transform.parent = null;
+                }
                 momentum = (Movement() / 2);
                 if(animator.GetBool("Jump"))
                 animator.SetBool("Jump", false);
@@ -90,7 +99,7 @@ public class PlayerMovementScript : MouseScript
 
     private void Gravity()
     {
-        isGrounded = Physics.Raycast(groundChecker.position, -groundChecker.up, groundCheckerLength, groundLayer);
+        isGrounded = Physics.Raycast(groundChecker.position, -groundChecker.up, out over, groundCheckerLength, groundLayer);
         Debug.DrawLine(groundChecker.position, groundChecker.position - new Vector3(0,groundCheckerLength,0), Color.red);
 
         if (isGrounded && velocity.y < 0)
@@ -115,11 +124,11 @@ public class PlayerMovementScript : MouseScript
 
     public virtual void AnimationCaller()
     {
-        movementPause = true;
+        //movementPause = true;
     }
 
     public virtual void AnimationRetake()
     {
-        movementPause = false;
+        //movementPause = false;
     }
 }

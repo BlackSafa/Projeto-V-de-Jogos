@@ -11,7 +11,8 @@ public class MacacoM : InteracterScript
     public GameObject _minded;
     public GameObject mindposition;
     private RaycastHit levitation;
-    private float mindlenght = 10f;
+    [SerializeField]
+    private float mindlenght = 3f;
     bool isPause;
     
     void Start()
@@ -73,7 +74,8 @@ public class MacacoM : InteracterScript
             float x = Input.GetAxis("Horizontal");
             float z = Input.GetAxis("Vertical");
         
-           move = transform.right * x + transform.forward * z;
+            move = transform.right * x + transform.forward * z;
+            animator.SetFloat("Move", move.magnitude);
 
             controller.Move(move * groundSpeed * Time.deltaTime);
             return (move * (groundSpeed / 1.5f));

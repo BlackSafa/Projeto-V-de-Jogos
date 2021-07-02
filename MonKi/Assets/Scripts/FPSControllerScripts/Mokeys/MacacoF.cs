@@ -19,15 +19,6 @@ public class MacacoF : InteracterScript
         {
             PlayerUpdate();
         }
-
-        if(grabbed != null)
-        {
-            animator.SetBool("Carrying", true);
-        }
-        else
-        {
-            animator.SetBool("Carrying", false);
-        }
     }
     protected override void Grab(RaycastHit hit)
     {
@@ -88,13 +79,13 @@ public class MacacoF : InteracterScript
     public override void AnimationCaller()
     {
         base.AnimationCaller();
-        animator.SetBool("Lift", true);
+        animator.SetBool("Carrying", true);
     }
 
     public override void AnimationRetake()
     {
         base.AnimationRetake();
-        animator.SetBool("Lift",false);
+        animator.SetBool("Carrying",false);
 
     }
 }

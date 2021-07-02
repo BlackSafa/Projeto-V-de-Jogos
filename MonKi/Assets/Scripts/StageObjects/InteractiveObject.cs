@@ -94,10 +94,12 @@ public class InteractiveObject : MonoBehaviour
         {
             transform.position = position;
             rb.useGravity = false;
+            rb.freezeRotation = true;
         }
         else
         {
             rb.useGravity = true;
+            rb.freezeRotation = false;
         }
     }
 
