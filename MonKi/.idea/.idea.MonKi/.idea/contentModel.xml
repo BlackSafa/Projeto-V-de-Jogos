@@ -7,6 +7,8 @@
       <e p="Assembly-CSharp-Editor.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
+        <e p="End.cs" t="Include" />
+        <e p="FinalCheck.cs" t="Include" />
         <e p="Photon" t="Include">
           <e p="PhotonChat" t="Include">
             <e p="Code" t="Include">
@@ -182,8 +184,10 @@
           <e p="FPSControllerScripts" t="Include">
             <e p="BasicController" t="Include">
               <e p="Armario.cs" t="Include" />
+              <e p="ArmarioPorta.cs" t="Include" />
               <e p="CapsulesAndDoors.cs" t="Include" />
               <e p="Chaves.cs" t="Include" />
+              <e p="GrondChecking.cs" t="Include" />
               <e p="InteracterScript.cs" t="Include" />
               <e p="MouseScript.cs" t="Include" />
               <e p="Painel.cs" t="Include" />
@@ -197,23 +201,60 @@
           </e>
           <e p="Managers" t="Include">
             <e p="GameSettings.cs" t="Include" />
+            <e p="GenericCheckPointScript.cs" t="Include" />
             <e p="MasterManager.cs" t="Include" />
             <e p="PlayerSpawningManager.cs" t="Include" />
             <e p="SingletonReferences.cs" t="Include" />
             <e p="SingletonScriptableObject.cs" t="Include" />
           </e>
           <e p="SimpleCameraController.cs" t="Include" />
+          <e p="SoundCaller.cs" t="Include" />
           <e p="StageObjects" t="Include">
             <e p="InteractiveObject.cs" t="Include" />
           </e>
           <e p="UI" t="Include">
             <e p="Menus" t="Include">
               <e p="Connect.cs" t="Include" />
+              <e p="ConnectMeshPro.cs" t="Include" />
               <e p="EndMenu.cs" t="Include" />
               <e p="MainMenu.cs" t="Include" />
               <e p="MonkeySelector.cs" t="Include" />
               <e p="PauseMenu.cs" t="Include" />
             </e>
+            <e p="MouseSpecialEvents.cs" t="Include" />
+            <e p="RoomListingMenu.cs" t="Include" />
+            <e p="RoomListingScript.cs" t="Include" />
+          </e>
+        </e>
+        <e p="TextMesh Pro" t="Include">
+          <e p="Fonts" t="Include">
+            <e p="LiberationSans - OFL.txt" t="Include" />
+          </e>
+          <e p="Resources" t="Include">
+            <e p="LineBreaking Following Characters.txt" t="Include" />
+            <e p="LineBreaking Leading Characters.txt" t="Include" />
+          </e>
+          <e p="Shaders" t="Include">
+            <e p="TMP_Bitmap-Custom-Atlas.shader" t="Include" />
+            <e p="TMP_Bitmap-Mobile.shader" t="Include" />
+            <e p="TMP_Bitmap.shader" t="Include" />
+            <e p="TMP_SDF Overlay.shader" t="Include" />
+            <e p="TMP_SDF SSD.shader" t="Include" />
+            <e p="TMP_SDF-Mobile Masking.shader" t="Include" />
+            <e p="TMP_SDF-Mobile Overlay.shader" t="Include" />
+            <e p="TMP_SDF-Mobile SSD.shader" t="Include" />
+            <e p="TMP_SDF-Mobile.shader" t="Include" />
+            <e p="TMP_SDF-Surface-Mobile.shader" t="Include" />
+            <e p="TMP_SDF-Surface.shader" t="Include" />
+            <e p="TMP_SDF.shader" t="Include" />
+            <e p="TMP_Sprite.shader" t="Include" />
+            <e p="TMPro.cginc" t="Include" />
+            <e p="TMPro_Mobile.cginc" t="Include" />
+            <e p="TMPro_Properties.cginc" t="Include" />
+            <e p="TMPro_Surface.cginc" t="Include" />
+          </e>
+          <e p="Sprites" t="Include">
+            <e p="EmojiOne Attribution.txt" t="Include" />
           </e>
         </e>
         <e p="TutorialInfo" t="Include">
