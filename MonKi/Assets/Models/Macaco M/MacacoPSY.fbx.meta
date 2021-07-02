@@ -12,7 +12,57 @@ ModelImporter:
   - first:
       74: -8992144266475114258
     second: metarig|WalkBAKE
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material
+    second: {fileID: 2100000, guid: 6038f062baad6d14599d95c8d2b4c812, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.001
+    second: {fileID: 2100000, guid: 2f24a4aaa6544a84fbc7a76401bd901d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.002
+    second: {fileID: 2100000, guid: e590bc1318b3a9c4db7254f28ebaf867, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.003
+    second: {fileID: 2100000, guid: 3c946357a4d679f459d9e767136cc05d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.004
+    second: {fileID: 2100000, guid: 2313c3cb46674614bafba1f8889d617f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.005
+    second: {fileID: 2100000, guid: db7541c1cde68d74ab1e9e8ba68cdb6e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.006
+    second: {fileID: 2100000, guid: 9957c6e68357b4e469d0e282454ee4f8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.007
+    second: {fileID: 2100000, guid: 0bac81fff3a1f7c40854713909f6ed93, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.008
+    second: {fileID: 2100000, guid: e6e2f797ed4db4242ab35be3fe49186a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.009
+    second: {fileID: 2100000, guid: 1274abacb4967ae4aac8ff48a0bb7f6e, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0
@@ -73,7 +123,7 @@ ModelImporter:
       name: metarig|IdleBAKE
       takeName: metarig|IdleBAKE
       internalID: 0
-      firstFrame: 1
+      firstFrame: 2
       lastFrame: 80
       wrapMode: 0
       orientationOffsetY: 0

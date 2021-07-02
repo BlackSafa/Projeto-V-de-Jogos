@@ -14,7 +14,7 @@ public class InteracterScript : PlayerMovementScript
     public Transform shouder, hand;
     protected Ray camRay;
     public bool isHolding = false;
-
+ 
     public Transform spawn;
 
     [SerializeField]
@@ -27,9 +27,9 @@ public class InteracterScript : PlayerMovementScript
             personalCamera.gameObject.SetActive(false);
         }
         StartMovement();
-        print(carryCapacity);
-        carryCapacity = WeightClass.Light | WeightClass.Moderate;
-        print(carryCapacity);
+        //print(carryCapacity);
+        //carryCapacity = WeightClass.Light | WeightClass.Moderate;
+        //print(carryCapacity);
         cam = personalCamera.GetComponent<Camera>();
         shouder.position = shouder.localPosition;
         shouder.parent = cam.transform;
