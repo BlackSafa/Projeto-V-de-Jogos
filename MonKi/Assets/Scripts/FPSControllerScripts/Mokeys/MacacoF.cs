@@ -57,6 +57,8 @@ public class MacacoF : InteracterScript
                 break;
             }
         }
+
+        AnimationCaller();
     }
 
     protected override void Throw()
