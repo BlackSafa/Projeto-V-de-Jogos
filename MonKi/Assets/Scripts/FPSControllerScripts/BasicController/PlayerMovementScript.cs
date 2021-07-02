@@ -16,6 +16,7 @@ public class PlayerMovementScript : MouseScript
     public Vector3 velocity;
     public bool isGrounded = false;
     public bool movementPause = false;
+    public bool jumper = true;
     public LayerMask groundLayer;
 
     public void StartMovement() {
@@ -57,7 +58,7 @@ public class PlayerMovementScript : MouseScript
                 momentum = movejump;
             }*/
 
-            if (Input.GetButtonDown("Jump") && isGrounded) Jump();
+            if (Input.GetButtonDown("Jump") && isGrounded && jumper) Jump();
             Gravity();
             OperateCamera();
         }
@@ -104,6 +105,11 @@ public class PlayerMovementScript : MouseScript
 
     public void AnimationCaller()
     {}
+
+    public void AnimationRetake()
+    {
+        movementPause = false;
+    }
 }
 
 public enum Animations

@@ -90,7 +90,7 @@ public class MacacoM : InteracterScript
     public void GetObjectInMind(RaycastHit hit)
     {
         InteractiveObject objScript = hit.transform.GetComponent<InteractiveObject>();
-        if (objScript.isHoldable && (mindCapacity & objScript.weight) == objScript.weight)
+        if (objScript.isHoldable && (mindCapacity & objScript.weight) == objScript.weight && !(objScript.tag == "Key"))
         {
             //Debug.Log("Pegando objeto");
             inmind = true;
