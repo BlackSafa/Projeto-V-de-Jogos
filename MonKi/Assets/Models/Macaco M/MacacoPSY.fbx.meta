@@ -10,9 +10,6 @@ ModelImporter:
       74: 7049402967124301776
     second: metarig|IdleBAKE
   - first:
-      74: -4337621481101859942
-    second: metarig|LiftingBAKE
-  - first:
       74: -8992144266475114258
     second: metarig|WalkBAKE
   externalObjects: {}
