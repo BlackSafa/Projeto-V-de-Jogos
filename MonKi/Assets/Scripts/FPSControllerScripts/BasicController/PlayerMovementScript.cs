@@ -18,7 +18,7 @@ public class PlayerMovementScript : MouseScript
     public bool movementPause = false;
     public bool jumper = true;
     public LayerMask groundLayer;
-    protected Animator animator;
+    public Animator animator;
 
     public void StartMovement() {
         StartCamera();
@@ -26,7 +26,6 @@ public class PlayerMovementScript : MouseScript
         groundLayer = LayerMask.GetMask("Ground");
         groundLayer += LayerMask.GetMask("Objects");
         controller = GetComponent<CharacterController>();
-        animator = GetComponent<Animator>();
         if(groundChecker == null)
         {
             groundChecker = new GameObject().transform;
