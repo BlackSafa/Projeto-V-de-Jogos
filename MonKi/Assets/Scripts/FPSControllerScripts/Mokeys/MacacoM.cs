@@ -32,6 +32,7 @@ public class MacacoM : InteracterScript
                 if (Input.GetKeyDown(KeyCode.Tab))
                 {
                     GetObjectInMind(levitation);
+                    GetComponent<AudioSource>().Play();
                 }
             }
             //else if (isHolding)
@@ -53,6 +54,7 @@ public class MacacoM : InteracterScript
                     {
                         animator.SetBool("Levitate", false);
                     }
+                    GetComponent<AudioSource>().Stop();
                 }
                 else
                 {
