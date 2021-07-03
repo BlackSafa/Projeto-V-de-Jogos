@@ -154,13 +154,13 @@ MonoBehaviour:
   ShowParameterInspector: 1
   m_SynchronizeParameters:
   - Type: 4
-    SynchronizeType: 0
+    SynchronizeType: 1
     Name: Levitate
   - Type: 1
-    SynchronizeType: 0
+    SynchronizeType: 1
     Name: Move
   m_SynchronizeLayers:
-  - SynchronizeType: 0
+  - SynchronizeType: 2
     LayerIndex: 0
 --- !u!65 &760710402494680599
 BoxCollider:
@@ -572,6 +572,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Center.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6241983534578578779, guid: 3655b33d73521979fab36447be639cb7,
+        type: 3}
+      propertyPath: m_StepOffset
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 6241983534715421517, guid: 3655b33d73521979fab36447be639cb7,
         type: 3}

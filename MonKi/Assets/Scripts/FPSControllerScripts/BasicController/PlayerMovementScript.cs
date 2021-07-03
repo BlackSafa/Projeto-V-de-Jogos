@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using UnityEngine;
-using Debug = UnityEngine.Debug;
+﻿using UnityEngine;
+using Photon.Pun;
 
 public class PlayerMovementScript : MouseScript
 {
@@ -40,14 +37,6 @@ public class PlayerMovementScript : MouseScript
         {
             if (isGrounded)
             {
-                if(over.collider.gameObject.layer == 9 && !(over.collider.tag == "Key"))
-                {
-                    transform.parent = over.transform;
-                }
-                else
-                {
-                    transform.parent = null;
-                }
                 momentum = (Movement() / 2);
                 if(animator.GetBool("Jump"))
                 animator.SetBool("Jump", false);
