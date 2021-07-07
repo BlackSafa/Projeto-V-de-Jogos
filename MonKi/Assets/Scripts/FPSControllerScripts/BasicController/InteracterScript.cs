@@ -60,8 +60,15 @@ public class InteracterScript : PlayerMovementScript
         {
             if(isHolding && Input.GetButtonUp("Grab"))
             {
-                if(!movementPause)
+                if((carryCapacity & WeightClass.Heavy) != WeightClass.Heavy)
+                {
                     Drop();
+                }
+                else
+                {
+                    AnimationCaller();
+                    StartCoroutine("AnimationRetake");
+                }
             }
             /*else if(isHolding && Input.GetButtonDown("Interact"))
             {

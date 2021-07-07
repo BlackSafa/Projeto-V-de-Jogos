@@ -94,7 +94,7 @@ public class MacacoA : InteracterScript
 
     public override IEnumerator AnimationRetake()
     {
-        for(int i = 0; i <= 24; i++)
+        for(int i = 0; i <= 30; i++)
         {
             yield return null;
         }

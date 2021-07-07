@@ -132,5 +132,6 @@ public class PlayerMovementScript : MouseScript
     public virtual IEnumerator AnimationRetake()
     {
         yield return null;
+        movementPause = false;
     }
 }
