@@ -7,6 +7,7 @@ public class MacacoF : InteracterScript
 {
     // Start is called before the first frame update
     bool isPause;
+    public Animator boxAnimation;
     void Start()
     {
         PlayerStarter();
@@ -80,20 +81,31 @@ public class MacacoF : InteracterScript
     public override void AnimationCaller()
     {
         base.AnimationCaller();
-        if(animator.GetBool("Lift"))
+        if(animator.GetBool("Carrying"))
         {
             animator.SetBool("Place", true);
         }
         else
         {
             animator.SetBool("Lift", true);
+            Debug.Log("Entrou animação");
         }
     }
 
     public override void AnimationRetake()
     {
         base.AnimationRetake();
-        animator.SetBool("Lift",false);
-
+        if(animator.GetBool("Lift"))
+        {
+            animator.SetBool("Lift",false);
+            animator.SetBool("Carrying", true);
+            Debug.Log("Finalizou animação");
+        }
+        else
+        {
+            animator.SetBool("Place", false);
+            animator.SetBool("Carrying", false);
+            Drop();
+        }
     }
 }

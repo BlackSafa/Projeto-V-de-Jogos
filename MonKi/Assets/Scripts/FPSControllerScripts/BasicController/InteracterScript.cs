@@ -60,12 +60,13 @@ public class InteracterScript : PlayerMovementScript
         {
             if(isHolding && Input.GetButtonUp("Grab"))
             {
-                Drop();
+                if(!movementPause)
+                    Drop();
             }
-            else if(isHolding && Input.GetButtonDown("Interact"))
+            /*else if(isHolding && Input.GetButtonDown("Interact"))
             {
                 Throw();
-            }
+            }*/
         }
         else
         {
@@ -114,11 +115,11 @@ public class InteracterScript : PlayerMovementScript
         }
     }
 
-    protected void Drop()
+    public void Drop()
     {
         //Debug.Log("Soltou");
         grabbed.GetComponent<InteractiveObject>().photonView.RPC("GettingDropped", Photon.Pun.RpcTarget.All, photonView.ViewID, true, 0.0f);
-        AnimationRetake();
+        //AnimationRetake();
     }
 
     protected virtual void Throw()
