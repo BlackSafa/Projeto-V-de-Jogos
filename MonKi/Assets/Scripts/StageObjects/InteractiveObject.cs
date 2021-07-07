@@ -61,6 +61,7 @@ public class InteractiveObject : MonoBehaviour
             rb.isKinematic = true;
             transform.position = holder.GetComponent<InteracterScript>().shouder.position;
             transform.parent = holder.GetComponent<InteracterScript>().shouder.parent;
+            transform.rotation = Quaternion.identity;
             Physics.IgnoreCollision(gameObject.GetComponent<Collider>(), holder.GetComponent<Collider>(), true);
             holder.GetComponent<InteracterScript>().grabbed = rb;
             holder.GetComponent<InteracterScript>().isHolding = true;

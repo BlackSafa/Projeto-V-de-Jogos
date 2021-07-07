@@ -1,4 +1,6 @@
 ﻿using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
 using Photon.Pun;
 
 public class PlayerMovementScript : MouseScript
@@ -127,9 +129,8 @@ public class PlayerMovementScript : MouseScript
         movementPause = true;
     }
 
-    public virtual void AnimationRetake()
+    public virtual IEnumerator AnimationRetake()
     {
-        movementPause = false;
+        yield return null;
     }
-
 }

@@ -100,6 +100,7 @@ public class InteracterScript : PlayerMovementScript
         }
 
         AnimationCaller();
+        StartCoroutine("AnimationRetake");
     }
 
     protected virtual void Interact(RaycastHit hit)

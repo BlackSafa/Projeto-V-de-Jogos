@@ -4,32 +4,32 @@ using UnityEngine;
 
 public class SpecialAnimControl : MonoBehaviour
 {
-    public InteracterScript script;
-    public Animator animator;
+    public PlayerMovementScript script;
 
-    public void EndAnimGrab()
+    public void EndAnim()
     {
         script.movementPause = false;
-        animator.SetBool("Grab",false);
     }
 
-    public void WhatEnd()
+    public void WhatEnd(int eventNum)
     {
-        script.movementPause = false;
+        int playing = 0;
         Debug.Log("Entrou no evento");
-        if(animator.GetBool("Lift"))
+        Debug.Log(playing);
+        if(script.animator.GetBool("Lift"))
         {
-            animator.SetBool("Lift",false);
-            animator.SetBool("Carrying", true);
-            Debug.Log("Finalizou animação");
+            playing = 2;
         }
 
-        else if(animator.GetBool("Place"))
+        else if(script.animator.GetBool("Place"))
         {
-            animator.SetBool("Place", false);
-            animator.SetBool("Carrying", false);
-            script.Drop();
+            playing = 1;
+        }
+        Debug.Log(playing);
+        if(eventNum == playing)
+        {
+            Debug.Log("Finalizou o evento");
+            EndAnim();
         }
     }
-
 }

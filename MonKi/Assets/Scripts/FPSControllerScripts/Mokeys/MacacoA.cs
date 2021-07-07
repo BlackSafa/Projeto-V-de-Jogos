@@ -88,15 +88,19 @@ public class MacacoA : InteracterScript
 
     public override void AnimationCaller()
     {
-        base.AnimationCaller();
         animator.SetBool("Grab", true);
+        base.AnimationCaller();
     }
 
-    public override void AnimationRetake()
+    public override IEnumerator AnimationRetake()
     {
-        base.AnimationRetake();
+        for(int i = 0; i <= 24; i++)
+        {
+            yield return null;
+        }
+        yield return null;
+        movementPause = false;
         animator.SetBool("Grab",false);
-
     }
 
 }

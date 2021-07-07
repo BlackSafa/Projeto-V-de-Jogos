@@ -52,6 +52,7 @@ public class MacacoF : InteracterScript
         }
 
         AnimationCaller();
+        StartCoroutine("AnimationRetake");
     }
 
     protected override void Throw()
@@ -80,7 +81,6 @@ public class MacacoF : InteracterScript
 
     public override void AnimationCaller()
     {
-        base.AnimationCaller();
         if(animator.GetBool("Carrying"))
         {
             animator.SetBool("Place", true);
@@ -90,11 +90,17 @@ public class MacacoF : InteracterScript
             animator.SetBool("Lift", true);
             Debug.Log("Entrou animação");
         }
+        base.AnimationCaller();
     }
 
-    public override void AnimationRetake()
+    public override IEnumerator AnimationRetake()
     {
-        base.AnimationRetake();
+        for(int i = 0; i <= 60; i++)
+        {
+            yield return null;
+        }
+        yield return null;
+        movementPause = false;
         if(animator.GetBool("Lift"))
         {
             animator.SetBool("Lift",false);
