@@ -176,14 +176,17 @@ MonoBehaviour:
   gravityAcceleration: 10
   momentum: {x: 0, y: 0, z: 0}
   groundChecker: {fileID: 6241983534834094031}
+  grondcheckerCorners: []
   groundCheckerLength: 0.1
   jumpHeight: 3
   velocity: {x: 0, y: 0, z: 0}
   isGrounded: 0
   movementPause: 0
+  jumper: 1
   groundLayer:
     serializedVersion: 2
     m_Bits: 0
+  animator: {fileID: 0}
   carryCapacity: 3
   weigthClass: 8
   grabbed: {fileID: 0}
@@ -214,14 +217,17 @@ MonoBehaviour:
   gravityAcceleration: 10
   momentum: {x: 0, y: 0, z: 0}
   groundChecker: {fileID: 6241983534834094031}
+  grondcheckerCorners: []
   groundCheckerLength: 0.1
   jumpHeight: 3
   velocity: {x: 0, y: 0, z: 0}
   isGrounded: 0
   movementPause: 0
+  jumper: 1
   groundLayer:
     serializedVersion: 2
     m_Bits: 0
+  animator: {fileID: 0}
   carryCapacity: 3
   weigthClass: 8
   grabbed: {fileID: 0}
@@ -234,6 +240,7 @@ MonoBehaviour:
   mindCapacity: 3
   _minded: {fileID: 0}
   mindposition: {fileID: 0}
+  mindlenght: 3
 --- !u!114 &6241983534578578772
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -255,14 +262,17 @@ MonoBehaviour:
   gravityAcceleration: 10
   momentum: {x: 0, y: 0, z: 0}
   groundChecker: {fileID: 6241983534834094031}
+  grondcheckerCorners: []
   groundCheckerLength: 0.1
   jumpHeight: 3
   velocity: {x: 0, y: 0, z: 0}
   isGrounded: 0
   movementPause: 0
+  jumper: 1
   groundLayer:
     serializedVersion: 2
     m_Bits: 0
+  animator: {fileID: 0}
   carryCapacity: 3
   weigthClass: 8
   grabbed: {fileID: 0}

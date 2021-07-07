@@ -80,13 +80,20 @@ public class MacacoF : InteracterScript
     public override void AnimationCaller()
     {
         base.AnimationCaller();
-        animator.SetBool("Carrying", true);
+        if(animator.GetBool("Lift"))
+        {
+            animator.SetBool("Place", true);
+        }
+        else
+        {
+            animator.SetBool("Lift", true);
+        }
     }
 
     public override void AnimationRetake()
     {
         base.AnimationRetake();
-        animator.SetBool("Carrying",false);
+        animator.SetBool("Lift",false);
 
     }
 }

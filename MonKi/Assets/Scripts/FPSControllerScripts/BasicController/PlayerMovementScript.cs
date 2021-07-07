@@ -8,6 +8,7 @@ public class PlayerMovementScript : MouseScript
     public float gravityAcceleration = 10f;
     public Vector3 momentum;
     public Transform groundChecker;
+    public Transform[] grondcheckerCorners;
     public float groundCheckerLength = 0.2f;
     public float jumpHeight = 2.2f;
     public Vector3 velocity;
@@ -84,12 +85,22 @@ public class PlayerMovementScript : MouseScript
     {
         velocity.y = Mathf.Sqrt(jumpHeight * -2 * -gravityAcceleration);
         controller.Move(velocity * Time.deltaTime);
+        isGrounded = false;
     }
 
     private void Gravity()
     {
         isGrounded = Physics.Raycast(groundChecker.position, -groundChecker.up, out over, groundCheckerLength, groundLayer);
         Debug.DrawLine(groundChecker.position, groundChecker.position - new Vector3(0,groundCheckerLength,0), Color.red);
+
+        foreach(Transform gc in grondcheckerCorners)
+        {
+            if(!isGrounded)
+            {
+                isGrounded = Physics.Raycast(gc.position, -gc.up, groundCheckerLength + controller.radius , groundLayer);
+            }
+            Debug.DrawLine(gc.position, gc.position - new Vector3(0,groundCheckerLength + controller.radius,0), Color.red);
+        }
 
         if (isGrounded && velocity.y < 0)
         {
@@ -113,11 +124,12 @@ public class PlayerMovementScript : MouseScript
 
     public virtual void AnimationCaller()
     {
-        //movementPause = true;
+        movementPause = true;
     }
 
     public virtual void AnimationRetake()
     {
-        //movementPause = false;
+        movementPause = false;
     }
+
 }
