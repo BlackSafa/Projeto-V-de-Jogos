@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System;
 using UnityEngine;
+using Photon.Pun;
 
 [CreateAssetMenu(menuName = "Managers/GameSettings")]
 public class GameSettings : ScriptableObject

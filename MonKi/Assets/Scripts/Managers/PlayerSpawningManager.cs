@@ -6,6 +6,7 @@ using Photon.Pun;
 public class PlayerSpawningManager : MonoBehaviour
 {
     public Transform orSpPointF, orSpPointP, orSpPointS, actualSpawn;
+    PhotonView monkeypw;
 
     void Start()
     {
@@ -16,16 +17,19 @@ public class PlayerSpawningManager : MonoBehaviour
                 monkey = PhotonNetwork.Instantiate("Fast Monkey", orSpPointF.position, Quaternion.identity);
                 monkey.GetComponent<InteracterScript>().spawn = orSpPointF;
                 monkey.GetComponent<InteracterScript>().spawn.localScale = monkey.transform.localScale;
+                monkeypw = monkey.GetComponent<PhotonView>();
                 break;
             case(PlayerMode.Psychic):
                 monkey = PhotonNetwork.Instantiate("Psychic Monkey", orSpPointP.position, Quaternion.identity);
                 monkey.GetComponent<InteracterScript>().spawn = orSpPointP;
                 monkey.GetComponent<InteracterScript>().spawn.localScale = monkey.transform.localScale;
+                monkeypw = monkey.GetComponent<PhotonView>();
                 break;
             case(PlayerMode.Strong):
                 monkey = PhotonNetwork.Instantiate("Strong Monkey", orSpPointS.position, Quaternion.identity);
                 monkey.GetComponent<InteracterScript>().spawn = orSpPointS;
                 monkey.GetComponent<InteracterScript>().spawn.localScale = monkey.transform.localScale;
+                monkeypw = monkey.GetComponent<PhotonView>();
                 break;
         }
     }
@@ -41,5 +45,11 @@ public class PlayerSpawningManager : MonoBehaviour
         {
             photonView.RPC("Realocate",RpcTarget.All);
         }
+    }
+
+    [PunRPC]
+    public void CallSpawnChange(float[] pos, float[] rot)
+    {
+        monkeypw.RPC("ChangeSpawn", RpcTarget.All, pos, rot);
     }
 }
