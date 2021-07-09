@@ -196,6 +196,7 @@ MonoBehaviour:
   spawn: {fileID: 0}
   grabReach: 3.2
   jumpSpeedAcceleration: 0
+  isPause: 0
 --- !u!114 &6241983534578578773
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -241,6 +242,7 @@ MonoBehaviour:
   _minded: {fileID: 0}
   mindposition: {fileID: 0}
   mindlenght: 3
+  isPause: 0
 --- !u!114 &6241983534578578772
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -281,6 +283,8 @@ MonoBehaviour:
   isHolding: 0
   spawn: {fileID: 0}
   grabReach: 3.2
+  isPause: 0
+  boxAnimation: {fileID: 0}
 --- !u!114 &448664134628740777
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -441,7 +445,7 @@ GameObject:
   - component: {fileID: 6241983535339089969}
   - component: {fileID: 6241983535339089968}
   m_Layer: 5
-  m_Name: Image
+  m_Name: Mira
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
