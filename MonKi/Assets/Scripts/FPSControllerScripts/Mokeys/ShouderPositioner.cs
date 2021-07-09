@@ -10,10 +10,6 @@ public class ShouderPositioner : MonoBehaviourPunCallbacks
     private void Start() {
         gameObject.AddComponent<PhotonView>();
         gameObject.AddComponent<PhotonTransformView>();
-        if(!photonView.IsMine)
-        {
-            this.enabled = false;
-        }
     }
     void Update()
     {
