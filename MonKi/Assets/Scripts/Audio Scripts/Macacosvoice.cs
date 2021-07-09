@@ -12,8 +12,8 @@ public class Macacosvoice : MonoBehaviour
         
     }
 
-    private void MamacoFalaFPD()
+    public void MamacoFalaFPD()
     {
-
+        GetComponent<AudioSource>().Play();
     }
 }
