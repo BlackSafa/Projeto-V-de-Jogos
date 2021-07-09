@@ -13,6 +13,10 @@ public class InteractiveObject : MonoBehaviour
     public Rigidbody rb;
     public PhotonView photonView;
 
+    public bool hasMessage = false;
+    public string message;
+
+    [SerializeField]
     private Transform respawningPoint;
 
     void Start()
@@ -20,7 +24,12 @@ public class InteractiveObject : MonoBehaviour
         rb = gameObject.GetComponent<Rigidbody>();
         photonView = gameObject.GetComponent<PhotonView>();
         if(rb != null) isHoldable = true;
-        if(isHoldable) respawningPoint = transform;
+        if(isHoldable) 
+        {
+            respawningPoint.position = transform.position;
+            respawningPoint.rotation = transform.rotation;
+            respawningPoint.localScale = transform.localScale;
+        }
     }
 
     // Update is called once per frame
@@ -127,6 +136,9 @@ public class InteractiveObject : MonoBehaviour
             transform.localScale = respawningPoint.localScale;
         }
     }
+
+    void BroadcastMessage()
+    {}
 }
 
 [Flags]

@@ -7,16 +7,13 @@ public class GenericCheckPointScript : MonoBehaviour
 {
     public delegate void Close();
     public event Close closeDoor;
+    public PhotonView spawnerpw;
     
     private void OnTriggerExit(Collider other)
     {
-        InteracterScript[] monkeys = FindObjectsOfType<InteracterScript>();
-        foreach(InteracterScript m in monkeys)
-        {
-            float[] pos = {transform.position.x, transform.position.y, transform.position.z};
-            float[] rot = {transform.eulerAngles.x, transform.eulerAngles.y, transform.eulerAngles.z};
-            m.GetComponent<PhotonView>().RPC("ChangeSpawn", RpcTarget.All, pos, rot);
-        }
+        float[] pos = {transform.position.x, transform.position.y, transform.position.z};
+        float[] rot = {transform.eulerAngles.x, transform.eulerAngles.y, transform.eulerAngles.z};
+        spawnerpw.RPC("CallSpawnChange", RpcTarget.All, pos, rot);
         if(closeDoor != null)
         {
             closeDoor();
