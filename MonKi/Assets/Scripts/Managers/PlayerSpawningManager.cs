@@ -8,6 +8,8 @@ public class PlayerSpawningManager : MonoBehaviour
     public Transform orSpPointF, orSpPointP, orSpPointS, actualSpawn;
     PhotonView monkeypw;
 
+    public string message;
+
     void Start()
     {
         GameObject monkey;
@@ -17,18 +19,24 @@ public class PlayerSpawningManager : MonoBehaviour
                 monkey = PhotonNetwork.Instantiate("Fast Monkey", orSpPointF.position, orSpPointF.rotation);
                 monkey.GetComponent<InteracterScript>().spawn = orSpPointF;
                 monkey.GetComponent<InteracterScript>().spawn.localScale = monkey.transform.localScale;
+                monkey.GetComponent<InteracterScript>().basicMessage = message;
+                monkey.GetComponent<InteracterScript>().StartCoroutine("TimePresentMessage", 2f);
                 monkeypw = monkey.GetComponent<PhotonView>();
                 break;
             case(PlayerMode.Psychic):
                 monkey = PhotonNetwork.Instantiate("Psychic Monkey", orSpPointP.position, orSpPointP.rotation);
                 monkey.GetComponent<InteracterScript>().spawn = orSpPointP;
                 monkey.GetComponent<InteracterScript>().spawn.localScale = monkey.transform.localScale;
+                monkey.GetComponent<InteracterScript>().basicMessage = message;
+                monkey.GetComponent<InteracterScript>().StartCoroutine("TimePresentMessage", 2f);
                 monkeypw = monkey.GetComponent<PhotonView>();
                 break;
             case(PlayerMode.Strong):
                 monkey = PhotonNetwork.Instantiate("Strong Monkey", orSpPointS.position, orSpPointS.rotation);
                 monkey.GetComponent<InteracterScript>().spawn = orSpPointS;
                 monkey.GetComponent<InteracterScript>().spawn.localScale = monkey.transform.localScale;
+                monkey.GetComponent<InteracterScript>().basicMessage = message;
+                monkey.GetComponent<InteracterScript>().StartCoroutine("TimePresentMessage", 2f);
                 monkeypw = monkey.GetComponent<PhotonView>();
                 break;
         }

@@ -1516,7 +1516,8 @@ MonoBehaviour:
   rb: {fileID: 0}
   photonView: {fileID: 0}
   hasMessage: 0
-  message: 
+  message: "Pressione o bot\xE3o esquerdo do mouse para abrir o arm\xE1rio"
+  messageForMental: 
 --- !u!95 &49709904
 Animator:
   serializedVersion: 3
@@ -1554,6 +1555,7 @@ MonoBehaviour:
   photonView: {fileID: 0}
   hasMessage: 0
   message: 
+  messageForMental: 
 --- !u!82 &49709906
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2783,7 +2785,8 @@ MonoBehaviour:
   rb: {fileID: 0}
   photonView: {fileID: 0}
   hasMessage: 0
-  message: 
+  message: Pressione a tecla E para pegar e soltar a caixa
+  messageForMental: Rotacione o Scroll do mouse para posicionar a caixa
 --- !u!82 &126126710
 AudioSource:
   m_ObjectHideFlags: 0
@@ -3100,7 +3103,8 @@ MonoBehaviour:
   rb: {fileID: 0}
   photonView: {fileID: 0}
   hasMessage: 0
-  message: 
+  message: "Pressione o bot\xE3o esquerdo do mouse para abrir o arm\xE1rio"
+  messageForMental: 
 --- !u!95 &129426226
 Animator:
   serializedVersion: 3
@@ -3138,6 +3142,7 @@ MonoBehaviour:
   photonView: {fileID: 0}
   hasMessage: 0
   message: 
+  messageForMental: 
 --- !u!82 &129426228
 AudioSource:
   m_ObjectHideFlags: 0
@@ -3590,7 +3595,8 @@ MonoBehaviour:
   rb: {fileID: 0}
   photonView: {fileID: 0}
   hasMessage: 0
-  message: 
+  message: "Pressione a tecla E para coletar a c\xE1psula"
+  messageForMental: 
 --- !u!4 &141092964 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 88ae232de2d4623a9bf370cea13fcb8d,
@@ -4421,7 +4427,8 @@ MonoBehaviour:
   rb: {fileID: 0}
   photonView: {fileID: 0}
   hasMessage: 0
-  message: 
+  message: "Pressione o bot\xE3o esquerdo do mouse para abrir o arm\xE1rio"
+  messageForMental: 
 --- !u!95 &157540823
 Animator:
   serializedVersion: 3
@@ -4459,6 +4466,7 @@ MonoBehaviour:
   photonView: {fileID: 0}
   hasMessage: 0
   message: 
+  messageForMental: 
 --- !u!82 &157540825
 AudioSource:
   m_ObjectHideFlags: 0
@@ -7398,7 +7406,8 @@ MonoBehaviour:
   rb: {fileID: 0}
   photonView: {fileID: 0}
   hasMessage: 0
-  message: 
+  message: Pressione a tecla E para pegar e soltar a caixa
+  messageForMental: Rotacione o Scroll do mouse para posicionar a caixa
 --- !u!54 &337289250
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -9969,7 +9978,8 @@ MonoBehaviour:
   rb: {fileID: 0}
   photonView: {fileID: 0}
   hasMessage: 0
-  message: 
+  message: Pressione a tecla E para pegar e soltar a caixa
+  messageForMental: Rotacione o Scroll do mouse para posicionar a caixa
 --- !u!114 &443629436
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11621,7 +11631,8 @@ MonoBehaviour:
   rb: {fileID: 0}
   photonView: {fileID: 0}
   hasMessage: 0
-  message: 
+  message: Pressione a tecla E para pegar e soltar a caixa
+  messageForMental: Rotacione o Scroll do mouse para posicionar a caixa
 --- !u!114 &482246251
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15117,7 +15128,8 @@ MonoBehaviour:
   rb: {fileID: 0}
   photonView: {fileID: 0}
   hasMessage: 0
-  message: 
+  message: "Pressione a tecla E para coletar a c\xE1psula"
+  messageForMental: 
 --- !u!114 &598775374
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16971,7 +16983,8 @@ MonoBehaviour:
   rb: {fileID: 0}
   photonView: {fileID: 0}
   hasMessage: 0
-  message: 
+  message: Pressione a tecla E para pegar e soltar a caixa
+  messageForMental: 
 --- !u!54 &685904412
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -18729,7 +18742,8 @@ MonoBehaviour:
   rb: {fileID: 0}
   photonView: {fileID: 0}
   hasMessage: 0
-  message: 
+  message: "Pressione a tecla E para coletar a c\xE1psula"
+  messageForMental: 
 --- !u!114 &768952462
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20658,7 +20672,8 @@ MonoBehaviour:
   rb: {fileID: 0}
   photonView: {fileID: 0}
   hasMessage: 0
-  message: 
+  message: Pressione a tecla E para pegar e soltar a caixa
+  messageForMental: Rotacione o Scroll do mouse para posicionar a caixa
 --- !u!114 &819213642
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22557,6 +22572,8 @@ MonoBehaviour:
   orSpPointP: {fileID: 1180051051}
   orSpPointS: {fileID: 1973811979}
   actualSpawn: {fileID: 0}
+  message: "Colete c\xE1psulas e resolva os puzzles colaborativamente para escapar
+    do laborat\xF3rio!"
 --- !u!65 &871255936
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -22960,7 +22977,8 @@ MonoBehaviour:
   rb: {fileID: 0}
   photonView: {fileID: 0}
   hasMessage: 0
-  message: 
+  message: Pressione a tecla E para pegar e soltar a caixa
+  messageForMental: Rotacione o Scroll do mouse para posicionar a caixa
 --- !u!54 &875724160
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -23506,7 +23524,8 @@ MonoBehaviour:
   rb: {fileID: 0}
   photonView: {fileID: 0}
   hasMessage: 0
-  message: 
+  message: "Pressione o bot\xE3o esquerdo do mouse para abrir o arm\xE1rio"
+  messageForMental: 
 --- !u!95 &883326907
 Animator:
   serializedVersion: 3
@@ -23544,6 +23563,7 @@ MonoBehaviour:
   photonView: {fileID: 0}
   hasMessage: 0
   message: 
+  messageForMental: 
 --- !u!82 &883326909
 AudioSource:
   m_ObjectHideFlags: 0
@@ -24401,7 +24421,8 @@ MonoBehaviour:
   rb: {fileID: 0}
   photonView: {fileID: 0}
   hasMessage: 0
-  message: 
+  message: Pressione a tecla E para pegar e soltar a caixa
+  messageForMental: Rotacione o Scroll do mouse para posicionar a caixa
 --- !u!54 &909223744
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -27579,7 +27600,8 @@ MonoBehaviour:
   rb: {fileID: 0}
   photonView: {fileID: 0}
   hasMessage: 0
-  message: 
+  message: "Pressione o bot\xE3o esquerdo do mouse para abrir o arm\xE1rio"
+  messageForMental: 
 --- !u!95 &1047570874
 Animator:
   serializedVersion: 3
@@ -27617,6 +27639,7 @@ MonoBehaviour:
   photonView: {fileID: 0}
   hasMessage: 0
   message: 
+  messageForMental: 
 --- !u!82 &1047570876
 AudioSource:
   m_ObjectHideFlags: 0
@@ -32576,7 +32599,8 @@ MonoBehaviour:
   rb: {fileID: 0}
   photonView: {fileID: 0}
   hasMessage: 0
-  message: 
+  message: Pressione a tecla E para pegar e soltar a caixa
+  messageForMental: Rotacione o Scroll do mouse para posicionar a caixa
 --- !u!114 &1286794779
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32980,7 +33004,8 @@ MonoBehaviour:
   rb: {fileID: 0}
   photonView: {fileID: 0}
   hasMessage: 0
-  message: 
+  message: Pressione a tecla E para pegar e soltar a caixa
+  messageForMental: Rotacione o Scroll do mouse para posicionar a caixa
 --- !u!114 &1294511988
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -36651,7 +36676,8 @@ MonoBehaviour:
   rb: {fileID: 0}
   photonView: {fileID: 0}
   hasMessage: 0
-  message: 
+  message: "Pressione a tecla E para coletar a c\xE1psula"
+  messageForMental: 
 --- !u!4 &1432927028 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 88ae232de2d4623a9bf370cea13fcb8d,
@@ -36975,7 +37001,8 @@ MonoBehaviour:
   rb: {fileID: 0}
   photonView: {fileID: 0}
   hasMessage: 0
-  message: 
+  message: Pressione a tecla E para pegar e soltar a caixa
+  messageForMental: 
 --- !u!114 &1437411445
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -38055,7 +38082,8 @@ MonoBehaviour:
   rb: {fileID: 0}
   photonView: {fileID: 0}
   hasMessage: 0
-  message: 
+  message: "Pressione o bot\xE3o esquerdo do mouse para abrir o arm\xE1rio"
+  messageForMental: 
 --- !u!114 &1482626860
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -38074,6 +38102,7 @@ MonoBehaviour:
   photonView: {fileID: 0}
   hasMessage: 0
   message: 
+  messageForMental: 
 --- !u!82 &1482626861
 AudioSource:
   m_ObjectHideFlags: 0
@@ -40578,7 +40607,8 @@ MonoBehaviour:
   rb: {fileID: 0}
   photonView: {fileID: 0}
   hasMessage: 0
-  message: 
+  message: "Pressione o bot\xE3o direito do mouse para soltar a c\xE1psula"
+  messageForMental: 
   keyAmount: 0
   maxKeys: 3
   KeyPositions:
@@ -41682,7 +41712,8 @@ MonoBehaviour:
   rb: {fileID: 0}
   photonView: {fileID: 0}
   hasMessage: 0
-  message: 
+  message: "Pressione o bot\xE3o esquerdo do mouse para abrir o arm\xE1rio"
+  messageForMental: 
 --- !u!95 &1637758015
 Animator:
   serializedVersion: 3
@@ -41720,6 +41751,7 @@ MonoBehaviour:
   photonView: {fileID: 0}
   hasMessage: 0
   message: 
+  messageForMental: 
 --- !u!82 &1637758017
 AudioSource:
   m_ObjectHideFlags: 0
@@ -42007,7 +42039,8 @@ MonoBehaviour:
   rb: {fileID: 0}
   photonView: {fileID: 0}
   hasMessage: 0
-  message: 
+  message: "Pressione o bot\xE3o esquerdo do mouse para abrir o arm\xE1rio"
+  messageForMental: 
 --- !u!95 &1639028283
 Animator:
   serializedVersion: 3
@@ -42045,6 +42078,7 @@ MonoBehaviour:
   photonView: {fileID: 0}
   hasMessage: 0
   message: 
+  messageForMental: 
 --- !u!82 &1639028285
 AudioSource:
   m_ObjectHideFlags: 0
@@ -42259,7 +42293,8 @@ MonoBehaviour:
   rb: {fileID: 0}
   photonView: {fileID: 0}
   hasMessage: 0
-  message: 
+  message: Pressione a tecla E para pegar e soltar a caixa
+  messageForMental: Rotacione o Scroll do mouse para posicionar a caixa
 --- !u!114 &1652728795
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -42899,7 +42934,8 @@ MonoBehaviour:
   rb: {fileID: 0}
   photonView: {fileID: 0}
   hasMessage: 0
-  message: 
+  message: "Pressione o bot\xE3o direito do mouse para soltar a c\xE1psula"
+  messageForMental: 
   keyAmount: 0
   maxKeys: 3
   KeyPositions:
@@ -45248,7 +45284,8 @@ MonoBehaviour:
   rb: {fileID: 0}
   photonView: {fileID: 0}
   hasMessage: 0
-  message: 
+  message: Pressione a tecla E para pegar e soltar a caixa
+  messageForMental: 
 --- !u!54 &1788784800
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -46237,7 +46274,8 @@ MonoBehaviour:
   rb: {fileID: 0}
   photonView: {fileID: 0}
   hasMessage: 0
-  message: 
+  message: "Pressione o bot\xE3o esquerdo do mouse para abrir o arm\xE1rio"
+  messageForMental: 
 --- !u!95 &1807377426
 Animator:
   serializedVersion: 3
@@ -46275,6 +46313,7 @@ MonoBehaviour:
   photonView: {fileID: 0}
   hasMessage: 0
   message: 
+  messageForMental: 
 --- !u!82 &1807377428
 AudioSource:
   m_ObjectHideFlags: 0
@@ -47567,7 +47606,8 @@ MonoBehaviour:
   rb: {fileID: 0}
   photonView: {fileID: 0}
   hasMessage: 0
-  message: 
+  message: "Pressione a tecla E para coletar a c\xE1psula"
+  messageForMental: 
 --- !u!4 &1837367592 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 88ae232de2d4623a9bf370cea13fcb8d,
@@ -52855,7 +52895,8 @@ MonoBehaviour:
   rb: {fileID: 0}
   photonView: {fileID: 0}
   hasMessage: 0
-  message: 
+  message: Pressione a tecla E para pegar e soltar a caixa
+  messageForMental: Rotacione o Scroll do mouse para posicionar a caixa
 --- !u!54 &2053704044
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -53485,7 +53526,8 @@ MonoBehaviour:
   rb: {fileID: 0}
   photonView: {fileID: 0}
   hasMessage: 0
-  message: 
+  message: Pressione a tecla E para pegar e soltar a caixa
+  messageForMental: Rotacione o Scroll do mouse para posicionar a caixa
 --- !u!54 &2077280802
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -53741,7 +53783,8 @@ MonoBehaviour:
   rb: {fileID: 0}
   photonView: {fileID: 0}
   hasMessage: 0
-  message: 
+  message: "Pressione a tecla E para coletar a c\xE1psula"
+  messageForMental: 
 --- !u!114 &2079440139
 MonoBehaviour:
   m_ObjectHideFlags: 0

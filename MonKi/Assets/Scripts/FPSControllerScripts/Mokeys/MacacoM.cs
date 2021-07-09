@@ -126,6 +126,14 @@ public class MacacoM : InteracterScript
             {
                 mindposition.transform.localPosition +=  new Vector3(0, 0, Input.mouseScrollDelta.y * Time.deltaTime * 5);
             }
+            else if (mindposition.transform.localPosition.z >= mindlenght)
+            {
+                mindposition.transform.localPosition +=  new Vector3(0, 0, -0.2f);
+            }
+            else
+            {
+                mindposition.transform.localPosition +=  new Vector3(0, 0, 0.2f);
+            }
 
             //_minded.transform.position = mindposition.transform.position;
             _minded.GetComponent<PhotonView>().RPC("Levitating",RpcTarget.All, mindposition.transform.position, true);
@@ -145,5 +153,17 @@ public class MacacoM : InteracterScript
             base.Interact(hit);
         }
        
+    }
+
+    public override void ScribleOnBoard(RaycastHit hit)
+    {
+        if(inmind)
+        {
+            MessageBoard.text = _minded.GetComponent<InteractiveObject>().messageForMental;
+        }
+        else
+        {
+            base.ScribleOnBoard(hit);
+        }
     }
 }

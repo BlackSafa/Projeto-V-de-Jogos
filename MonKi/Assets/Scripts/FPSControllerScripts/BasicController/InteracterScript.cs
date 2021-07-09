@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
+using UnityEngine.UI;
 
 public class InteracterScript : PlayerMovementScript
 {
@@ -14,8 +15,13 @@ public class InteracterScript : PlayerMovementScript
     public Transform shouder, hand;
     protected Ray camRay;
     public bool isHolding = false;
+
+    public Text MessageBoard;
  
     public Transform spawn;
+
+    public string basicMessage;
+    bool timeMesageStill = false;
 
     [SerializeField]
     float grabReach = 3.2f;
@@ -50,6 +56,7 @@ public class InteracterScript : PlayerMovementScript
         }
         if(Physics.Raycast(camRay, out hit, grabReach, LayerMask.GetMask("Objects")))
         {
+            ScribleOnBoard(hit);
             if(Input.GetButtonUp("Grab") && !isHolding)
             {
                 Grab(hit);
@@ -161,5 +168,31 @@ public class InteracterScript : PlayerMovementScript
     {
         spawn.position = new Vector3(pos[0], pos[1], pos[2]);
         spawn.eulerAngles = new Vector3(rot[0], rot[1], rot[2]);
+    }
+
+    public virtual void ScribleOnBoard(RaycastHit hit)
+    {
+        InteractiveObject objScript = hit.transform.GetComponent<InteractiveObject>();
+        if(objScript != null && objScript.message != "")
+        {
+            MessageBoard.text = objScript.message;
+        }
+        else if(timeMesageStill)
+        {
+            MessageBoard.text = basicMessage;
+        }
+        else
+        {
+            MessageBoard.text = "";
+        }
+    }
+
+    public IEnumerator TimePresentMessage(float messageTime)
+    {
+        MessageBoard.text = basicMessage;
+        timeMesageStill = true;
+        yield return new WaitForSeconds(messageTime);
+        MessageBoard.text = "";
+        timeMesageStill = false;
     }
 }

@@ -14,7 +14,7 @@ public class InteractiveObject : MonoBehaviour
     public PhotonView photonView;
 
     public bool hasMessage = false;
-    public string message;
+    public string message, messageForMental;
 
     Vector3 respawningPos, respawningRot ;
 
@@ -130,12 +130,6 @@ public class InteractiveObject : MonoBehaviour
         transform.position = respawningPos;
         transform.eulerAngles = respawningRot;
     }
-
-    public void BroadcastMessage()
-    {}
-
-    public void MessageForMental()
-    {}
 }
 
 [Flags]
