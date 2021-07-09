@@ -38,7 +38,7 @@ public class AudioController : MonoBehaviour
                 aMixer.SetFloat("Master", -0);
                 break;
             case 5:
-                aMixer.SetFloat("Master", -88);
+                aMixer.SetFloat("Master", 10);
                 break;
         }
     }
@@ -62,7 +62,7 @@ public class AudioController : MonoBehaviour
                 aMixer.SetFloat("Music", -0);
                 break;
             case 5:
-                aMixer.SetFloat("Music", -88);
+                aMixer.SetFloat("Music", 10);
                 break;
         }
     }
@@ -86,7 +86,7 @@ public class AudioController : MonoBehaviour
                 aMixer.SetFloat("SFX", -0);
                 break;
             case 5:
-                aMixer.SetFloat("SFX", -88);
+                aMixer.SetFloat("SFX", 10);
                 break;
         }
     }
