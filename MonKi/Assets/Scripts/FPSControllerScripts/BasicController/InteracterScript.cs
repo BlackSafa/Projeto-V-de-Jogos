@@ -54,6 +54,9 @@ public class InteracterScript : PlayerMovementScript
         {
             GetComponentInChildren<Macacosvoice>().MamacoFalaFPD();
         }
+
+        EraseOnBoard();
+
         if(Physics.Raycast(camRay, out hit, grabReach, LayerMask.GetMask("Objects")))
         {
             ScribleOnBoard(hit);
@@ -181,11 +184,20 @@ public class InteracterScript : PlayerMovementScript
         {
             MessageBoard.text = basicMessage;
         }
+    }
+
+    public virtual void EraseOnBoard()
+    {
+        if(timeMesageStill)
+        {
+            MessageBoard.text = basicMessage;
+        }
         else
         {
             MessageBoard.text = "";
         }
     }
+
 
     public IEnumerator TimePresentMessage(float messageTime)
     {

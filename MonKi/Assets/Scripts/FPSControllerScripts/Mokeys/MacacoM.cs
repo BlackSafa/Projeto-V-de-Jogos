@@ -30,7 +30,7 @@ public class MacacoM : InteracterScript
             Debug.DrawLine(camRay.origin, (camRay.direction * mindlenght) + cameraPosition.position, Color.red);
             if (Physics.Raycast(camRay, out levitation, mindlenght, LayerMask.GetMask("Objects")) && !isHolding && !inmind)
             {
-                if (Input.GetKeyDown(KeyCode.Tab))
+                if (Input.GetKeyDown(KeyCode.E))
                 {
                     GetObjectInMind(levitation);
                     GetComponent<AudioSource>().Play();
@@ -45,7 +45,7 @@ public class MacacoM : InteracterScript
             //}
             else if (inmind)
             {
-                if(inmind && Input.GetKeyDown(KeyCode.Tab))
+                if(inmind && Input.GetKeyDown(KeyCode.E))
                 {
                     //_minded.GetComponent<Rigidbody>().useGravity = true;
                     _minded.GetComponent<PhotonView>().RPC("Levitating",RpcTarget.All, mindposition.transform.position, false);
