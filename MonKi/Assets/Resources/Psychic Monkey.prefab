@@ -9,12 +9,8 @@ AudioSource:
   m_GameObject: {fileID: 6371704109421511954}
   m_Enabled: 1
   serializedVersion: 4
-<<<<<<< HEAD
   OutputAudioMixerGroup: {fileID: 2502843090738393647, guid: f8b8734671bdb874aad9ca88fdf72868,
     type: 2}
-=======
-  OutputAudioMixerGroup: {fileID: 0}
->>>>>>> 7a1778f402696f9004c475eeeea4139eb0546e4c
   m_audioClip: {fileID: 8300000, guid: 5cc0b69d3fa456f45973e5ca1fec9f80, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.005
@@ -185,15 +181,6 @@ MonoBehaviour:
   ShowParameterInspector: 1
   m_SynchronizeParameters:
   - Type: 4
-<<<<<<< HEAD
-    SynchronizeType: 0
-    Name: Levitate
-  - Type: 1
-    SynchronizeType: 0
-    Name: Move
-  m_SynchronizeLayers:
-  - SynchronizeType: 0
-=======
     SynchronizeType: 1
     Name: Levitate
   - Type: 1
@@ -201,7 +188,6 @@ MonoBehaviour:
     Name: Move
   m_SynchronizeLayers:
   - SynchronizeType: 2
->>>>>>> 7a1778f402696f9004c475eeeea4139eb0546e4c
     LayerIndex: 0
 --- !u!82 &3379802574090495582
 AudioSource:
@@ -212,12 +198,8 @@ AudioSource:
   m_GameObject: {fileID: 5546106917673483398}
   m_Enabled: 1
   serializedVersion: 4
-<<<<<<< HEAD
   OutputAudioMixerGroup: {fileID: 2502843090738393647, guid: f8b8734671bdb874aad9ca88fdf72868,
     type: 2}
-=======
-  OutputAudioMixerGroup: {fileID: 0}
->>>>>>> 7a1778f402696f9004c475eeeea4139eb0546e4c
   m_audioClip: {fileID: 8300000, guid: 7bb75e116229814429a9f2b998628268, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.05
