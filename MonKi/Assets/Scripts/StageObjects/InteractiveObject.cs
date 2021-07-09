@@ -16,8 +16,7 @@ public class InteractiveObject : MonoBehaviour
     public bool hasMessage = false;
     public string message;
 
-    [SerializeField]
-    private Transform respawningPoint;
+    Vector3 respawningPos, respawningRot ;
 
     void Start()
     {
@@ -26,9 +25,8 @@ public class InteractiveObject : MonoBehaviour
         if(rb != null) isHoldable = true;
         if(isHoldable) 
         {
-            respawningPoint.position = transform.position;
-            respawningPoint.rotation = transform.rotation;
-            respawningPoint.localScale = transform.localScale;
+            respawningPos = new Vector3(transform.position.x, transform.position.y, transform.position.z);
+            respawningRot = new Vector3(transform.rotation.x, transform.rotation.y, transform.rotation.z);
         }
     }
 
@@ -129,12 +127,8 @@ public class InteractiveObject : MonoBehaviour
     [PunRPC]
     public void Realocate()
     {
-        if(respawningPoint != null)
-        {
-            transform.position = respawningPoint.position;
-            transform.eulerAngles = respawningPoint.eulerAngles;
-            transform.localScale = respawningPoint.localScale;
-        }
+        transform.position = respawningPos;
+        transform.eulerAngles = respawningRot;
     }
 
     void BroadcastMessage()

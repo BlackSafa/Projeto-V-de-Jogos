@@ -8,7 +8,7 @@ public class MacacoA : InteracterScript
 {
     // Start is called before the first frame update
     public float jumpSpeedAcceleration = new float();
-    bool isPause;
+    public bool isPause;
 
     void Start()
     {

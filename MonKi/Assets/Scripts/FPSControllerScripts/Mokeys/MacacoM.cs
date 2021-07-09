@@ -13,7 +13,7 @@ public class MacacoM : InteracterScript
     private RaycastHit levitation;
     [SerializeField]
     private float mindlenght = 3f;
-    bool isPause;
+    public bool isPause;
     
     void Start()
     {

@@ -29,6 +29,7 @@ public class Armario : InteractiveObject
         {
             Debug.Log("Abriu");
             open = true;
+            GetComponent<Animator>().SetBool("First Open", open);
             GetComponent<Animator>().SetBool("Open", open);
             GetComponent<AudioSource>().Play();
         }

@@ -6,11 +6,19 @@ using Photon.Pun;
 public class MacacoF : InteracterScript
 {
     // Start is called before the first frame update
-    bool isPause;
+    public bool isPause;
     public Animator boxAnimation;
+    Transform insideShouder;
     void Start()
     {
         PlayerStarter();
+        GameObject newShouder = new GameObject();
+        newShouder.name = "SMonkey Outside Shouder";
+        newShouder.transform.position = shouder.position;
+        ShouderPositioner newShouderScript= newShouder.AddComponent<ShouderPositioner>();
+        insideShouder = shouder;
+        shouder = newShouder.transform;
+        newShouderScript.reference = insideShouder;
         //carryCapacity = WeightClass.Light | WeightClass.Moderate | WeightClass.Heavy;
     }
 
@@ -95,10 +103,7 @@ public class MacacoF : InteracterScript
 
     public override IEnumerator AnimationRetake()
     {
-        for(int i = 0; i <= 75; i++)
-        {
-            yield return null;
-        }
+        yield return new WaitForSeconds(132f);
         yield return null;
         movementPause = false;
         if(animator.GetBool("Lift"))

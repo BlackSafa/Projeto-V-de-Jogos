@@ -14,19 +14,19 @@ public class PlayerSpawningManager : MonoBehaviour
         switch(MasterManager.GameSettings.PlayerMode)
         {
             case(PlayerMode.Fast):
-                monkey = PhotonNetwork.Instantiate("Fast Monkey", orSpPointF.position, Quaternion.identity);
+                monkey = PhotonNetwork.Instantiate("Fast Monkey", orSpPointF.position, orSpPointF.rotation);
                 monkey.GetComponent<InteracterScript>().spawn = orSpPointF;
                 monkey.GetComponent<InteracterScript>().spawn.localScale = monkey.transform.localScale;
                 monkeypw = monkey.GetComponent<PhotonView>();
                 break;
             case(PlayerMode.Psychic):
-                monkey = PhotonNetwork.Instantiate("Psychic Monkey", orSpPointP.position, Quaternion.identity);
+                monkey = PhotonNetwork.Instantiate("Psychic Monkey", orSpPointP.position, orSpPointP.rotation);
                 monkey.GetComponent<InteracterScript>().spawn = orSpPointP;
                 monkey.GetComponent<InteracterScript>().spawn.localScale = monkey.transform.localScale;
                 monkeypw = monkey.GetComponent<PhotonView>();
                 break;
             case(PlayerMode.Strong):
-                monkey = PhotonNetwork.Instantiate("Strong Monkey", orSpPointS.position, Quaternion.identity);
+                monkey = PhotonNetwork.Instantiate("Strong Monkey", orSpPointS.position, orSpPointS.rotation);
                 monkey.GetComponent<InteracterScript>().spawn = orSpPointS;
                 monkey.GetComponent<InteracterScript>().spawn.localScale = monkey.transform.localScale;
                 monkeypw = monkey.GetComponent<PhotonView>();
