@@ -12,13 +12,14 @@ public class MacacoF : InteracterScript
     void Start()
     {
         PlayerStarter();
-        GameObject newShouder = new GameObject();
-        newShouder.name = "SMonkey Outside Shouder";
-        newShouder.transform.position = shouder.position;
-        ShouderPositioner newShouderScript= newShouder.AddComponent<ShouderPositioner>();
-        insideShouder = shouder;
-        shouder = newShouder.transform;
-        newShouderScript.reference = insideShouder;
+        if(!photonView.IsMine)
+        {
+            GameObject newShouder = PhotonNetwork.Instantiate("SMonkey Outside Shouder", shouder.position, shouder.rotation);
+            ShouderPositioner newShouderScript= newShouder.GetComponent<ShouderPositioner>();
+            insideShouder = shouder;
+            shouder = newShouder.transform;
+            newShouderScript.reference = insideShouder;
+        }
         //carryCapacity = WeightClass.Light | WeightClass.Moderate | WeightClass.Heavy;
     }
 
