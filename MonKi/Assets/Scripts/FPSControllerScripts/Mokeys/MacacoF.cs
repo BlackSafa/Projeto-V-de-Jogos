@@ -104,8 +104,11 @@ public class MacacoF : InteracterScript
 
     public override IEnumerator AnimationRetake()
     {
-        yield return new WaitForSeconds(132f);
+        Debug.Log("here");
+        yield return new WaitForSeconds(2.5f);
+        Debug.Log("here 2");
         yield return null;
+        Debug.Log("here 3");
         movementPause = false;
         if(animator.GetBool("Lift"))
         {

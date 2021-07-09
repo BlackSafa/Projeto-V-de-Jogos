@@ -94,10 +94,7 @@ public class MacacoA : InteracterScript
 
     public override IEnumerator AnimationRetake()
     {
-        for(int i = 0; i <= 30; i++)
-        {
-            yield return null;
-        }
+        yield return new WaitForSeconds(1f);
         yield return null;
         movementPause = false;
         animator.SetBool("Grab",false);

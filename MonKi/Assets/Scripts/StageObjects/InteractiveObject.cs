@@ -131,7 +131,10 @@ public class InteractiveObject : MonoBehaviour
         transform.eulerAngles = respawningRot;
     }
 
-    void BroadcastMessage()
+    public void BroadcastMessage()
+    {}
+
+    public void MessageForMental()
     {}
 }
 
