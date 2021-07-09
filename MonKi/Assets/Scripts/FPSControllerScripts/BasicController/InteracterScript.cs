@@ -44,6 +44,10 @@ public class InteracterScript : PlayerMovementScript
         RaycastHit hit;
         camRay = cam.ScreenPointToRay(screenCenter);
         Debug.DrawLine(camRay.origin, (camRay.direction * grabReach) + cameraPosition.position, Color.blue);
+        if(Input.GetKeyDown(KeyCode.F))
+        {
+            GetComponentInChildren<Macacosvoice>().MamacoFalaFPD();
+        }
         if(Physics.Raycast(camRay, out hit, grabReach, LayerMask.GetMask("Objects")))
         {
             if(Input.GetButtonUp("Grab") && !isHolding)
